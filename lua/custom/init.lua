@@ -1,6 +1,5 @@
 -- This is where your custom modules and plugins go.
 -- See the wiki for a guide on how to extend NvChad
-
 local hooks = require "core.hooks"
 
 -- NOTE: To use this, make a copy with `cp example_init.lua init.lua`
@@ -48,9 +47,32 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-   use {
-      "kdheepak/lazygit.nvim",
-   }
+    use {"kdheepak/lazygit.nvim"}
+
+    use {"williamboman/nvim-lsp-installer"}
+
+    use {
+        "windwp/nvim-ts-autotag",
+        after = "nvim-treesitter",
+        -- event = "InsertEnter",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end
+    }
+
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        after = "nvim-lspconfig",
+        config = function()
+            require("custom.plugins.null-ls").setup()
+        end
+    }
+
+    use {
+        'sudormrfbin/cheatsheet.nvim',
+
+        requires = {{'nvim-telescope/telescope.nvim'}, {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
