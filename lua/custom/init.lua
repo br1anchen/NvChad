@@ -21,24 +21,25 @@ local hooks = require "core.hooks"
 -- example below:
 
 hooks.add("setup_mappings", function(map)
+   local opts = { noremap = true, silent = true, nowait = false }
+   -- map("n", "<leader>cc", "gg", opt) -- example to delete the buffer
+   map("n", "<leader>qq", "<cmd>wqa<cr>", opts)
+   map("n", "<leader>R", "<cmd>checktime<cr>", opts)
 
-    local opts = {noremap = true, silent = true, nowait = false}
-    -- map("n", "<leader>cc", "gg", opt) -- example to delete the buffer
-    map("n", "<leader>qq", "<cmd>wqa<cr>", opts)
-    map("n", "<leader>R", "<cmd>checktime<cr>", opts)
+   map("n", "<leader>gl", "<cmd>LazyGit<cr>", opts)
 
-    map("n", "<leader>gl", "<cmd>LazyGit<cr>", opts)
+   map("n", "<leader>ts", ":Telescope grep_string<CR>", opts)
 
-    map("n", "<leader>ts", ":Telescope grep_string<CR>", opts)
+   map("n", "<leader>v<", "<C-w><", opts)
+   map("n", "<leader>v>", "<C-w>>", opts)
+   map("n", "<leader>v-", "<C-w>-", opts)
+   map("n", "<leader>v+", "<C-w>+", opts)
+   map("n", "<leader>v=", "<C-w>=", opts)
+   map("n", "<leader>vs", "<cmd>split<cr>", opts)
+   map("n", "<leader>vv", "<cmd>vsplit<cr>", opts)
+   map("n", "<leader>vd", "<cmd>close<cr>", opts)
 
-    map("n", "<leader>v<", "<C-w><", opts)
-    map("n", "<leader>v>", "<C-w>>", opts)
-    map("n", "<leader>v-", "<C-w>-", opts)
-    map("n", "<leader>v+", "<C-w>+", opts)
-    map("n", "<leader>v=", "<C-w>=", opts)
-    map("n", "<leader>vs", "<cmd>split<cr>", opts)
-    map("n", "<leader>vv", "<cmd>vsplit<cr>", opts)
-    map("n", "<leader>vd", "<cmd>close<cr>", opts)
+   map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -47,32 +48,39 @@ end)
 -- examples below:
 
 hooks.add("install_plugins", function(use)
-    use {"kdheepak/lazygit.nvim"}
+   use { "kdheepak/lazygit.nvim" }
 
-    use {"williamboman/nvim-lsp-installer"}
+   use { "williamboman/nvim-lsp-installer" }
 
-    use {
-        "windwp/nvim-ts-autotag",
-        after = "nvim-treesitter",
-        -- event = "InsertEnter",
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end
-    }
+   use {
+      "windwp/nvim-ts-autotag",
+      after = "nvim-treesitter",
+      -- event = "InsertEnter",
+      config = function()
+         require("nvim-ts-autotag").setup()
+      end,
+   }
 
-    use {
-        "jose-elias-alvarez/null-ls.nvim",
-        after = "nvim-lspconfig",
-        config = function()
-            require("custom.plugins.null-ls").setup()
-        end
-    }
+   use {
+      "jose-elias-alvarez/null-ls.nvim",
+      after = "nvim-lspconfig",
+      config = function()
+         require("custom.plugins.null-ls").setup()
+      end,
+   }
 
-    use {
-        'sudormrfbin/cheatsheet.nvim',
+   use {
+      "sudormrfbin/cheatsheet.nvim",
+      requires = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+   }
 
-        requires = {{'nvim-telescope/telescope.nvim'}, {'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    }
+   use { "hrsh7th/cmp-copilot", after = "hrsh7th/nvim-cmp" }
+   use {
+      "github/copilot.vim",
+      config = function()
+         vim.cmd "let g:copilot_no_tab_map = v:true"
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
