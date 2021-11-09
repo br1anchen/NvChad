@@ -24,7 +24,7 @@ hooks.add("setup_mappings", function(map)
    local opts = { noremap = true, silent = true, nowait = false }
    -- map("n", "<leader>cc", "gg", opt) -- example to delete the buffer
    map("n", "<leader>qq", "<cmd>wqa<cr>", opts)
-   map("n", "<leader>R", "<cmd>checktime<cr>", opts)
+   map("n", "<leader>ct", "<cmd>checktime<cr>", opts)
 
    map("n", "<leader>gl", "<cmd>LazyGit<cr>", opts)
 
