@@ -34,13 +34,13 @@ M.setup_lsp = function(attach, capabilities)
       --          opts.settings = efm.settings
       --       end
       --
-      --       if server.name == "tsserver" then
-      --          opts.on_attach = function(client, bufnr)
-      --             client.resolved_capabilities.document_formatting = false
-      --             client.resolved_capabilities.document_range_formatting = false
-      --             attach(client, bufnr)
-      --          end
-      --       end
+      if server.name == "tsserver" then
+         opts.on_attach = function(client, bufnr)
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+            attach(client, bufnr)
+         end
+      end
 
       server:setup(opts)
       vim.cmd [[ do User LspAttachBuffers ]]
