@@ -74,11 +74,11 @@ hooks.add("install_plugins", function(use)
       requires = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
    }
 
-   use { "hrsh7th/cmp-copilot", after = "hrsh7th/nvim-cmp" }
    use {
       "github/copilot.vim",
       config = function()
          vim.cmd "let g:copilot_no_tab_map = v:true"
+         vim.cmd "let g:copilot_assume_mapped = v:true"
       end,
    }
 end)
