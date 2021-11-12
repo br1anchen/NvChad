@@ -50,8 +50,6 @@ end)
 hooks.add("install_plugins", function(use)
    use { "kdheepak/lazygit.nvim" }
 
-   use { "williamboman/nvim-lsp-installer" }
-
    use {
       "windwp/nvim-ts-autotag",
       after = "nvim-treesitter",
@@ -61,11 +59,22 @@ hooks.add("install_plugins", function(use)
       end,
    }
 
+   use { "williamboman/nvim-lsp-installer" }
+
    use {
       "jose-elias-alvarez/null-ls.nvim",
       after = "nvim-lspconfig",
       config = function()
          require("custom.plugins.null-ls").setup()
+      end,
+   }
+   use {
+      "tami5/lspsaga.nvim",
+      requires = {
+         "neovim/nvim-lspconfig",
+      },
+      config = function()
+         require("custom.plugins.lspsaga").setup()
       end,
    }
 
