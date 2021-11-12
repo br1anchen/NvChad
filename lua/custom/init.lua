@@ -1,4 +1,4 @@
--- This is where your custom modules and plugins go.
+--This is where your custom modules and plugins go.
 -- See the wiki for a guide on how to extend NvChad
 local hooks = require "core.hooks"
 
@@ -40,6 +40,14 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>vd", "<cmd>close<cr>", opts)
 
    map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
+
+   -- trouble
+   map("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
+   map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", opts)
+   map("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", opts)
+   map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
+   map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
+   -- vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -88,6 +96,14 @@ hooks.add("install_plugins", function(use)
       config = function()
          vim.cmd "let g:copilot_no_tab_map = v:true"
          vim.cmd "let g:copilot_assume_mapped = v:true"
+      end,
+   }
+
+   use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+         require("custom.plugins.trouble").setup()
       end,
    }
 end)

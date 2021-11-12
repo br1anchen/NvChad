@@ -19,37 +19,38 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 --   theme = "nord"
 -- }
 M.mappings = {
-  terminal = {
-    pick_term = "<leader>tW",
-    -- below three are for spawning terminals
-    new_horizontal = "<leader>th",
-    new_vertical = "<leader>tv",
-    new_window = "<leader>tw",
-  },
-  plugins = {
-    telescope = {
-      buffers = "<leader>fb",
-      find_files = "<leader>ff",
-      find_hiddenfiles = "<leader>fa",
-      git_commits = "<leader>fc",
-      git_status = "<leader>fg",
-      help_tags = "<leader>fh",
-      live_grep = "<leader>ft",
-      oldfiles = "<leader>fr",
-      themes = "<leader>fC", -- NvChad theme picker
-      -- media previews within telescope finders
-      telescope_media = {
-         media_files = "<leader>fp",
+   close_buffer = "<leader>bd",
+   terminal = {
+      pick_term = "<leader>tW",
+      -- below three are for spawning terminals
+      new_horizontal = "<leader>th",
+      new_vertical = "<leader>tv",
+      new_window = "<leader>tw",
+   },
+   plugins = {
+      telescope = {
+         buffers = "<leader>fb",
+         find_files = "<leader>ff",
+         find_hiddenfiles = "<leader>fa",
+         git_commits = "<leader>fc",
+         git_status = "<leader>fg",
+         help_tags = "<leader>fh",
+         live_grep = "<leader>ft",
+         oldfiles = "<leader>fr",
+         themes = "<leader>fC", -- NvChad theme picker
+         -- media previews within telescope finders
+         telescope_media = {
+            media_files = "<leader>fp",
+         },
       },
-   }
-  }
+   },
 }
 
 -- NvChad included plugin options & overrides
 M.plugins = {
    options = {
       lspconfig = {
-       setup_lspconf = "custom.plugins.lspconfig",
+         setup_lspconf = "custom.plugins.lspconfig",
       },
    },
    -- To change the Packer `config` of a plugin that comes with NvChad,
