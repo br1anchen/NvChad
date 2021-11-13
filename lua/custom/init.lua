@@ -100,6 +100,11 @@ hooks.add("install_plugins", function(use)
    }
 
    use {
+      "hrsh7th/cmp-copilot",
+      after = "nvim-cmp",
+   }
+
+   use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()

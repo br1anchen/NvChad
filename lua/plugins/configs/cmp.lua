@@ -26,6 +26,7 @@ cmp.setup {
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
             buffer = "[BUF]",
+            copilot = "[COPILOT]",
          })[entry.source.name]
 
          return vim_item
@@ -67,5 +68,6 @@ cmp.setup {
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
+      { name = "copilot" },
    },
 }
