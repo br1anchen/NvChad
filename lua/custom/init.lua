@@ -58,15 +58,6 @@ end)
 hooks.add("install_plugins", function(use)
    use { "kdheepak/lazygit.nvim" }
 
-   use {
-      "windwp/nvim-ts-autotag",
-      after = "nvim-treesitter",
-      -- event = "InsertEnter",
-      config = function()
-         require("nvim-ts-autotag").setup()
-      end,
-   }
-
    use { "williamboman/nvim-lsp-installer" }
 
    use {
