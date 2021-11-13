@@ -15,9 +15,10 @@ M.options, M.ui, M.mappings, M.plugins = {}, {}, {}, {}
 --    relativenumber = true,
 -- }
 
--- M.ui = {
---   theme = "nord"
--- }
+M.ui = {
+   theme = "poimandres",
+}
+
 M.mappings = {
    close_buffer = "<leader>bd",
    terminal = {
