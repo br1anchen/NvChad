@@ -106,6 +106,8 @@ hooks.add("install_plugins", function(use)
          require("custom.plugins.trouble").setup()
       end,
    }
+
+   use { "tpope/vim-abolish" }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
