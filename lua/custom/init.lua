@@ -104,6 +104,8 @@ hooks.add("install_plugins", function(use)
    }
 
    use { "tpope/vim-abolish" }
+
+   use { "rrethy/vim-hexokinase", run = "make hexokinase" }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
