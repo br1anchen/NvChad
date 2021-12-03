@@ -122,6 +122,13 @@ hooks.add("install_plugins", function(use)
          require("custom.plugins.nvim-dap").setup()
       end,
    }
+
+   use {
+      "blackCauldron7/surround.nvim",
+      config = function()
+         require("surround").setup { mappings_style = "surround" }
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
