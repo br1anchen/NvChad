@@ -15,7 +15,7 @@ M.setup_lsp = function(attach, capabilities)
          end,
          capabilities = capabilities,
          flags = { debounce_text_changes = 150 },
-         init_options = { documentFormatting = true },
+         init_options = { documentFormatting = false },
          settings = {},
       }
 
@@ -35,6 +35,14 @@ M.setup_lsp = function(attach, capabilities)
       --       end
       --
       if server.name == "tsserver" then
+         opts.on_attach = function(client, bufnr)
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+            attach(client, bufnr)
+         end
+      end
+
+      if server.name == "dartls" then
          opts.on_attach = function(client, bufnr)
             client.resolved_capabilities.document_formatting = false
             client.resolved_capabilities.document_range_formatting = false

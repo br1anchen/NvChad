@@ -29,6 +29,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>gl", "<cmd>LazyGit<cr>", opts)
 
    map("n", "<leader>ts", ":Telescope grep_string<CR>", opts)
+   map("n", "<leader>tf", ":Telescope flutter commands<CR>", opts)
 
    map("n", "<leader>v<", "<C-w><", opts)
    map("n", "<leader>v>", "<C-w>>", opts)
@@ -106,6 +107,21 @@ hooks.add("install_plugins", function(use)
    use { "tpope/vim-abolish" }
 
    use { "rrethy/vim-hexokinase", run = "make hexokinase" }
+
+   use {
+      "akinsho/flutter-tools.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("custom.plugins.flutter-tools").setup()
+      end,
+   }
+
+   use {
+      "mfussenegger/nvim-dap",
+      config = function()
+         require("custom.plugins.nvim-dap").setup()
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"

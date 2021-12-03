@@ -25,17 +25,22 @@ local sources = {
 
    -- CSS
    b.diagnostics.stylelint,
+
+   -- Dart
+   b.formatting.dart_format,
 }
 
 local M = {}
 
 M.setup = function()
    null_ls.config { sources = sources }
-   require("lspconfig")["null-ls"].setup { on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-        vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    end
-end}
+   require("lspconfig")["null-ls"].setup {
+      on_attach = function(client)
+         if client.resolved_capabilities.document_formatting then
+            vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
+         end
+      end,
+   }
 end
 
 return M
