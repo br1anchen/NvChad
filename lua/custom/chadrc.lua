@@ -44,6 +44,10 @@ M.mappings = {
             media_files = "<leader>fp",
          },
       },
+      nvimtree = {
+         toggle = "<C-e>",
+         focus = "<leader>e",
+      },
    },
 }
 
