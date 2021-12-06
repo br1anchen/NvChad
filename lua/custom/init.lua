@@ -49,6 +49,14 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
    map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
    -- vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
+
+   -- nvim-dap
+   map("n", "<leader>zb", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
+   map("n", "<leader>zc", ":lua require'dap'.continue()<cr>", opts)
+   map("n", "<leader>zo", ":lua require'dap'.step_over()<cr>", opts)
+   map("n", "<leader>zi", ":lua require'dap'.step_into()<cr>", opts)
+   map("n", "<leader>zr", ":lua require'dap'.repl.open()<cr>", opts)
+   map("n", "<leader>zn", ":lua require('dapui').toggle('sidebar')<cr>", opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -117,9 +125,23 @@ hooks.add("install_plugins", function(use)
    }
 
    use {
+      "Pocco81/DAPInstall.nvim",
+      config = function()
+         require("custom.plugins.dap-install").setup()
+      end,
+   }
+
+   use {
       "mfussenegger/nvim-dap",
       config = function()
          require("custom.plugins.nvim-dap").setup()
+      end,
+   }
+   use {
+      "rcarriga/nvim-dap-ui",
+      requires = { "mfussenegger/nvim-dap" },
+      config = function()
+         require("custom.plugins.nvim-dap-ui").setup()
       end,
    }
 
