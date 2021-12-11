@@ -165,6 +165,8 @@ hooks.add("install_plugins", function(use)
          require("searchbox").setup {}
       end,
    }
+
+   use "ggandor/lightspeed.nvim"
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
