@@ -58,6 +58,11 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>zr", ":lua require'dap'.repl.open()<cr>", opts)
    map("n", "<leader>zn", ":lua require('dapui').toggle('sidebar')<cr>", opts)
    map("n", "<leader>zk", ":lua require('dapui').eval()<cr>", opts)
+
+   -- searchbox
+   map("n", "<leader>s", '<cmd>lua require("searchbox").incsearch()<CR>', opts)
+   map("v", "<leader>s", '<Esc><cmd>lua require("searchbox").incsearch({visual_mode = true})<CR>', opts)
+   map("n", "<leader>sr", '<cmd>lua require("searchbox").replace({confirm = "menu"})<CR>', opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -147,6 +152,17 @@ hooks.add("install_plugins", function(use)
       "blackCauldron7/surround.nvim",
       config = function()
          require("surround").setup { mappings_style = "surround" }
+      end,
+   }
+
+   use "MunifTanjim/nui.nvim"
+   use {
+      "VonHeikemen/searchbox.nvim",
+      requires = {
+         { "MunifTanjim/nui.nvim" },
+      },
+      config = function()
+         require("searchbox").setup {}
       end,
    }
 end)
