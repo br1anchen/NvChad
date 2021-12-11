@@ -57,6 +57,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>zi", ":lua require'dap'.step_into()<cr>", opts)
    map("n", "<leader>zr", ":lua require'dap'.repl.open()<cr>", opts)
    map("n", "<leader>zn", ":lua require('dapui').toggle('sidebar')<cr>", opts)
+   map("n", "<leader>zk", ":lua require('dapui').eval()<cr>", opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -119,9 +120,6 @@ hooks.add("install_plugins", function(use)
    use {
       "akinsho/flutter-tools.nvim",
       requires = "nvim-lua/plenary.nvim",
-      config = function()
-         require("custom.plugins.flutter-tools").setup()
-      end,
    }
 
    use {
