@@ -128,6 +128,12 @@ hooks.add("install_plugins", function(use)
    }
 
    use {
+      "simrat39/rust-tools.nvim",
+      after = "nvim-lspconfig",
+      requires = "nvim-lua/plenary.nvim",
+   }
+
+   use {
       "Pocco81/DAPInstall.nvim",
       config = function()
          require("custom.plugins.dap-install").setup()

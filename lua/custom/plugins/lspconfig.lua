@@ -20,20 +20,45 @@ M.setup_lsp = function(attach, capabilities)
       }
 
       if server.name == "rust_analyzer" then
-         opts.settings = { ["rust-analyzer"] = { experimental = { procAttrMacros = true } } }
+         local rustopts = {
+            tools = {
+               autoSetHints = true,
+               hover_with_actions = false,
+               inlay_hints = {
+                  show_parameter_hints = true,
+                  parameter_hints_prefix = "",
+                  other_hints_prefix = "",
+               },
+            },
+            server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
+               on_attach = function(client, bufnr)
+                  client.resolved_capabilities.document_formatting = false
+                  client.resolved_capabilities.document_range_formatting = false
+                  attach(client, bufnr)
+               end,
+               settings = {
+                  ["rust-analyzer"] = {
+                     completion = {
+                        postfix = {
+                           enable = false,
+                        },
+                     },
+                     checkOnSave = {
+                        command = "clippy",
+                     },
+                  },
+               },
+            }),
+         }
+         require("custom.plugins.rust-tools").setup(rustopts)
+         server:attach_buffers()
+         return
       end
 
       if server.name == "stylelint_lsp" then
          opts.filetypes = { "scss", "less", "css", "sass" }
       end
 
-      --       if server.name == "efm" then
-      --          local efm = require "custom.plugins.lsp.efm"
-      --          opts.init_options = efm.init_options
-      --          opts.filetypes = efm.filetypes
-      --          opts.settings = efm.settings
-      --       end
-      --
       if server.name == "tsserver" then
          opts.on_attach = function(client, bufnr)
             client.resolved_capabilities.document_formatting = false

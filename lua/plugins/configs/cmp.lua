@@ -4,9 +4,16 @@ if not present then
    return
 end
 
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noinsert"
 
 cmp.setup {
+   completion = {
+      autocomplete = {
+         cmp.TriggerEvent.TextChanged,
+         cmp.TriggerEvent.InsertEnter,
+      },
+      completeopt = "menu,menuone,noinsert",
+   },
    snippet = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
