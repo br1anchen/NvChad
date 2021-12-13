@@ -44,7 +44,7 @@ M.mappings = {
          },
       },
       nvimtree = {
-         toggle = "<C-e>",
+         toggle = "<C-n>",
          focus = "<leader>e",
       },
    },
