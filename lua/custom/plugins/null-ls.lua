@@ -25,6 +25,7 @@ local sources = {
 
    -- CSS
    b.diagnostics.stylelint,
+   b.formatting.stylelint,
 
    -- Dart
    b.formatting.dart_format,
