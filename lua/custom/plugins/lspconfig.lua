@@ -19,6 +19,12 @@ M.setup_lsp = function(attach, capabilities)
          settings = {},
       }
 
+      local disable_lsp_formatting_on_attach = function(client, bufnr)
+         client.resolved_capabilities.document_formatting = false
+         client.resolved_capabilities.document_range_formatting = false
+         attach(client, bufnr)
+      end
+
       if server.name == "rust_analyzer" then
          local rustopts = {
             tools = {
@@ -31,11 +37,7 @@ M.setup_lsp = function(attach, capabilities)
                },
             },
             server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
-               on_attach = function(client, bufnr)
-                  client.resolved_capabilities.document_formatting = false
-                  client.resolved_capabilities.document_range_formatting = false
-                  attach(client, bufnr)
-               end,
+               on_attach = disable_lsp_formatting_on_attach,
                settings = {
                   ["rust-analyzer"] = {
                      completion = {
@@ -56,15 +58,12 @@ M.setup_lsp = function(attach, capabilities)
       end
 
       if server.name == "stylelint_lsp" then
+         opts.on_attach = disable_lsp_formatting_on_attach
          opts.filetypes = { "scss", "less", "css", "sass" }
       end
 
       if server.name == "tsserver" then
-         opts.on_attach = function(client, bufnr)
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
-            attach(client, bufnr)
-         end
+         opts.on_attach = disable_lsp_formatting_on_attach
       end
 
       if server.name == "dartls" then
