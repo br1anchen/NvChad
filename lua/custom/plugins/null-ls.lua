@@ -29,9 +29,6 @@ local sources = {
 
    -- Dart
    b.formatting.dart_format,
-
-   -- Git
-   b.code_actions.gitsigns,
 }
 
 local M = {}
