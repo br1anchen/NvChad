@@ -29,6 +29,9 @@ local sources = {
 
    -- Dart
    b.formatting.dart_format,
+
+   -- Nix
+   b.formatting.nixfmt,
 }
 
 local M = {}

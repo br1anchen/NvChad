@@ -3,6 +3,12 @@ local M = {}
 M.setup_lsp = function(attach, capabilities)
    local lsp_installer = require "nvim-lsp-installer"
 
+   local disable_lsp_formatting_on_attach = function(client, bufnr)
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+      attach(client, bufnr)
+   end
+
    lsp_installer.on_server_ready(function(server)
       local opts = {
          on_attach = function(client, bufnr)
@@ -18,12 +24,6 @@ M.setup_lsp = function(attach, capabilities)
          init_options = { documentFormatting = false },
          settings = {},
       }
-
-      local disable_lsp_formatting_on_attach = function(client, bufnr)
-         client.resolved_capabilities.document_formatting = false
-         client.resolved_capabilities.document_range_formatting = false
-         attach(client, bufnr)
-      end
 
       if server.name == "rust_analyzer" then
          local rustopts = {
@@ -73,6 +73,11 @@ M.setup_lsp = function(attach, capabilities)
       server:setup(opts)
       vim.cmd [[ do User LspAttachBuffers ]]
    end)
+
+   require("lspconfig").rnix.setup {
+      on_attach = disable_lsp_formatting_on_attach,
+      capabilities = capabilities,
+   }
 end
 
 return M
