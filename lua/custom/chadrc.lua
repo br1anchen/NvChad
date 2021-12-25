@@ -19,7 +19,6 @@ M.ui = {
 }
 
 M.mappings = {
-   close_buffer = "<leader>bd",
    terminal = {
       pick_term = "<leader>tW",
       -- below three are for spawning terminals
