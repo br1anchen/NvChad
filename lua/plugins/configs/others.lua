@@ -76,6 +76,8 @@ M.luasnip = function()
          updateevents = "TextChanged,TextChangedI",
       }
 
+      luasnip.filetype_extend("dart", { "flutter" })
+
       require("luasnip/loaders/from_vscode").load { paths = chadrc_config.plugins.options.luasnip.snippet_path }
       require("luasnip/loaders/from_vscode").load()
    end
