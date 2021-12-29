@@ -28,8 +28,7 @@ hooks.add("setup_mappings", function(map)
 
    map("n", "<leader>gl", "<cmd>LazyGit<cr>", opts)
 
-   map("n", "<leader>ts", ":Telescope grep_string<CR>", opts)
-   map("n", "<leader>tf", ":Telescope flutter commands<CR>", opts)
+   map("n", "<leader>fw", ":Telescope grep_string<CR>", opts)
 
    map("n", "<leader>v<", "<C-w><", opts)
    map("n", "<leader>v>", "<C-w>>", opts)
@@ -41,29 +40,6 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>vd", "<cmd>close<cr>", opts)
 
    map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
-
-   -- trouble
-   map("n", "<leader>xx", "<cmd>Trouble<cr>", opts)
-   map("n", "<leader>xw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", opts)
-   map("n", "<leader>xd", "<cmd>Trouble lsp_document_diagnostics<cr>", opts)
-   map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", opts)
-   map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", opts)
-   -- vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", opts)
-
-   -- nvim-dap
-   map("n", "<leader>zb", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
-   map("n", "<leader>zc", ":lua require'dap'.continue()<cr>", opts)
-   map("n", "<leader>zo", ":lua require'dap'.step_over()<cr>", opts)
-   map("n", "<leader>zi", ":lua require'dap'.step_into()<cr>", opts)
-   map("n", "<leader>zr", ":lua require'dap'.repl.open()<cr>", opts)
-   map("n", "<leader>zn", ":lua require('dapui').toggle('sidebar')<cr>", opts)
-   map("n", "<leader>zk", ":lua require('dapui').eval()<cr>", opts)
-   map("n", "<leader>zl", ":10sp | buffer \\[dap-repl]<cr>", opts)
-
-   -- searchbox
-   map("n", "<leader>s", '<cmd>lua require("searchbox").incsearch()<CR>', opts)
-   map("v", "<leader>s", '<Esc><cmd>lua require("searchbox").incsearch({visual_mode = true})<CR>', opts)
-   map("n", "<leader>sr", '<cmd>lua require("searchbox").replace({confirm = "menu"})<CR>', opts)
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -169,7 +145,7 @@ hooks.add("install_plugins", function(use)
          { "MunifTanjim/nui.nvim" },
       },
       config = function()
-         require("searchbox").setup {}
+         require("custom.plugins.searchbox").setup()
       end,
    }
 

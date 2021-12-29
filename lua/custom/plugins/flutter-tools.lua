@@ -1,3 +1,4 @@
+local map = require("core.utils").map
 local M = {}
 
 function M.setup(attach, capabilities)
@@ -22,7 +23,11 @@ function M.setup(attach, capabilities)
          capabilities = capabilities,
       },
    }
+
    require("telescope").load_extension "flutter"
+
+   local opts = { noremap = true, silent = true, nowait = false }
+   map("n", "<leader>ffc", ":Telescope flutter commands<CR>", opts)
 end
 
 return M
