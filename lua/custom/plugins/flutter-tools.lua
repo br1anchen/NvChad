@@ -21,6 +21,9 @@ function M.setup(attach, capabilities)
             attach(client, bufnr)
          end,
          capabilities = capabilities,
+         settings = {
+            showTodos = false,
+         },
       },
    }
 
