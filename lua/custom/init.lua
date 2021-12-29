@@ -189,6 +189,14 @@ hooks.add("install_plugins", function(use)
    }
 
    use "ron-rs/ron.vim"
+
+   use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("custom.plugins.todo-comments").setup()
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
