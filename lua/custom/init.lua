@@ -58,6 +58,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>zr", ":lua require'dap'.repl.open()<cr>", opts)
    map("n", "<leader>zn", ":lua require('dapui').toggle('sidebar')<cr>", opts)
    map("n", "<leader>zk", ":lua require('dapui').eval()<cr>", opts)
+   map("n", "<leader>zl", ":10sp | buffer \\[dap-repl]<cr>", opts)
 
    -- searchbox
    map("n", "<leader>s", '<cmd>lua require("searchbox").incsearch()<CR>', opts)
