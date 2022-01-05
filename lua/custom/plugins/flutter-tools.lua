@@ -11,15 +11,11 @@ function M.setup(attach, capabilities)
          run_via_dap = true, -- use dap instead of a plenary job to run flutter apps
       },
       dev_log = {
-         enabled = false,
+         enabled = true,
          open_cmd = "10sp", -- command to use to open the log buffer
       },
       lsp = {
-         on_attach = function(client, bufnr)
-            client.resolved_capabilities.document_formatting = false
-            client.resolved_capabilities.document_range_formatting = false
-            attach(client, bufnr)
-         end,
+         on_attach = attach,
          capabilities = capabilities,
          settings = {
             showTodos = false,

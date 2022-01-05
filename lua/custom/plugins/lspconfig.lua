@@ -67,7 +67,8 @@ M.setup_lsp = function(attach, capabilities)
       end
 
       if server.name == "dartls" then
-         require("custom.plugins.flutter-tools").setup(opts.on_attach, opts.capabilities)
+         opts.on_attach = disable_lsp_formatting_on_attach
+         require("custom.plugins.flutter-tools").setup(disable_lsp_formatting_on_attach, opts.capabilities)
       end
 
       server:setup(opts)
