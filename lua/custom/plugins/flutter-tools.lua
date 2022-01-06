@@ -23,8 +23,6 @@ function M.setup(attach, capabilities)
       },
    }
 
-   require("telescope").load_extension "flutter"
-
    local opts = { noremap = true, silent = true, nowait = false }
    map("n", "<leader>ffc", ":Telescope flutter commands<CR>", opts)
 end
