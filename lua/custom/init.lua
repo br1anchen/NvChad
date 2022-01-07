@@ -39,7 +39,7 @@ hooks.add("setup_mappings", function(map)
    map("n", "<leader>vv", "<cmd>vsplit<cr>", opts)
    map("n", "<leader>vd", "<cmd>close<cr>", opts)
 
-   map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
+   -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
@@ -75,16 +75,44 @@ hooks.add("install_plugins", function(use)
    }
 
    use {
-      "github/copilot.vim",
+      "nvim-telescope/telescope-dap.nvim",
+      after = "nvim-telescope/telescope.nvim",
+      requires = "nvim-telescope/telescope.nvim",
       config = function()
-         vim.cmd "let g:copilot_no_tab_map = v:true"
-         vim.cmd "let g:copilot_assume_mapped = v:true"
+         require("custom.plugins.telescope-dap").setup()
       end,
    }
 
    use {
-      "hrsh7th/cmp-copilot",
+      "nvim-telescope/telescope-file-browser.nvim",
+      after = "nvim-telescope/telescope.nvim",
+      requires = "nvim-telescope/telescope.nvim",
+      config = function()
+         require("custom.plugins.telescope-file-browser").setup()
+      end,
+   }
+
+   -- use {
+   --    "github/copilot.vim",
+   --    config = function()
+   --       vim.cmd "let g:copilot_no_tab_map = v:true"
+   --       vim.cmd "let g:copilot_assume_mapped = v:true"
+   --    end,
+   -- }
+   --
+   -- use {
+   --    "hrsh7th/cmp-copilot",
+   --    after = "nvim-cmp",
+   -- }
+
+   use {
+      "tzachar/cmp-tabnine",
+      run = "./install.sh",
       after = "nvim-cmp",
+      requires = "hrsh7th/nvim-cmp",
+      config = function()
+         require("custom.plugins.cmp-tabnine").setup()
+      end,
    }
 
    use {

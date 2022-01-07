@@ -29,6 +29,7 @@ cmp.setup {
             nvim_lua = "[Lua]",
             buffer = "[BUF]",
             copilot = "[COPILOT]",
+            cmp_tabnine = "[TN]",
          })[entry.source.name]
 
          return vim_item
@@ -65,6 +66,7 @@ cmp.setup {
       end,
    },
    sources = {
+      { name = "cmp_tabnine" },
       { name = "copilot" },
       { name = "luasnip" },
       { name = "nvim_lsp" },
