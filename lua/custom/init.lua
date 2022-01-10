@@ -76,7 +76,7 @@ hooks.add("install_plugins", function(use)
 
    use {
       "nvim-telescope/telescope-dap.nvim",
-      after = "nvim-telescope/telescope.nvim",
+      after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
          require("custom.plugins.telescope-dap").setup()
@@ -85,7 +85,7 @@ hooks.add("install_plugins", function(use)
 
    use {
       "nvim-telescope/telescope-file-browser.nvim",
-      after = "nvim-telescope/telescope.nvim",
+      after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
          require("custom.plugins.telescope-file-browser").setup()
