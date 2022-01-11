@@ -201,6 +201,28 @@ hooks.add("install_plugins", function(use)
          require("custom.plugins.todo-comments").setup()
       end,
    }
+
+   use {
+      "skywind3000/asyncrun.vim",
+      setup = function()
+         vim.cmd "let g:asyncrun_open = 6"
+      end,
+   }
+   use {
+      "skywind3000/asynctasks.vim",
+      requires = "skywind3000/asyncrun.vim",
+   }
+
+   use {
+      "GustavoKatel/telescope-asynctasks.nvim",
+      after = "telescope.nvim",
+      requires = { "nvim-telescope/telescope.nvim", "skywind3000/asynctasks.vim" },
+      config = function()
+         local map = require("core.utils").map
+         local opts = { noremap = true, silent = true, nowait = false }
+         map("n", "<leader>fl", "<cmd>lua require('telescope').extensions.asynctasks.all()<CR>", opts)
+      end,
+   }
 end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
