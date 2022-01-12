@@ -15,7 +15,7 @@ local M = {}
 -- }
 
 M.ui = {
-   theme = "poimandres",
+   theme = "catppuccin",
 }
 
 M.mappings = {
