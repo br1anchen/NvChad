@@ -1,53 +1,35 @@
---This is where your custom modules and plugins go.
--- See the wiki for a guide on how to extend NvChad
-local hooks = require "core.hooks"
+-- This is an example init file , its supposed to be placed in /lua/custom/
 
--- NOTE: To use this, make a copy with `cp example_init.lua init.lua`
+-- This is where your custom modules and plugins go.
+-- Please check NvChad docs if you're totally new to nvchad + dont know lua!!
 
---------------------------------------------------------------------
+-- MAPPINGS
+local map = require("core.utils").map
 
--- To modify packaged plugin configs, use the overrides functionality
--- if the override does not exist in the plugin config, make or request a PR,
--- or you can override the whole plugin config with 'chadrc' -> M.plugins.default_plugin_config_replace{}
--- this will run your config instead of the NvChad config for the given plugin
+map("n", "<leader>bd", "<cmd>bd!<cr>")
+map("n", "<leader>qq", "<cmd>wqa<cr>")
+map("n", "<leader>ct", "<cmd>checktime<cr>")
 
--- hooks.override("lsp", "publish_diagnostics", function(current)
---   current.virtual_text = false;
---   return current;
--- end)
+map("n", "<leader>gl", "<cmd>LazyGit<cr>")
 
--- To add new mappings, use the "setup_mappings" hook,
--- you can set one or many mappings
--- example below:
+map("n", "<leader>fw", ":Telescope grep_string<CR>")
 
-hooks.add("setup_mappings", function(map)
-   local opts = { noremap = true, silent = true, nowait = false }
-   map("n", "<leader>bd", "<cmd>bd!<cr>", opts)
-   map("n", "<leader>qq", "<cmd>wqa<cr>", opts)
-   map("n", "<leader>ct", "<cmd>checktime<cr>", opts)
+map("n", "<leader>v<", "<C-w><")
+map("n", "<leader>v>", "<C-w>>")
+map("n", "<leader>v-", "<C-w>-")
+map("n", "<leader>v+", "<C-w>+")
+map("n", "<leader>v=", "<C-w>=")
+map("n", "<leader>vs", "<cmd>split<cr>")
+map("n", "<leader>vv", "<cmd>vsplit<cr>")
+map("n", "<leader>vd", "<cmd>close<cr>")
 
-   map("n", "<leader>gl", "<cmd>LazyGit<cr>", opts)
+-- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
+-- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
-   map("n", "<leader>fw", ":Telescope grep_string<CR>", opts)
+-- Install plugins
+local customPlugins = require "core.customPlugins"
 
-   map("n", "<leader>v<", "<C-w><", opts)
-   map("n", "<leader>v>", "<C-w>>", opts)
-   map("n", "<leader>v-", "<C-w>-", opts)
-   map("n", "<leader>v+", "<C-w>+", opts)
-   map("n", "<leader>v=", "<C-w>=", opts)
-   map("n", "<leader>vs", "<cmd>split<cr>", opts)
-   map("n", "<leader>vv", "<cmd>vsplit<cr>", opts)
-   map("n", "<leader>vd", "<cmd>close<cr>", opts)
-
-   -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
-end)
-
--- To add new plugins, use the "install_plugin" hook,
--- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
--- see: https://github.com/wbthomason/packer.nvim
--- examples below:
-
-hooks.add("install_plugins", function(use)
+customPlugins.add(function(use)
    use { "kdheepak/lazygit.nvim" }
 
    use { "williamboman/nvim-lsp-installer" }
@@ -224,6 +206,13 @@ hooks.add("install_plugins", function(use)
       end,
    }
 end)
+
+-- To add new plugins, use the "install_plugin" hook,
+-- NOTE: we heavily suggest using Packer's lazy loading (with the 'event' field)
+-- see: https://github.com/wbthomason/packer.nvim
+-- examples below:
+
+hooks.add("install_plugins", function(use) end)
 
 -- alternatively, put this in a sub-folder like "lua/custom/plugins/mkdir"
 -- then source it with
