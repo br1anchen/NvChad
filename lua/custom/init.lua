@@ -141,12 +141,7 @@ customPlugins.add(function(use)
       end,
    }
 
-   use {
-      "blackCauldron7/surround.nvim",
-      config = function()
-         require("surround").setup { mappings_style = "surround" }
-      end,
-   }
+   use "tpope/vim-surround"
 
    use "MunifTanjim/nui.nvim"
    use {
@@ -200,9 +195,16 @@ customPlugins.add(function(use)
       after = "telescope.nvim",
       requires = { "nvim-telescope/telescope.nvim", "skywind3000/asynctasks.vim" },
       config = function()
-         local map = require("core.utils").map
-         local opts = { noremap = true, silent = true, nowait = false }
-         map("n", "<leader>fl", "<cmd>lua require('telescope').extensions.asynctasks.all()<CR>", opts)
+         map("n", "<leader>fl", "<cmd>lua require('telescope').extensions.asynctasks.all()<CR>")
+      end,
+   }
+
+   use {
+      "ntpeters/vim-better-whitespace",
+      config = function()
+         vim.cmd "let g:better_whitespace_enabled=1"
+         vim.cmd "let g:strip_whitespace_on_save=1"
+         vim.cmd "let g:strip_whitespace_confirm=0"
       end,
    }
 end)
