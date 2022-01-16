@@ -23,6 +23,9 @@ map("n", "<leader>vs", "<cmd>split<cr>")
 map("n", "<leader>vv", "<cmd>vsplit<cr>")
 map("n", "<leader>vd", "<cmd>close<cr>")
 
+map("n", "<leader>ate", ":AsyncTaskEdit<CR>")
+map("n", "<leader>atl", ":AsyncTaskList<CR>")
+
 -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 -- NOTE: the 4th argument in the map function can be a table i.e options but its most likely un-needed so dont worry about it
 
@@ -188,14 +191,8 @@ customPlugins.add(function(use)
    use {
       "skywind3000/asynctasks.vim",
       requires = "skywind3000/asyncrun.vim",
-   }
-
-   use {
-      "GustavoKatel/telescope-asynctasks.nvim",
-      after = "telescope.nvim",
-      requires = { "nvim-telescope/telescope.nvim", "skywind3000/asynctasks.vim" },
-      config = function()
-         map("n", "<leader>fl", "<cmd>lua require('telescope').extensions.asynctasks.all()<CR>")
+      setup = function()
+         vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.gitignore']"
       end,
    }
 
