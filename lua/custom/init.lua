@@ -204,6 +204,14 @@ customPlugins.add(function(use)
          vim.cmd "let g:strip_whitespace_confirm=0"
       end,
    }
+
+   use {
+      "nvim-orgmode/orgmode",
+      after = "nvim-treesitter",
+      config = function()
+         require("orgmode").setup {}
+      end,
+   }
 end)
 
 -- To add new plugins, use the "install_plugin" hook,
