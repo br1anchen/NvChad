@@ -6,14 +6,7 @@ end
 
 vim.opt.completeopt = "menu,menuone,noinsert"
 
-cmp.setup {
-   completion = {
-      autocomplete = {
-         cmp.TriggerEvent.TextChanged,
-         cmp.TriggerEvent.InsertEnter,
-      },
-      completeopt = "menu,menuone,noinsert",
-   },
+local default = {
    snippet = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
@@ -76,3 +69,13 @@ cmp.setup {
       { name = "orgmode" },
    },
 }
+
+local M = {}
+M.setup = function(override_flag)
+   if override_flag then
+      default = require("core.utils").tbl_override_req("nvim_cmp", default)
+   end
+   cmp.setup(default)
+end
+
+return M
