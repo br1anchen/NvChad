@@ -66,6 +66,10 @@ M.setup_lsp = function(attach, capabilities)
          opts.on_attach = disable_lsp_formatting_on_attach
       end
 
+      if server.name == "html" then
+         opts.on_attach = disable_lsp_formatting_on_attach
+      end
+
       if server.name == "dartls" then
          opts.on_attach = disable_lsp_formatting_on_attach
          require("custom.plugins.flutter-tools").setup(disable_lsp_formatting_on_attach, opts.capabilities)
