@@ -49,6 +49,7 @@ g.mapleader = options.mapleader
 
 -- disable some builtin vim plugins
 local disabled_built_ins = {
+   "did_load_filetypes",
    "2html_plugin",
    "getscript",
    "getscriptPlugin",
@@ -72,3 +73,10 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
    g["loaded_" .. plugin] = 1
 end
+
+--Defer loading shada until after startup_
+vim.opt.shadafile = "NONE"
+vim.schedule(function()
+   vim.opt.shadafile = require("core.utils").load_config().options.shadafile
+   vim.cmd [[ rsh ]]
+end)
