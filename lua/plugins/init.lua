@@ -18,7 +18,7 @@ local plugins = {
       event = "VimEnter",
    },
 
-   use {
+   {
       "br1anchen/nvim-base16.lua",
       after = "packer.nvim",
       config = function()
