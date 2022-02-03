@@ -6,15 +6,19 @@ end
 
 local snippets_status = require("core.utils").load_config().plugins.status.snippets
 
-vim.opt.completeopt = "menuone,noselect"
-
 local default = {
+   completion = {
+      completeopt = "menuone,noselect",
+   },
+   documentation = {
+      border = "single",
+   },
    snippet = (snippets_status and {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
       end,
    }) or {
-      expand = function(args) end,
+      expand = function() end,
    },
    formatting = {
       format = function(entry, vim_item)
@@ -27,6 +31,7 @@ local default = {
             buffer = "[BUF]",
             copilot = "[COPILOT]",
             cmp_tabnine = "[TN]",
+            path = "[Path]",
          })[entry.source.name]
 
          return vim_item
