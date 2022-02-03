@@ -20,9 +20,8 @@ M.treesitter = {
 }
 
 M.nvimtree = {
-   git = {
-      enable = true,
-   },
+   git = { enable = true },
+   view = { side = "right", width = 20 },
 }
 
 return M

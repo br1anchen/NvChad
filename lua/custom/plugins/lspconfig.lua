@@ -29,7 +29,6 @@ M.setup_lsp = function(attach, capabilities)
          settings = {},
       }
 
-      print("server.name: ", server.name)
       if server.name == "rust_analyzer" then
          local rustopts = {
             tools = {

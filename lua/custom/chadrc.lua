@@ -1,4 +1,4 @@
-local plugin_conf = require "custom.plugins.configs"
+local pluginConfs = require "custom.plugins.configs"
 local userPlugins = require "custom.plugins"
 
 local M = {}
@@ -31,10 +31,6 @@ M.mappings = {
             media_files = "<leader>fp",
          },
       },
-      nvimtree = {
-         toggle = "<C-n>",
-         focus = "<leader>e",
-      },
    },
 }
 
@@ -52,7 +48,10 @@ M.plugins = {
       },
    },
 
-   default_plugin_config_replace = {},
+   default_plugin_config_replace = {
+      nvim_treesitter = pluginConfs.treesitter,
+      nvim_tree = pluginConfs.nvimtree,
+   },
 }
 
 return M
