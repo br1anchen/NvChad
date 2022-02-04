@@ -82,7 +82,7 @@ return {
    { "rrethy/vim-hexokinase", run = "make hexokinase" },
 
    {
-      "akinsho/flutter-tools.nvim",
+      "br1anchen/flutter-tools.nvim",
       requires = "nvim-lua/plenary.nvim",
    },
 
