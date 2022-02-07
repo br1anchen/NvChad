@@ -23,6 +23,8 @@ map("n", "<leader>atl", ":AsyncTaskList<CR>")
 
 map("n", "<leader>p", ":Glow<CR>")
 
+map("n", "<leader>fws", ":Telescope workspaces<CR>")
+
 -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 
 -- NOTE: the 4th argument in the map function is be a table i.e options but its most likely un-needed so dont worry about it

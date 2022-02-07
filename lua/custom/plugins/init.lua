@@ -181,4 +181,11 @@ return {
          require("orgmode").setup {}
       end,
    },
+
+   {
+      "natecraddock/workspaces.nvim",
+      config = function()
+         require("workspaces").setup()
+      end,
+   },
 }

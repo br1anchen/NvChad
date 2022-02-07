@@ -61,7 +61,7 @@ M.setup = function(override_flag)
 
    telescope.setup(default)
 
-   local extensions = { "themes", "terms", "flutter" }
+   local extensions = { "themes", "terms", "flutter", "workspaces" }
 
    pcall(function()
       for _, ext in ipairs(extensions) do
