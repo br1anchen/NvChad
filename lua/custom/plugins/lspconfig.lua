@@ -13,15 +13,20 @@ M.setup_lsp = function(attach, capabilities)
       },
    }
 
+   local custom_on_attach = function(client, bufnr)
+      require("aerial").on_attach(client, bufnr)
+      attach(client, bufnr)
+   end
+
    local disable_lsp_formatting_on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
-      attach(client, bufnr)
+      custom_on_attach(client, bufnr)
    end
 
    lsp_installer.on_server_ready(function(server)
       local opts = {
-         on_attach = attach,
+         on_attach = custom_on_attach,
          capabilities = capabilities,
          flags = {
             debounce_text_changes = 150,

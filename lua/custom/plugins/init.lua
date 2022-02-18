@@ -188,4 +188,9 @@ return {
          require("workspaces").setup()
       end,
    },
+
+   {
+      "stevearc/aerial.nvim",
+      after = "nvim-lspconfig",
+   },
 }

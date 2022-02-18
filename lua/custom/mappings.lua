@@ -27,4 +27,9 @@ map("n", "<leader>fws", ":Telescope workspaces<CR>")
 
 -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 
+map("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+map("n", "{", "<cmd>AerialPrev<CR>")
+map("n", "[[", "<cmd>AerialPrevUp<CR>")
+map("n", "]]", "<cmd>AerialNextUp<CR>")
+
 -- NOTE: the 4th argument in the map function is be a table i.e options but its most likely un-needed so dont worry about it
