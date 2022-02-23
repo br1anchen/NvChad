@@ -32,6 +32,7 @@ local sources = {
 
    -- Nix
    b.formatting.nixfmt,
+   b.diagnostics.statix,
 }
 
 local M = {}
