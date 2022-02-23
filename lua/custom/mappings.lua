@@ -18,6 +18,10 @@ map("n", "<leader>vs", "<cmd>split<cr>")
 map("n", "<leader>vv", "<cmd>vsplit<cr>")
 map("n", "<leader>vd", "<cmd>close<cr>")
 
+map("n", "<leader>lx", "<cmd>LuaCacheClear<cr>")
+
+map("n", "<leader>ps", "<cmd>PackerSync<cr>")
+
 -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 
 -- NOTE: the 4th argument in the map function is be a table i.e options but its most likely un-needed so dont worry about it
