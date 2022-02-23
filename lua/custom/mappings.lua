@@ -25,6 +25,10 @@ map("n", "<leader>p", ":Glow<CR>")
 
 map("n", "<leader>fws", ":Telescope workspaces<CR>")
 
+map("n", "<leader>mt", ":MinimapToggle<CR>")
+map("n", "<leader>mr", ":MinimapRefresh<CR>")
+map("n", "<leader>mR", ":MinimapRescan<CR>")
+
 -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
 
 map("n", "<leader>a", "<cmd>AerialToggle!<CR>")

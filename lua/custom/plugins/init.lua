@@ -175,14 +175,6 @@ return {
    },
 
    {
-      "nvim-orgmode/orgmode",
-      after = "nvim-treesitter",
-      config = function()
-         require("orgmode").setup {}
-      end,
-   },
-
-   {
       "natecraddock/workspaces.nvim",
       config = function()
          require("workspaces").setup()
@@ -192,5 +184,14 @@ return {
    {
       "stevearc/aerial.nvim",
       after = "nvim-lspconfig",
+   },
+
+   {
+      "wfxr/minimap.vim",
+      config = function()
+         vim.cmd "let g:minimap_width = 10"
+         vim.cmd "let g:minimap_auto_start = 1"
+         vim.cmd "let g:minimap_auto_start_win_enter = 1"
+      end,
    },
 }
