@@ -18,22 +18,6 @@ map("n", "<leader>vs", "<cmd>split<cr>")
 map("n", "<leader>vv", "<cmd>vsplit<cr>")
 map("n", "<leader>vd", "<cmd>close<cr>")
 
-map("n", "<leader>ate", ":AsyncTaskEdit<CR>")
-map("n", "<leader>atl", ":AsyncTaskList<CR>")
-
-map("n", "<leader>p", ":Glow<CR>")
-
-map("n", "<leader>fws", ":Telescope workspaces<CR>")
-
-map("n", "<leader>mt", ":MinimapToggle<CR>")
-map("n", "<leader>mr", ":MinimapRefresh<CR>")
-map("n", "<leader>mR", ":MinimapRescan<CR>")
-
 -- map("i", "<C-F>", 'copilot#Accept("<CR>")', { silent = true, script = true, expr = true })
-
-map("n", "<leader>a", "<cmd>AerialToggle!<CR>")
-map("n", "{", "<cmd>AerialPrev<CR>")
-map("n", "[[", "<cmd>AerialPrevUp<CR>")
-map("n", "]]", "<cmd>AerialNextUp<CR>")
 
 -- NOTE: the 4th argument in the map function is be a table i.e options but its most likely un-needed so dont worry about it

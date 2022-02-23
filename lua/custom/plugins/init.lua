@@ -1,6 +1,13 @@
 return {
    { "elkowar/yuck.vim", ft = "yuck" },
-   { "ellisonleao/glow.nvim", cmd = "Glow" },
+   {
+      "ellisonleao/glow.nvim",
+      cmd = "Glow",
+      config = function()
+         local map = require("core.utils").map
+         map("n", "<leader>p", ":Glow<CR>")
+      end,
+   },
 
    { "kdheepak/lazygit.nvim" },
 
@@ -162,6 +169,11 @@ return {
       requires = "skywind3000/asyncrun.vim",
       setup = function()
          vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.gitignore']"
+
+         local map = require("core.utils").map
+         map("n", "<leader>ate", ":AsyncTaskEdit<CR>")
+         map("n", "<leader>atl", ":AsyncTaskList<CR>")
+         map("n", "<leader>atp", ":AsyncTaskLast<CR>")
       end,
    },
 
@@ -178,20 +190,33 @@ return {
       "natecraddock/workspaces.nvim",
       config = function()
          require("workspaces").setup()
+         local map = require("core.utils").map
+         map("n", "<leader>fws", ":Telescope workspaces<CR>")
       end,
    },
 
    {
       "stevearc/aerial.nvim",
       after = "nvim-lspconfig",
+      config = function()
+         local map = require("core.utils").map
+         map("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+         map("n", "{", "<cmd>AerialPrev<CR>")
+         map("n", "[[", "<cmd>AerialPrevUp<CR>")
+         map("n", "]]", "<cmd>AerialNextUp<CR>")
+      end,
    },
 
    {
       "wfxr/minimap.vim",
       config = function()
          vim.cmd "let g:minimap_width = 10"
-         vim.cmd "let g:minimap_auto_start = 1"
          vim.cmd "let g:minimap_auto_start_win_enter = 1"
+
+         local map = require("core.utils").map
+         map("n", "<leader>mt", ":MinimapToggle<CR>")
+         map("n", "<leader>mr", ":MinimapRefresh<CR>")
+         map("n", "<leader>mR", ":MinimapRescan<CR>")
       end,
    },
 }
