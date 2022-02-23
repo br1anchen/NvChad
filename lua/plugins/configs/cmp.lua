@@ -66,7 +66,6 @@ local default = {
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
-      { name = "orgmode" },
    },
 }
 

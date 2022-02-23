@@ -12,7 +12,6 @@ M.treesitter = {
       "kotlin",
       "lua",
       "markdown",
-      "org",
       "python",
       "toml",
       "typescript",
