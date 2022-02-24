@@ -207,16 +207,15 @@ return {
       end,
    },
 
-   {
-      "wfxr/minimap.vim",
-      config = function()
-         vim.cmd "let g:minimap_width = 10"
-         vim.cmd "let g:minimap_auto_start_win_enter = 1"
-
-         local map = require("core.utils").map
-         map("n", "<leader>mt", ":MinimapToggle<CR>")
-         map("n", "<leader>mr", ":MinimapRefresh<CR>")
-         map("n", "<leader>mR", ":MinimapRescan<CR>")
-      end,
-   },
+   -- {
+   --    "wfxr/minimap.vim",
+   --    config = function()
+   --       vim.cmd "let g:minimap_width = 10"
+   --
+   --       local map = require("core.utils").map
+   --       map("n", "<leader>mt", ":MinimapToggle<CR>")
+   --       map("n", "<leader>mr", ":MinimapRefresh<CR>")
+   --       map("n", "<leader>mR", ":MinimapRescan<CR>")
+   --    end,
+   -- },
 }

@@ -2,16 +2,7 @@ local map = require("core.utils").map
 local M = {}
 
 function M.setup()
-   require("searchbox").setup {
-      hooks = {
-         before_mount = function()
-            vim.call "minimap#vim#MinimapClose"
-         end,
-         after_mount = function()
-            vim.call "minimap#vim#MinimapClose"
-         end,
-      },
-   }
+   require("searchbox").setup {}
 
    local opts = { noremap = true, silent = true, nowait = false }
    map("n", "<leader>s", '<cmd>lua require("searchbox").incsearch()<CR>', opts)
