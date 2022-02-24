@@ -18,7 +18,7 @@ map("n", "<leader>vs", "<cmd>split<cr>")
 map("n", "<leader>vv", "<cmd>vsplit<cr>")
 map("n", "<leader>vd", "<cmd>close<cr>")
 
-map("n", "<leader>lx", "<cmd>LuaCacheClear<cr>")
+map("n", "<leader>lcc", "<cmd>LuaCacheClear<cr>")
 
 map("n", "<leader>ps", "<cmd>PackerSync<cr>")
 
