@@ -205,6 +205,17 @@ return {
       end,
    },
 
+   { "tami5/sqlite.lua" },
+   {
+      "AckslD/nvim-neoclip.lua",
+      requires = {
+         { "tami5/sqlite.lua", module = "sqlite" },
+         { "nvim-telescope/telescope.nvim" },
+      },
+      config = function()
+         require("custom.plugins.nvim-neoclip").setup()
+      end,
+   },
    -- {
    --    "wfxr/minimap.vim",
    --    config = function()
