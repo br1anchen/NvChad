@@ -86,8 +86,6 @@ return {
 
    { "tpope/vim-abolish" },
 
-   { "rrethy/vim-hexokinase", run = "make hexokinase" },
-
    {
       "br1anchen/flutter-tools.nvim",
       requires = "nvim-lua/plenary.nvim",

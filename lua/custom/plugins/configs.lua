@@ -26,4 +26,13 @@ M.nvimtree = {
    view = { side = "right", width = 20 },
 }
 
+M.colorizer = {
+   filetypes = {
+      dart = { AARRGGBB = true },
+   },
+   user_default_options = {
+      mode = "virtualtext",
+   },
+}
+
 return M

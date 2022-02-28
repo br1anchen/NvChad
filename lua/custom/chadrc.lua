@@ -40,6 +40,7 @@ M.plugins = {
    status = {
       colorizer = true,
       snippets = true,
+      alpha = true, -- dashboard
    },
 
    options = {
@@ -51,6 +52,7 @@ M.plugins = {
    default_plugin_config_replace = {
       nvim_treesitter = pluginConfs.treesitter,
       nvim_tree = pluginConfs.nvimtree,
+      nvim_colorizer = pluginConfs.colorizer,
    },
 }
 
