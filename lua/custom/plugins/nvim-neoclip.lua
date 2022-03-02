@@ -26,8 +26,8 @@ function M.setup()
          telescope = {
             i = {
                select = "<cr>",
-               paste = "<c-p>",
-               paste_behind = "<c-k>",
+               paste = "<c-v>",
+               paste_behind = "<c-V>",
                replay = "<c-q>", -- replay a macro
                delete = "<c-d>", -- delete an entry
                custom = {},
