@@ -38,22 +38,29 @@ M.setup_lsp = function(attach, capabilities)
          local rustopts = {
             tools = {
                autoSetHints = true,
-               hover_with_actions = false,
+               hover_with_actions = true,
+               executor = require("rust-tools/executors").termopen,
+               runnables = {
+                  use_telescope = true,
+               },
                inlay_hints = {
                   show_parameter_hints = true,
-                  parameter_hints_prefix = "",
-                  other_hints_prefix = "",
+                  parameter_hints_prefix = "<- ",
+                  other_hints_prefix = "=> ",
+                  max_len_align = false,
+                  max_len_align_padding = 1,
+                  right_align = false,
+                  right_align_padding = 7,
+               },
+               hover_actions = {
+                  border = "single",
+                  auto_focus = false,
                },
             },
             server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
                on_attach = disable_lsp_formatting_on_attach,
                settings = {
                   ["rust-analyzer"] = {
-                     completion = {
-                        postfix = {
-                           enable = false,
-                        },
-                     },
                      checkOnSave = {
                         command = "clippy",
                      },
