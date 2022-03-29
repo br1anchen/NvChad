@@ -64,6 +64,13 @@ M.setup_lsp = function(attach, capabilities)
                      checkOnSave = {
                         command = "clippy",
                      },
+                     inlayHints = {
+                        closureReturnTypeHints = true,
+                        lifetimeElisionHints = {
+                           useParameterNames = true,
+                        },
+                        reborrowHints = true,
+                     },
                   },
                },
             }),
