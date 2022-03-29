@@ -166,7 +166,7 @@ return {
       "skywind3000/asynctasks.vim",
       requires = "skywind3000/asyncrun.vim",
       setup = function()
-         vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']"
+         vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.vscode']"
 
          local map = require("core.utils").map
          map("n", "<leader>ate", ":AsyncTaskEdit<CR>")
