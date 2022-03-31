@@ -234,4 +234,7 @@ return {
    --       map("n", "<leader>mR", ":MinimapRescan<CR>")
    --    end,
    -- },
+   {
+      "voldikss/vim-floaterm",
+   },
 }
