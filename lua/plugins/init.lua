@@ -8,7 +8,6 @@ end
 local override_req = require("core.utils").override_req
 
 local plugins = {
-   { "NvChad/extensions" },
    { "nvim-lua/plenary.nvim" },
    { "lewis6991/impatient.nvim" },
    { "nathom/filetype.nvim" },
@@ -19,7 +18,14 @@ local plugins = {
    },
 
    {
-      "br1anchen/nvim-base16.lua",
+      "NvChad/extensions",
+      config = function()
+         vim.schedule_wrap(require("nvchad.terminal").init())
+      end,
+   },
+
+   {
+      "NvChad/nvim-base16.lua",
       after = "packer.nvim",
       config = function()
          require("colors").init()
