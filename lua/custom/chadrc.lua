@@ -9,11 +9,18 @@ M.ui = {
 
 M.mappings = {
    terminal = {
+      -- show & recover hidden terminal buffers in a telescope picker
       pick_term = "<leader>tW",
-      -- below three are for spawning terminals
+
+      -- spawn a single terminal and toggle it
+      -- this just works like toggleterm kinda
       new_horizontal = "<leader>th",
       new_vertical = "<leader>tv",
-      new_window = "<leader>tw",
+
+      -- spawn new terminals
+      spawn_horizontal = "<leader>tH",
+      spawn_vertical = "<leader>tV",
+      spawn_window = "<leader>tw",
    },
    plugins = {
       telescope = {
