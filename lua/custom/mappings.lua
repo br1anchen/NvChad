@@ -4,7 +4,7 @@ local map = require("core.utils").map
 map("n", "<leader>bd", "<cmd>bd!<cr>")
 map("n", "<leader>qq", "<cmd>wqa<cr>")
 map("n", "<leader>ct", "<cmd>checktime<cr>")
-map("n", "<leader>nl", ":noh<cr>")
+map("n", "nl", ":noh<cr>")
 
 map("n", "<leader>gl", "<cmd>LazyGit<cr>")
 
