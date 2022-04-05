@@ -166,3 +166,6 @@ if ui.transparency then
    fg("TelescopeBorder", one_bg)
    fg_bg("TelescopeResultsTitle", black, blue)
 end
+
+-- vim-better-whitespace
+bg("ExtraWhiteSpace", red)
