@@ -14,6 +14,7 @@ M.treesitter = {
       "markdown",
       "nix",
       "python",
+      "rust",
       "toml",
       "typescript",
       "vim",
