@@ -63,7 +63,7 @@ local plugins = {
    },
 
    {
-      "br1anchen/nvim-colorizer.lua",
+      "NvChad/nvim-colorizer.lua",
       disable = not plugin_settings.status.colorizer,
       event = "BufRead",
       config = override_req("nvim_colorizer", "plugins.configs.others", "colorizer"),
