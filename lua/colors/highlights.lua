@@ -81,11 +81,17 @@ fg("AlphaHeader", grey_fg)
 fg("AlphaButtons", light_grey)
 
 -- Git signs
-fg_bg("DiffAdd", blue, "NONE")
-fg_bg("DiffChange", grey_fg, "NONE")
-fg_bg("DiffChangeDelete", red, "NONE")
-fg_bg("DiffModified", red, "NONE")
-fg_bg("DiffDelete", red, "NONE")
+fg_bg("DiffAdd", "NONE", "#334535")
+fg_bg("DiffChange", "NONE", "#334535")
+fg_bg("DiffChangeDelete", "NONE", "#794756")
+fg_bg("DiffModified", "NONE", "#334535")
+fg_bg("DiffDelete", "NONE", "#794756")
+fg_bg("DiffText", "NONE", "#557459")
+fg_bg("DiffAdded", "NONE", "#334535")
+fg_bg("DiffFile", "NONE", black)
+fg_bg("DiffNewFile", "NONE", "#334535")
+fg_bg("DiffLine", "NONE", black)
+fg_bg("DiffRemoved", "NONE", "#794756")
 
 -- Indent blankline plugin
 fg("IndentBlanklineChar", line)
@@ -166,4 +172,3 @@ if ui.transparency then
    fg("TelescopeBorder", one_bg)
    fg_bg("TelescopeResultsTitle", black, blue)
 end
-
