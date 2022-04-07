@@ -29,6 +29,7 @@ M.nvimtree = {
 
 M.colorizer = {
    filetypes = {
+      "*",
       dart = { AARRGGBB = true },
    },
    user_default_options = {
