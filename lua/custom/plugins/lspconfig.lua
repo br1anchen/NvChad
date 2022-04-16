@@ -98,6 +98,15 @@ M.setup_lsp = function(attach, capabilities)
          require("custom.plugins.flutter-tools").setup(disable_lsp_formatting_on_attach, opts.capabilities)
       end
 
+      if server.name == "sqls" then
+         opts.on_attach = function(client, bufnr)
+            client.resolved_capabilities.document_formatting = false
+            client.resolved_capabilities.document_range_formatting = false
+            require("aerial").on_attach(client, bufnr)
+            require("sqls").on_attach(client, bufnr)
+         end
+      end
+
       server:setup(opts)
       vim.cmd [[ do User LspAttachBuffers ]]
    end)

@@ -33,6 +33,14 @@ local sources = {
    -- Nix
    b.formatting.nixfmt,
    b.diagnostics.statix,
+
+   -- SQL
+   b.formatting.sqlfluff.with {
+      extra_args = { "--dialect", "mysql" }, -- change to your dialect
+   },
+   b.diagnostics.sqlfluff.with {
+      extra_args = { "--dialect", "mysql" }, -- change to your dialect
+   },
 }
 
 local M = {}

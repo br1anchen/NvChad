@@ -98,6 +98,11 @@ return {
    },
 
    {
+      "nanotee/sqls.nvim",
+      after = "nvim-lspconfig",
+   },
+
+   {
       "Pocco81/DAPInstall.nvim",
       config = function()
          require("custom.plugins.dap-install").setup()
