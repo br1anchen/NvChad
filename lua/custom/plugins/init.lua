@@ -102,12 +102,12 @@ return {
       after = "nvim-lspconfig",
    },
 
-   {
-      "Pocco81/DAPInstall.nvim",
-      config = function()
-         require("custom.plugins.dap-install").setup()
-      end,
-   },
+   -- {
+   --    "Pocco81/DAPInstall.nvim",
+   --    config = function()
+   --       require("custom.plugins.dap-install").setup()
+   --    end,
+   -- },
 
    {
       "mfussenegger/nvim-dap",
