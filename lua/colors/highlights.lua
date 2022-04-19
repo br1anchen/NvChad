@@ -153,6 +153,10 @@ for i, color in ipairs(section_title_colors) do
    vim.cmd("highlight CheatsheetTitle" .. i .. " guibg = " .. color .. " guifg=" .. black)
 end
 
+-- Octo
+bg("OctoEditable", darker_black)
+bg("OctoBubble", darker_black)
+
 -- Disable some highlight in nvim tree if transparency enabled
 if ui.transparency then
    bg("NormalFloat", "NONE")
