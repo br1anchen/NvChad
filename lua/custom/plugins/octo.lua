@@ -21,6 +21,20 @@ M.setup = function()
          size = 10, -- changed files panel rows
          use_icons = true, -- use web-devicons in file panel
       },
+      colors = {
+         white = "#ffffff",
+         grey = "#2A354C",
+         black = "#000000",
+         red = "#fdb8c0",
+         dark_red = "#da3633",
+         green = "#acf2bd",
+         dark_green = "#238636",
+         yellow = "#d3c846",
+         dark_yellow = "#735c0f",
+         blue = "#58A6FF",
+         dark_blue = "#0366d6",
+         purple = "#6f42c1",
+      },
       mappings = {
          issue = {
             close_issue = "<space>ic", -- close issue

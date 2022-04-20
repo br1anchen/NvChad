@@ -81,17 +81,23 @@ fg("AlphaHeader", grey_fg)
 fg("AlphaButtons", light_grey)
 
 -- Git signs
-fg_bg("DiffAdd", "NONE", "#334535")
-fg_bg("DiffChange", "NONE", "#334535")
-fg_bg("DiffChangeDelete", "NONE", "#794756")
-fg_bg("DiffModified", "NONE", "#334535")
-fg_bg("DiffDelete", "NONE", "#794756")
-fg_bg("DiffText", "NONE", "#557459")
-fg_bg("DiffAdded", "NONE", "#334535")
+local git_colors = {
+   red = "#a96479",
+   dark_red = "#794756",
+   green = "#557459",
+   dark_green = "#334535",
+}
+fg_bg("DiffAdd", "NONE", git_colors.dark_green)
+fg_bg("DiffChange", "NONE", git_colors.dark_green)
+fg_bg("DiffChangeDelete", "NONE", git_colors.dark_red)
+fg_bg("DiffModified", "NONE", git_colors.dark_green)
+fg_bg("DiffDelete", "NONE", git_colors.dark_red)
+fg_bg("DiffText", "NONE", git_colors.green)
+fg_bg("DiffAdded", "NONE", git_colors.dark_green)
 fg_bg("DiffFile", "NONE", black)
-fg_bg("DiffNewFile", "NONE", "#334535")
+fg_bg("DiffNewFile", "NONE", git_colors.dark_green)
 fg_bg("DiffLine", "NONE", black)
-fg_bg("DiffRemoved", "NONE", "#794756")
+fg_bg("DiffRemoved", "NONE", git_colors.dark_red)
 
 -- Indent blankline plugin
 fg("IndentBlanklineChar", line)
@@ -155,7 +161,12 @@ end
 
 -- Octo
 bg("OctoEditable", darker_black)
-bg("OctoBubble", darker_black)
+bg("OctoGreenFloat", darker_black)
+bg("OctoRedFloat", darker_black)
+bg("OctoPurpleFloat", darker_black)
+bg("OctoYellowFloat", darker_black)
+bg("OctoBlueFloat", darker_black)
+bg("OctoGreyFloat", darker_black)
 
 -- Disable some highlight in nvim tree if transparency enabled
 if ui.transparency then
