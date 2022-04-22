@@ -82,8 +82,8 @@ fg("AlphaButtons", light_grey)
 
 -- Git signs
 local git_colors = {
-   red = "#a96479",
-   dark_red = "#794756",
+   red = "#794756",
+   dark_red = "#482a33",
    green = "#557459",
    dark_green = "#334535",
 }
