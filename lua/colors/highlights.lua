@@ -99,6 +99,11 @@ fg_bg("DiffNewFile", "NONE", git_colors.dark_green)
 fg_bg("DiffLine", "NONE", black)
 fg_bg("DiffRemoved", "NONE", git_colors.dark_red)
 
+-- gitsigns
+fg_bg("GitSignsAdd", green, "NONE")
+fg_bg("GitSignsChange", green, "NONE")
+fg_bg("GitSignsDelete", red, "NONE")
+
 -- Indent blankline plugin
 fg("IndentBlanklineChar", line)
 fg("IndentBlanklineSpaceChar", line)

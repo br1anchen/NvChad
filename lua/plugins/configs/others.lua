@@ -180,11 +180,11 @@ M.gitsigns = function(override_flag)
    if present then
       local default = {
          signs = {
-            add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-            change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-            delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-            topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-            changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+            add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr" },
+            change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr" },
+            delete = { hl = "GitSignsDelete", text = "", numhl = "GitSignsDeleteNr" },
+            topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+            changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr" },
          },
       }
       if override_flag then
