@@ -195,7 +195,7 @@ return {
       config = function()
          require("workspaces").setup()
          local map = require("core.utils").map
-         map("n", "<leader>fws", ":Telescope workspaces<CR>")
+         map("n", "<leader>fws", "<cmd>lua require 'telescope'.extensions.workspaces.workspaces()<cr>")
       end,
    },
 

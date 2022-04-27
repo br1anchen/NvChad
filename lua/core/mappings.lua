@@ -95,7 +95,7 @@ M.misc = function()
       -- hide a term from within terminal mode
       map("t", term_maps.esc_hide_termmode, "<CMD>lua require('nvchad.terminal').hide() <CR>")
       -- pick a hidden term
-      map("n", term_maps.pick_term, ":Telescope terms <CR>")
+      map("n", term_maps.pick_term, "<cmd>lua require 'telescope'.extensions.terms.terms()<cr>")
       -- Open terminals
       -- TODO this opens on top of an existing vert/hori term, fixme
       map(
@@ -112,11 +112,7 @@ M.misc = function()
             .. tostring(terminal_options.window.vsplit_width)
             .. ")<CR>"
       )
-      map(
-         { "n", "t" },
-         term_maps.new_float,
-         "<CMD>lua require('nvchad.terminal').new_or_toggle('float')<CR>"
-      )
+      map({ "n", "t" }, term_maps.new_float, "<CMD>lua require('nvchad.terminal').new_or_toggle('float')<CR>")
 
       -- spawns terminals
       map(
@@ -178,7 +174,7 @@ M.lspconfig = function()
    map("n", m.type_definition, "<cmd>lua vim.lsp.buf.type_definition()<CR>")
    map("n", m.rename, "<cmd>lua vim.lsp.buf.rename()<CR>")
    map("n", m.code_action, "<cmd>lua vim.lsp.buf.code_action()<CR>")
-   map("n", m.references, ":Telescope lsp_references<CR>")
+   map("n", m.references, "<cmd>lua require 'telescope.builtin'.lsp_references()<cr>")
    map("n", m.float_diagnostics, "<cmd>lua vim.diagnostic.open_float()<CR>")
    map("n", m.goto_prev, "<cmd>lua vim.diagnostic.goto_prev()<CR>")
    map("n", m.goto_next, "<cmd>lua vim.diagnostic.goto_next()<CR>")
@@ -206,15 +202,19 @@ end
 M.telescope = function()
    local m = plugin_maps.telescope
 
-   map("n", m.buffers, ":Telescope buffers <CR>")
-   map("n", m.find_files, ":Telescope find_files <CR>")
-   map("n", m.find_hiddenfiles, ":Telescope find_files follow=true no_ignore=true hidden=true <CR>")
-   map("n", m.git_commits, ":Telescope git_commits <CR>")
-   map("n", m.git_status, ":Telescope git_status <CR>")
-   map("n", m.help_tags, ":Telescope help_tags <CR>")
-   map("n", m.live_grep, ":Telescope live_grep <CR>")
-   map("n", m.oldfiles, ":Telescope oldfiles <CR>")
-   map("n", m.themes, ":Telescope themes <CR>")
+   map("n", m.buffers, "<cmd>lua require('telescope.builtin').buffers()<cr>")
+   map("n", m.find_files, "<cmd>lua require('telescope.builtin').find_files()<cr>")
+   map(
+      "n",
+      m.find_hiddenfiles,
+      "<cmd>lua require('telescope.builtin').find_files({follow=true, no_ignore=true, hidden=true})<cr>"
+   )
+   map("n", m.git_commits, "<cmd>lua require('telescope.builtin').git_commits()<cr>")
+   map("n", m.git_status, "<cmd>lua require('telescope.builtin').git_status()<cr>")
+   map("n", m.help_tags, "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+   map("n", m.live_grep, "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+   map("n", m.oldfiles, "<cmd>lua require('telescope.builtin').oldfiles()<cr>")
+   map("n", m.themes, "<cmd>lua require('telescope').extensions.themes.themes()<cr>")
 end
 
 return M

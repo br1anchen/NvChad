@@ -44,7 +44,7 @@ function M.setup()
       },
    }
 
-   map("n", "<leader>fcp", ":Telescope neoclip<CR>")
+   map("n", "<leader>fcp", "<cmd>lua require 'telescope'.extensions.neoclip.neoclip()<cr>")
 end
 
 return M

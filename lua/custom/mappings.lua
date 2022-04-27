@@ -8,7 +8,8 @@ map("n", "nl", ":noh<cr>")
 
 map("n", "<leader>gl", "<cmd>LazyGit<cr>")
 
-map("n", "<leader>fw", ":Telescope grep_string<CR>")
+map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
+map("n", "<leader>fl", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>")
 
 map("n", "<leader>v<", "<C-w><")
 map("n", "<leader>v>", "<C-w>>")

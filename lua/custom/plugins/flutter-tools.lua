@@ -40,7 +40,7 @@ function M.setup(attach, capabilities)
    }
 
    local opts = { noremap = true, silent = true, nowait = false }
-   map("n", "<leader>dc", ":Telescope flutter commands<CR>", opts)
+   map("n", "<leader>dc", "<cmd>lua require 'telescope'.extensions.flutter.commands()<cr>", opts)
 end
 
 return M
