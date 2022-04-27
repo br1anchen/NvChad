@@ -35,7 +35,7 @@ M.mappings = {
          themes = "<leader>fv", -- NvChad theme picker
          -- media previews within telescope finders
          telescope_media = {
-            media_files = "<leader>fp",
+            media_files = "<leader>fm",
          },
       },
    },
