@@ -180,6 +180,14 @@ return {
          map("n", "<leader>atk", ":AsyncStop<CR>")
       end,
    },
+   {
+      "GustavoKatel/telescope-asynctasks.nvim",
+      requires = "nvim-telescope/telescope.nvim",
+      setup = function()
+         local map = require("core.utils").map
+         map("n", "<leader>fat", "<cmd>lua require 'telescope'.extensions.asynctasks.all()<cr>")
+      end,
+   },
 
    {
       "ntpeters/vim-better-whitespace",
