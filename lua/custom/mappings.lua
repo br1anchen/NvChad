@@ -6,8 +6,6 @@ map("n", "<leader>qq", "<cmd>wqa<cr>")
 map("n", "<leader>ct", "<cmd>checktime<cr>")
 map("n", "nl", ":noh<cr>")
 
-map("n", "<leader>gl", "<cmd>LazyGit<cr>")
-
 map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
 map("n", "<leader>fl", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>")
 

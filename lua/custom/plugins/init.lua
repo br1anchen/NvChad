@@ -9,8 +9,6 @@ return {
       end,
    },
 
-   { "kdheepak/lazygit.nvim" },
-
    { "williamboman/nvim-lsp-installer" },
 
    {
@@ -249,6 +247,14 @@ return {
    -- },
    {
       "voldikss/vim-floaterm",
+      config = function()
+         local map = require("core.utils").map
+         map("n", "<leader>gl", "<cmd>FloatermNew! --name=lg lazygit<cr>")
+         map("n", "<leader>gx", "<cmd>FloatermKill lg<cr>")
+         map("t", "<leader>gx", "<c-\\><c-n>:FloatermKill lg<cr>")
+         map("n", "<leader>gt", "<cmd>FloatermToggle lg<cr>")
+         map("t", "<leader>gt", "<c-\\><c-n>:FloatermToggle lg<cr>")
+      end,
    },
 
    {
