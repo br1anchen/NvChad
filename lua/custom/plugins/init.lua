@@ -276,4 +276,12 @@ return {
          require("custom.plugins.diffview").setup()
       end,
    },
+
+   {
+      "xiyaowong/telescope-emoji.nvim",
+      requires = "nvim-telescope/telescope.nvim",
+      config = function()
+         require("telescope").load_extension "emoji"
+      end,
+   },
 }
