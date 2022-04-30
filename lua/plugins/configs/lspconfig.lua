@@ -7,8 +7,8 @@ function M.on_attach(client, bufnr)
       vim.api.nvim_buf_set_option(bufnr, ...)
    end
 
-   client.resolved_capabilities.document_formatting = false
-   client.resolved_capabilities.document_range_formatting = false
+   client.server_capabilities.document_formatting = false
+   client.server_capabilities.document_range_formatting = false
 
    require("core.mappings").lspconfig(bufnr)
 end
