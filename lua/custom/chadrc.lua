@@ -22,27 +22,10 @@ M.mappings = {
       spawn_vertical = "<leader>tV",
       spawn_window = "<leader>tw",
    },
-   plugins = {
-      telescope = {
-         buffers = "<leader>fb",
-         find_files = "<leader>ff",
-         find_hiddenfiles = "<leader>fa",
-         git_commits = "<leader>fc",
-         git_status = "<leader>fg",
-         help_tags = "<leader>fh",
-         live_grep = "<leader>ft",
-         oldfiles = "<leader>fr",
-         themes = "<leader>fv", -- NvChad theme picker
-         -- media previews within telescope finders
-         telescope_media = {
-            media_files = "<leader>fm",
-         },
-      },
-   },
 }
 
 M.plugins = {
-   install = userPlugins,
+   user = userPlugins,
 
    status = {
       colorizer = true,
@@ -56,10 +39,10 @@ M.plugins = {
       },
    },
 
-   default_plugin_config_replace = {
-      nvim_treesitter = pluginConfs.treesitter,
-      nvim_tree = pluginConfs.nvimtree,
-      nvim_colorizer = pluginConfs.colorizer,
+   override = {
+      ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
+      ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
+      ["NvChad/nvim-colorizer.lua"] = pluginConfs.colorizer,
    },
 }
 

@@ -1,7 +1,21 @@
 return {
-   { "elkowar/yuck.vim", ft = "yuck" },
-   {
-      "ellisonleao/glow.nvim",
+   ["nvim-telescope/telescope.nvim"] = {
+      setup = function()
+         -- load default mappings first
+         require("core.mappings").telescope()
+         -- then load your mappings
+         local map = require("core.utils").map
+         map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_commits()<cr>")
+         map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').git_status()<cr>")
+         map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+         map("n", "<leader>fv", "<cmd>lua require('telescope').extensions.themes.themes()<cr>")
+         map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
+         map("n", "<leader>fl", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>")
+         map("n", "<leader>fj", "<cmd>lua require('telescope').extensions.emoji.emoji()<cr>")
+      end,
+   },
+   ["elkowar/yuck.vim"] = { ft = "yuck" },
+   ["ellisonleao/glow.nvim"] = {
       cmd = "Glow",
       config = function()
          local map = require("core.utils").map
@@ -9,17 +23,15 @@ return {
       end,
    },
 
-   { "williamboman/nvim-lsp-installer" },
+   ["williamboman/nvim-lsp-installer"] = {},
 
-   {
-      "jose-elias-alvarez/null-ls.nvim",
+   ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
          require("custom.plugins.null-ls").setup()
       end,
    },
-   {
-      "tami5/lspsaga.nvim",
+   ["tami5/lspsaga.nvim"] = {
       requires = {
          "neovim/nvim-lspconfig",
       },
@@ -28,13 +40,11 @@ return {
       end,
    },
 
-   {
-      "sudormrfbin/cheatsheet.nvim",
+   ["sudormrfbin/cheatsheet.nvim"] = {
       requires = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
    },
 
-   {
-      "nvim-telescope/telescope-dap.nvim",
+   ["nvim-telescope/telescope-dap.nvim"] = {
       after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
@@ -42,8 +52,7 @@ return {
       end,
    },
 
-   {
-      "nvim-telescope/telescope-file-browser.nvim",
+   ["nvim-telescope/telescope-file-browser.nvim"] = {
       after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
       config = function()
@@ -64,8 +73,7 @@ return {
    --    after = "nvim-cmp",
    -- }
 
-   {
-      "tzachar/cmp-tabnine",
+   ["tzachar/cmp-tabnine"] = {
       run = "./install.sh",
       after = "nvim-cmp",
       requires = "hrsh7th/nvim-cmp",
@@ -74,29 +82,25 @@ return {
       end,
    },
 
-   {
-      "folke/trouble.nvim",
+   ["folke/trouble.nvim"] = {
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
          require("custom.plugins.trouble").setup()
       end,
    },
 
-   { "tpope/vim-abolish" },
+   ["tpope/vim-abolish"] = {},
 
-   {
-      "br1anchen/flutter-tools.nvim",
+   ["br1anchen/flutter-tools.nvim"] = {
       requires = "nvim-lua/plenary.nvim",
    },
 
-   {
-      "simrat39/rust-tools.nvim",
+   ["simrat39/rust-tools.nvim"] = {
       after = "nvim-lspconfig",
       requires = "nvim-lua/plenary.nvim",
    },
 
-   {
-      "nanotee/sqls.nvim",
+   ["nanotee/sqls.nvim"] = {
       after = "nvim-lspconfig",
    },
 
@@ -107,25 +111,22 @@ return {
    --    end,
    -- },
 
-   {
-      "mfussenegger/nvim-dap",
+   ["mfussenegger/nvim-dap"] = {
       config = function()
          require("custom.plugins.nvim-dap").setup()
       end,
    },
-   {
-      "rcarriga/nvim-dap-ui",
+   ["rcarriga/nvim-dap-ui"] = {
       requires = { "mfussenegger/nvim-dap" },
       config = function()
          require("custom.plugins.nvim-dap-ui").setup()
       end,
    },
 
-   { "tpope/vim-surround" },
+   ["tpope/vim-surround"] = {},
 
-   { "MunifTanjim/nui.nvim" },
-   {
-      "VonHeikemen/searchbox.nvim",
+   ["MunifTanjim/nui.nvim"] = {},
+   ["VonHeikemen/searchbox.nvim"] = {
       requires = {
          { "MunifTanjim/nui.nvim" },
       },
@@ -134,10 +135,9 @@ return {
       end,
    },
 
-   { "ggandor/lightspeed.nvim" },
+   ["ggandor/lightspeed.nvim"] = {},
 
-   {
-      "karb94/neoscroll.nvim",
+   ["karb94/neoscroll.nvim"] = {
       opt = true,
       config = function()
          require("neoscroll").setup()
@@ -149,24 +149,21 @@ return {
       end,
    },
 
-   { "ron-rs/ron.vim" },
+   ["ron-rs/ron.vim"] = {},
 
-   {
-      "folke/todo-comments.nvim",
+   ["folke/todo-comments.nvim"] = {
       requires = "nvim-lua/plenary.nvim",
       config = function()
          require("custom.plugins.todo-comments").setup()
       end,
    },
 
-   {
-      "skywind3000/asyncrun.vim",
+   ["skywind3000/asyncrun.vim"] = {
       setup = function()
          vim.cmd "let g:asyncrun_open = 6"
       end,
    },
-   {
-      "skywind3000/asynctasks.vim",
+   ["skywind3000/asynctasks.vim"] = {
       requires = "skywind3000/asyncrun.vim",
       setup = function()
          vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.vscode']"
@@ -178,8 +175,7 @@ return {
          map("n", "<leader>atk", ":AsyncStop<CR>")
       end,
    },
-   {
-      "GustavoKatel/telescope-asynctasks.nvim",
+   ["GustavoKatel/telescope-asynctasks.nvim"] = {
       requires = "nvim-telescope/telescope.nvim",
       setup = function()
          local map = require("core.utils").map
@@ -187,8 +183,7 @@ return {
       end,
    },
 
-   {
-      "ntpeters/vim-better-whitespace",
+   ["ntpeters/vim-better-whitespace"] = {
       config = function()
          vim.cmd "let g:better_whitespace_enabled=1"
          vim.cmd "let g:strip_whitespace_on_save=1"
@@ -196,8 +191,7 @@ return {
       end,
    },
 
-   {
-      "natecraddock/workspaces.nvim",
+   ["natecraddock/workspaces.nvim"] = {
       config = function()
          require("workspaces").setup()
          local map = require("core.utils").map
@@ -205,8 +199,7 @@ return {
       end,
    },
 
-   {
-      "stevearc/aerial.nvim",
+   ["stevearc/aerial.nvim"] = {
       config = function()
          require("aerial").setup {
             on_attach = function(bufnr)
@@ -223,9 +216,8 @@ return {
       end,
    },
 
-   { "tami5/sqlite.lua" },
-   {
-      "AckslD/nvim-neoclip.lua",
+   ["tami5/sqlite.lua"] = {},
+   ["AckslD/nvim-neoclip.lua"] = {
       requires = {
          { "tami5/sqlite.lua", module = "sqlite" },
          { "nvim-telescope/telescope.nvim" },
@@ -245,8 +237,7 @@ return {
    --       map("n", "<leader>mR", ":MinimapRescan<CR>")
    --    end,
    -- },
-   {
-      "voldikss/vim-floaterm",
+   ["voldikss/vim-floaterm"] = {
       config = function()
          local map = require("core.utils").map
          map("n", "<leader>gl", "<cmd>FloatermNew! --name=lg lazygit<cr>")
@@ -257,8 +248,7 @@ return {
       end,
    },
 
-   {
-      "pwntester/octo.nvim",
+   ["pwntester/octo.nvim"] = {
       requires = {
          "nvim-lua/plenary.nvim",
          "nvim-telescope/telescope.nvim",
@@ -269,16 +259,14 @@ return {
       end,
    },
 
-   {
-      "sindrets/diffview.nvim",
+   ["sindrets/diffview.nvim"] = {
       requires = "nvim-lua/plenary.nvim",
       config = function()
          require("custom.plugins.diffview").setup()
       end,
    },
 
-   {
-      "xiyaowong/telescope-emoji.nvim",
+   ["xiyaowong/telescope-emoji.nvim"] = {
       requires = "nvim-telescope/telescope.nvim",
       config = function()
          require("telescope").load_extension "emoji"
