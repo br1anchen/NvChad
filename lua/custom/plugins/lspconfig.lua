@@ -34,6 +34,17 @@ M.setup_lsp = function(attach, capabilities)
          settings = {},
       }
 
+      if server.name == "sumneko_lua" then
+         opts.settings = {
+            Lua = {
+               diagnostics = {
+                  -- Get the language server to recognize the `vim` global
+                  globals = { "vim" },
+               },
+            },
+         }
+      end
+
       if server.name == "rust_analyzer" then
          local rustopts = {
             tools = {
