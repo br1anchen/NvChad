@@ -2,13 +2,34 @@ local M = {}
 
 require("plugins.configs.others").lsp_handlers()
 
+local lsp_formatting = function(bufnr)
+   vim.lsp.buf.format {
+      filter = function(clients)
+         -- filter out clients that you don't want to use
+         return vim.tbl_filter(function(client)
+            return client.name == "null-ls"
+         end, clients)
+      end,
+      bufnr = bufnr,
+   }
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 function M.on_attach(client, bufnr)
    local function buf_set_option(...)
       vim.api.nvim_buf_set_option(bufnr, ...)
    end
 
-   client.server_capabilities.document_formatting = false
-   client.server_capabilities.document_range_formatting = false
+   if client.supports_method "textDocument/formatting" then
+      vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+      vim.api.nvim_create_autocmd("BufWritePre", {
+         buffer = bufnr,
+         callback = function()
+            lsp_formatting(bufnr)
+         end,
+      })
+   end
 
    require("core.mappings").lspconfig(bufnr)
 end

@@ -18,12 +18,6 @@ M.setup_lsp = function(attach, capabilities)
       attach(client, bufnr)
    end
 
-   local disable_lsp_formatting_on_attach = function(client, bufnr)
-      client.server_capabilities.document_formatting = false
-      client.server_capabilities.document_range_formatting = false
-      custom_on_attach(client, bufnr)
-   end
-
    lsp_installer.on_server_ready(function(server)
       local opts = {
          on_attach = custom_on_attach,
@@ -69,7 +63,6 @@ M.setup_lsp = function(attach, capabilities)
                },
             },
             server = vim.tbl_deep_extend("force", server:get_default_options(), opts, {
-               on_attach = disable_lsp_formatting_on_attach,
                settings = {
                   ["rust-analyzer"] = {
                      checkOnSave = {
@@ -92,29 +85,17 @@ M.setup_lsp = function(attach, capabilities)
       end
 
       if server.name == "stylelint_lsp" then
-         opts.on_attach = disable_lsp_formatting_on_attach
          opts.filetypes = { "scss", "less", "css", "sass" }
       end
 
-      if server.name == "tsserver" then
-         opts.on_attach = disable_lsp_formatting_on_attach
-      end
-
-      if server.name == "html" then
-         opts.on_attach = disable_lsp_formatting_on_attach
-      end
-
       if server.name == "dartls" then
-         opts.on_attach = disable_lsp_formatting_on_attach
-         require("custom.plugins.flutter-tools").setup(disable_lsp_formatting_on_attach, opts.capabilities)
+         require("custom.plugins.flutter-tools").setup(custom_on_attach, opts.capabilities)
       end
 
       if server.name == "sqls" then
          opts.on_attach = function(client, bufnr)
-            client.server_capabilities.document_formatting = false
-            client.server_capabilities.document_range_formatting = false
-            require("aerial").on_attach(client, bufnr)
             require("sqls").on_attach(client, bufnr)
+            custom_on_attach(client, bufnr)
          end
       end
 
@@ -123,7 +104,7 @@ M.setup_lsp = function(attach, capabilities)
    end)
 
    require("lspconfig").rnix.setup {
-      on_attach = disable_lsp_formatting_on_attach,
+      on_attach = custom_on_attach,
       capabilities = capabilities,
    }
 end

@@ -173,7 +173,14 @@ M.lspconfig = function(bufnr)
    end)
 
    buf_map("n", "<space>fm", function()
-      vim.lsp.buf.formatting()
+      vim.lsp.buf.format {
+         filter = function(clients)
+            -- filter out clients that you don't want to use
+            return vim.tbl_filter(function(client)
+               return client.name == "null-ls"
+            end, clients)
+         end,
+      }
    end)
 
    buf_map("n", "<space>wa", function()

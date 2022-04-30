@@ -47,12 +47,9 @@ local M = {}
 
 M.setup = function()
    null_ls.setup {
+      debounce = 250,
       sources = sources,
-      on_attach = function(client)
-         if client.server_capabilities.document_formatting then
-            vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
-         end
-      end,
+      update_in_insert = true,
    }
 end
 
