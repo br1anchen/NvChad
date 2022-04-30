@@ -1,4 +1,5 @@
 local M = {}
+
 require("plugins.configs.others").lsp_handlers()
 
 function M.on_attach(client, bufnr)
@@ -8,10 +9,8 @@ function M.on_attach(client, bufnr)
 
    client.resolved_capabilities.document_formatting = false
    client.resolved_capabilities.document_range_formatting = false
-   -- Enable completion triggered by <c-x><c-o>
-   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-   require("core.mappings").lspconfig()
+   require("core.mappings").lspconfig(bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
