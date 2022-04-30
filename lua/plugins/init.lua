@@ -184,7 +184,7 @@ local plugins = {
 
    ["numToStr/Comment.nvim"] = {
       module = "Comment",
-      keys = { "gcc" },
+      keys = { "gc", "gb" },
 
       setup = function()
          require("core.mappings").comment()
