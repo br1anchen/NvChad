@@ -37,4 +37,19 @@ M.colorizer = {
    },
 }
 
+M.nvterm = {
+   mappings = {
+      toggle = {
+         float = "<leader>tw",
+         horizontal = "<leader>th",
+         vertical = "<leader>tv",
+      },
+      new = {
+         float = "<leader>tW",
+         horizontal = "<leader>tH",
+         vertical = "<leader>tV",
+      },
+   },
+}
+
 return M

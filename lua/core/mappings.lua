@@ -120,7 +120,7 @@ M.lspconfig = function(bufnr)
       vim.lsp.buf.implementation()
    end)
 
-   buf_map("n", "<C-k>", function()
+   buf_map("n", "gk", function()
       vim.lsp.buf.signature_help()
    end)
 
@@ -191,10 +191,10 @@ M.telescope = function()
    map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
    map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
    map("n", "<leader>fo", "<cmd>lua require('telescope.builtin').oldfiles()<cr>")
-   map("n", "<leader>th", "<cmd>lua require('telescope').extensions.themes.themes()<cr>")
+   map("n", "<leader>fv", "<cmd>lua require('telescope').extensions.themes.themes()<cr>")
 
    -- pick a hidden term
-   map("n", "<leader>W", "<cmd>lua require('telescope').extensions.terms.terms()<cr>")
+   map("n", "<leader>T", "<cmd>lua require('telescope').extensions.terms.terms()<cr>")
 end
 
 return M

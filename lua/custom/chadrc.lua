@@ -8,20 +8,9 @@ M.ui = {
 }
 
 M.mappings = {
-   terminal = {
-      -- show & recover hidden terminal buffers in a telescope picker
-      pick_term = "<leader>tW",
-
-      -- spawn a single terminal and toggle it
-      -- this just works like toggleterm kinda
-      new_horizontal = "<leader>th",
-      new_vertical = "<leader>tv",
-
-      -- spawn new terminals
-      spawn_horizontal = "<leader>tH",
-      spawn_vertical = "<leader>tV",
-      spawn_window = "<leader>tw",
-   },
+   misc = function()
+      require "custom.mappings"
+   end,
 }
 
 M.plugins = {
@@ -43,6 +32,7 @@ M.plugins = {
       ["nvim-treesitter/nvim-treesitter"] = pluginConfs.treesitter,
       ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
       ["NvChad/nvim-colorizer.lua"] = pluginConfs.colorizer,
+      ["NvChad/nvterm"] = pluginConfs.nvterm,
    },
 }
 
