@@ -22,150 +22,244 @@ local red = colors.red
 local white = colors.white
 local yellow = colors.yellow
 local orange = colors.orange
-local one_bg3 = colors.one_bg3
 
--- functions for setting highlights
-local fg = require("core.utils").fg
-local fg_bg = require("core.utils").fg_bg
-local bg = require("core.utils").bg
-
--- Comments
-fg("Comment", grey_fg)
-
--- Disable cursor line
-cmd "hi clear CursorLine"
--- Line number
-fg("cursorlinenr", white)
-
--- same it bg, so it doesn't appear
-fg("EndOfBuffer", black)
-
--- For floating windows
-fg("FloatBorder", blue)
-bg("NormalFloat", darker_black)
-
--- Pmenu
-bg("Pmenu", one_bg)
-bg("PmenuSbar", one_bg2)
-bg("PmenuSel", pmenu_bg)
-bg("PmenuThumb", nord_blue)
-fg("CmpItemAbbr", white)
-fg("CmpItemAbbrMatch", white)
-fg("CmpItemKind", white)
-fg("CmpItemMenu", white)
-
--- misc
-
--- inactive statuslines as thin lines
-fg("StatusLineNC", one_bg3 .. " gui=underline")
-
-fg("LineNr", grey)
-fg("NvimInternalError", red)
-fg("WinSeparator", one_bg2)
-
-if ui.transparency then
-   bg("Normal", "NONE")
-   bg("Folded", "NONE")
-   fg("Folded", "NONE")
-   fg("Comment", grey)
-end
-
--- [[ Plugin Highlights
-
--- Dashboard
-fg("AlphaHeader", grey_fg)
-fg("AlphaButtons", light_grey)
-
--- Git signs
 local git_colors = {
    red = "#794756",
    dark_red = "#482a33",
    green = "#557459",
    dark_green = "#334535",
 }
-fg_bg("DiffAdd", "NONE", git_colors.dark_green)
-fg_bg("DiffChange", "NONE", git_colors.dark_green)
-fg_bg("DiffChangeDelete", "NONE", git_colors.dark_red)
-fg_bg("DiffModified", "NONE", git_colors.dark_green)
-fg_bg("DiffDelete", "NONE", git_colors.dark_red)
-fg_bg("DiffText", "NONE", git_colors.green)
-fg_bg("DiffAdded", "NONE", git_colors.dark_green)
-fg_bg("DiffFile", "NONE", black)
-fg_bg("DiffNewFile", "NONE", git_colors.dark_green)
-fg_bg("DiffLine", "NONE", black)
-fg_bg("DiffRemoved", "NONE", git_colors.dark_red)
 
--- gitsigns
-fg_bg("GitSignsAdd", green, "NONE")
-fg_bg("GitSignsChange", green, "NONE")
-fg_bg("GitSignsDelete", red, "NONE")
+-- Disable cursor line
+cmd "hi clear CursorLine"
 
--- Indent blankline plugin
-fg("IndentBlanklineChar", line)
-fg("IndentBlanklineSpaceChar", line)
+-- highlight groups & colors
+local hl_cols = {
 
--- Lsp diagnostics
+   Comment = { fg = grey_fg },
 
-fg("DiagnosticHint", purple)
-fg("DiagnosticError", red)
-fg("DiagnosticWarn", yellow)
-fg("DiagnosticInformation", green)
+   -- line numbers
+   CursorLineNr = { fg = white },
+   LineNr = { fg = grey },
 
--- NvimTree
-fg("NvimTreeEmptyFolderName", folder_bg)
-fg("NvimTreeEndOfBuffer", darker_black)
-fg("NvimTreeFolderIcon", folder_bg)
-fg("NvimTreeFolderName", folder_bg)
-fg("NvimTreeGitDirty", red)
-fg("NvimTreeIndentMarker", one_bg2)
-bg("NvimTreeNormal", darker_black)
-bg("NvimTreeNormalNC", darker_black)
-fg("NvimTreeOpenedFolderName", folder_bg)
-fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
-fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
-fg_bg("NvimTreeWinSeparator", darker_black, darker_black)
-fg_bg("NvimTreeWindowPicker", red, black2)
+   -- those ugly ~'s
+   EndOfBuffer = { fg = black },
 
--- Telescope
-fg_bg("TelescopeBorder", darker_black, darker_black)
-fg_bg("TelescopePromptBorder", black2, black2)
+   -- floating windows
+   FloatBorder = { fg = blue },
+   NormalFloat = { bg = darker_black },
 
-fg_bg("TelescopePromptNormal", white, black2)
-fg_bg("TelescopePromptPrefix", red, black2)
+   -- Pmenu i.e completion menu
+   Pmenu = { bg = one_bg },
+   PmenuSbar = { bg = one_bg2 },
+   PmenuSel = { bg = pmenu_bg, fg = black },
+   PmenuThumb = { bg = nord_blue },
 
-bg("TelescopeNormal", darker_black)
+   -- nvim cmp
+   CmpItemAbbr = { fg = white },
+   CmpItemAbbrMatch = { fg = white },
+   CmpItemKind = { fg = white },
+   CmpItemMenu = { fg = white },
 
-fg_bg("TelescopePreviewTitle", black, green)
-fg_bg("TelescopePromptTitle", black, red)
-fg_bg("TelescopeResultsTitle", darker_black, darker_black)
+   NvimInternalError = { fg = red },
+   WinSeparator = { fg = one_bg2 },
 
-bg("TelescopeSelection", black2)
+   -- Dashboard i.e alpha.nvim
+   AlphaHeader = { fg = grey_fg },
+   AlphaButtons = { fg = light_grey },
 
--- Octo
-bg("OctoEditable", darker_black)
-bg("OctoGreenFloat", darker_black)
-bg("OctoRedFloat", darker_black)
-bg("OctoPurpleFloat", darker_black)
-bg("OctoYellowFloat", darker_black)
-bg("OctoBlueFloat", darker_black)
-bg("OctoGreyFloat", darker_black)
+   -- Gitsigns.nvim
+   DiffAdd = {
+      fg = "NONE",
+      bg = git_colors.dark_green,
+   },
 
--- Disable some highlight in nvim tree if transparency enabled
+   DiffChange = {
+      fg = "NONE",
+      bg = git_colors.dark_green,
+   },
+
+   DiffChangeDelete = {
+      fg = "NONE",
+      bg = git_colors.dark_red,
+   },
+
+   DiffModified = {
+      fg = "NONE",
+      bg = git_colors.dark_green,
+   },
+
+   DiffDelete = {
+      fg = "NONE",
+      bg = git_colors.dark_red,
+   },
+
+   DiffText = {
+      fg = "NONE",
+      bg = git_colors.green,
+   },
+
+   DiffAdded = {
+      fg = "NONE",
+      bg = git_colors.dark_green,
+   },
+
+   DiffFile = {
+      fg = "NONE",
+      bg = black,
+   },
+
+   DiffNewFile = {
+      fg = "NONE",
+      bg = git_colors.dark_green,
+   },
+
+   DiffLine = {
+      fg = "NONE",
+      bg = black,
+   },
+
+   DiffRemoved = {
+      fg = "NONE",
+      bg = git_colors.dark_red,
+   },
+
+   -- gitsigns
+   GitSignsAdd = {
+      fg = green,
+      bg = "NONE",
+   },
+
+   GitSignsChange = {
+      fg = green,
+      bg = "NONE",
+   },
+
+   GitSignsDelete = {
+      fg = red,
+      bg = "NONE",
+   },
+
+   -- Indent blankline
+   IndentBlanklineChar = { fg = line },
+   IndentBlanklineSpaceChar = { fg = line },
+
+   -- Lsp Diagnostics
+   DiagnosticHint = { fg = purple },
+   DiagnosticError = { fg = red },
+   DiagnosticWarn = { fg = yellow },
+   DiagnosticInformation = { fg = green },
+
+   -- NvimTree
+   NvimTreeEmptyFolderName = { fg = folder_bg },
+   NvimTreeEndOfBuffer = { fg = darker_black },
+   NvimTreeFolderIcon = { fg = folder_bg },
+   NvimTreeFolderName = { fg = folder_bg },
+   NvimTreeGitDirty = { fg = red },
+   NvimTreeIndentMarker = { fg = one_bg2 },
+   NvimTreeNormal = { bg = darker_black },
+   NvimTreeNormalNC = { bg = darker_black },
+   NvimTreeOpenedFolderName = { fg = folder_bg },
+
+   NvimTreeWinSeparator = {
+      fg = darker_black,
+      bg = darker_black,
+   },
+
+   NvimTreeWindowPicker = {
+      fg = red,
+      bg = black2,
+   },
+
+   -- Telescope
+   TelescopeBorder = {
+      fg = darker_black,
+      bg = darker_black,
+   },
+
+   TelescopePromptBorder = {
+      fg = black2,
+      bg = black2,
+   },
+
+   TelescopePromptNormal = {
+      fg = white,
+      bg = black2,
+   },
+
+   TelescopePromptPrefix = {
+      fg = red,
+      bg = black2,
+   },
+
+   TelescopeNormal = { bg = darker_black },
+
+   TelescopePreviewTitle = {
+      fg = black,
+      bg = green,
+   },
+
+   TelescopePromptTitle = {
+      fg = black,
+      bg = red,
+   },
+
+   TelescopeResultsTitle = {
+      fg = darker_black,
+      bg = darker_black,
+   },
+
+   TelescopeSelection = { bg = black2 },
+
+   -- Octo
+   OctoEditable = { bg = darker_black },
+   OctoGreenFloat = { bg = darker_black },
+   OctoRedFloat = { bg = darker_black },
+   OctoPurpleFloat = { bg = darker_black },
+   OctoYellowFloat = { bg = darker_black },
+   OctoBlueFloat = { bg = darker_black },
+   OctoGreyFloat = { bg = darker_black },
+}
+
 if ui.transparency then
-   bg("NormalFloat", "NONE")
-   bg("NvimTreeNormal", "NONE")
-   bg("NvimTreeNormalNC", "NONE")
-   bg("NvimTreeStatusLineNC", "NONE")
-   fg_bg("NvimTreeWinSeparator", grey, "NONE")
+   local hl_groups = {
+      "NormalFloat",
+      "Normal",
+      "Folded",
+      "NvimTreeNormal",
+      "NvimTreeNormalNC",
+      "TelescopeNormal",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "TelescopeBorder",
+      "TelescopePromptBorder",
+      "TelescopePromptNormal",
+      "TelescopePromptPrefix",
+   }
 
-   -- telescope
-   bg("TelescopeBorder", "NONE")
-   bg("TelescopePrompt", "NONE")
-   bg("TelescopeResults", "NONE")
-   bg("TelescopePromptBorder", "NONE")
-   bg("TelescopePromptNormal", "NONE")
-   bg("TelescopeNormal", "NONE")
-   bg("TelescopePromptPrefix", "NONE")
-   fg("TelescopeBorder", one_bg)
-   fg_bg("TelescopeResultsTitle", black, blue)
+   for index, _ in ipairs(hl_groups) do
+      hl_cols[hl_groups[index]] = {
+         bg = "NONE",
+      }
+   end
+
+   hl_cols.NvimTreeWinSeparator = {
+      fg = grey,
+      bg = "NONE",
+   }
+
+   hl_cols.TelescopeResultsTitle = {
+      fg = black,
+      bg = blue,
+   }
+end
+
+local utils = require "core.utils"
+local user_highlights = utils.load_config().ui.hl_override
+
+-- override user highlights if there are any
+hl_cols = vim.tbl_deep_extend("force", hl_cols, user_highlights)
+
+for hl, col in pairs(hl_cols) do
+   vim.api.nvim_set_hl(0, hl, col)
 end

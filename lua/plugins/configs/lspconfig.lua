@@ -31,7 +31,7 @@ function M.on_attach(client, bufnr)
       })
    end
 
-   require("core.mappings").lspconfig(bufnr)
+   require("core.mappings").lspconfig()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
