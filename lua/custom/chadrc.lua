@@ -1,10 +1,13 @@
 local pluginConfs = require "custom.plugins.configs"
 local userPlugins = require "custom.plugins"
+local userHighlights = require "custom.highlights"
 
 local M = {}
 
 M.ui = {
    theme = "catppuccin",
+
+   hl_override = userHighlights,
 }
 
 M.mappings = {
