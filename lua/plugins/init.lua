@@ -209,6 +209,7 @@ local plugins = {
    },
 
    ["nvim-telescope/telescope.nvim"] = {
+      module = "telescope",
       cmd = "Telescope",
 
       setup = function()
