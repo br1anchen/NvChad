@@ -1,7 +1,8 @@
 local map = require("core.utils").map
 local M = {}
 
-function M.setup(attach, capabilities)
+function M.setup()
+   local lspconfig = require "plugins.configs.lspconfig"
    require("flutter-tools").setup {
       decorations = {
          statusline = {
@@ -31,8 +32,14 @@ function M.setup(attach, capabilities)
          open_cmd = "10sp", -- command to use to open the log buffer
       },
       lsp = {
-         on_attach = attach,
-         capabilities = capabilities,
+         on_attach = function(client, bufnr)
+            require("aerial").on_attach(client, bufnr)
+            lspconfig.on_attach(client, bufnr)
+         end,
+         capabilities = lspconfig.capabilities,
+         flags = {
+            debounce_text_changes = 150,
+         },
          settings = {
             showTodos = false,
          },

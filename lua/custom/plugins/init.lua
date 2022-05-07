@@ -90,17 +90,22 @@ return {
    ["tpope/vim-abolish"] = {},
 
    ["br1anchen/flutter-tools.nvim"] = {
+      after = "nvim-lspconfig",
       requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("custom.plugins.flutter-tools").setup()
+      end,
    },
 
    ["simrat39/rust-tools.nvim"] = {
       after = "nvim-lspconfig",
       requires = "nvim-lua/plenary.nvim",
+      config = function()
+         require("custom.plugins.rust-tools").setup()
+      end,
    },
 
-   ["nanotee/sqls.nvim"] = {
-      after = "nvim-lspconfig",
-   },
+   ["nanotee/sqls.nvim"] = {},
 
    -- {
    --    "Pocco81/DAPInstall.nvim",
