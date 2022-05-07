@@ -52,4 +52,22 @@ M.nvterm = {
    },
 }
 
+M.lsp_installer = {
+   ensure_installed = {
+      "rust_analyzer",
+      "dartls",
+      "dotls",
+      "html",
+      "jsonls",
+      "lemminx",
+      "rnix",
+      "sqls",
+      "sumneko_lua",
+      "taplo",
+      "tsserver",
+      "zk",
+   },
+   automatic_installation = false,
+}
+
 return M

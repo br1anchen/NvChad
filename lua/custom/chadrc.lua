@@ -36,6 +36,7 @@ M.plugins = {
       ["kyazdani42/nvim-tree.lua"] = pluginConfs.nvimtree,
       ["NvChad/nvim-colorizer.lua"] = pluginConfs.colorizer,
       ["NvChad/nvterm"] = pluginConfs.nvterm,
+      ["williamboman/nvim-lsp-installer"] = pluginConfs.lsp_installer,
    },
 }
 
