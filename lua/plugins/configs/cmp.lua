@@ -6,7 +6,34 @@ end
 
 vim.opt.completeopt = "menuone,noselect"
 
+local function border(hl_name)
+   return {
+      { "╭", hl_name },
+      { "─", hl_name },
+      { "╮", hl_name },
+      { "│", hl_name },
+      { "╯", hl_name },
+      { "─", hl_name },
+      { "╰", hl_name },
+      { "│", hl_name },
+   }
+end
+
+local cmp_window = require "cmp.utils.window"
+
+function cmp_window:has_scrollbar()
+   return false
+end
+
 local options = {
+   window = {
+      completion = {
+         border = border "CmpBorder",
+      },
+      documentation = {
+         border = border "CmpDocBorder",
+      },
+   },
    snippet = {
       expand = function(args)
          require("luasnip").lsp_expand(args.body)
@@ -20,9 +47,10 @@ local options = {
          vim_item.menu = ({
             nvim_lsp = "[LSP]",
             cmp_tabnine = "[TN]",
-            copilot = "[COPILOT]",
+            luasnip = "[SNIP]",
             nvim_lua = "[Lua]",
             buffer = "[BUF]",
+            path = "[PATH]",
          })[entry.source.name]
 
          return vim_item
@@ -66,7 +94,6 @@ local options = {
    },
    sources = {
       { name = "cmp_tabnine" },
-      { name = "copilot" },
       { name = "luasnip" },
       { name = "nvim_lsp" },
       { name = "buffer" },
