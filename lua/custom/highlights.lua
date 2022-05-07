@@ -1,4 +1,9 @@
-local colors = require("base16").get_colors "base_30"
+local theme = {
+   black = "#1E1D2D",
+   darker_black = "#191828",
+   red = "#F28FAD",
+   green = "#ABE9B3",
+}
 
 local git_colors = {
    red = "#794756",
@@ -46,7 +51,7 @@ return {
 
    DiffFile = {
       fg = "NONE",
-      bg = colors.black,
+      bg = theme.black,
    },
 
    DiffNewFile = {
@@ -56,7 +61,7 @@ return {
 
    DiffLine = {
       fg = "NONE",
-      bg = colors.black,
+      bg = theme.black,
    },
 
    DiffRemoved = {
@@ -66,26 +71,26 @@ return {
 
    -- gitsigns
    GitSignsAdd = {
-      fg = colors.green,
+      fg = theme.green,
       bg = "NONE",
    },
 
    GitSignsChange = {
-      fg = colors.green,
+      fg = theme.green,
       bg = "NONE",
    },
 
    GitSignsDelete = {
-      fg = colors.red,
+      fg = theme.red,
       bg = "NONE",
    },
 
    -- Octo
-   OctoEditable = { bg = colors.darker_black },
-   OctoGreenFloat = { bg = colors.darker_black },
-   OctoRedFloat = { bg = colors.darker_black },
-   OctoPurpleFloat = { bg = colors.darker_black },
-   OctoYellowFloat = { bg = colors.darker_black },
-   OctoBlueFloat = { bg = colors.darker_black },
-   OctoGreyFloat = { bg = colors.darker_black },
+   OctoEditable = { bg = theme.darker_black },
+   OctoGreenFloat = { bg = theme.darker_black },
+   OctoRedFloat = { bg = theme.darker_black },
+   OctoPurpleFloat = { bg = theme.darker_black },
+   OctoYellowFloat = { bg = theme.darker_black },
+   OctoBlueFloat = { bg = theme.darker_black },
+   OctoGreyFloat = { bg = theme.darker_black },
 }
