@@ -191,16 +191,20 @@ M.nvimtree = function()
 end
 
 M.telescope = function()
-   map("n", "<leader>fb", "<cmd> :Telescope buffers <CR>")
-   map("n", "<leader>ff", "<cmd> :Telescope find_files <CR>")
-   map("n", "<leader>fa", "<cmd> :Telescope find_files follow=true no_ignore=true hidden=true <CR>")
-   map("n", "<leader>cm", "<cmd> :Telescope git_commits <CR>")
-   map("n", "<leader>gt", "<cmd> :Telescope git_status <CR>")
-   map("n", "<leader>fh", "<cmd> :Telescope help_tags <CR>")
-   map("n", "<leader>fw", "<cmd> :Telescope live_grep <CR>")
-   map("n", "<leader>fo", "<cmd> :Telescope oldfiles <CR>")
-   map("n", "<leader>fv", "<cmd> :Telescope themes <CR>")
-   map("n", "<leader>fk", "<cmd> :Telescope keymaps <CR>")
+   map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
+   map("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>")
+   map(
+      "n",
+      "<leader>fa",
+      "<cmd>lua require('telescope.builtin').find_files({follow=true, no_ignore=true, hidden=true})<cr>"
+   )
+   map("n", "<leader>cm", "<cmd>lua require('telescope.builtin').git_commits()<cr>")
+   map("n", "<leader>gt", "<cmd>lua require('telescope.builtin').git_status()<cr>")
+   map("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+   map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+   map("n", "<leader>fo", "<cmd>lua require('telescope.builtin').oldfiles()<cr>")
+   map("n", "<leader>fv", "<cmd>lua require('telescope').extensions.themes.themes()<cr>")
+   map("n", "<leader>fk", "<cmd>lua require('telescope.builtin').keymaps()<cr>")
 
    -- pick a hidden term
    map("n", "<leader>T", "<cmd>lua require('telescope').extensions.terms.terms()<cr>")
