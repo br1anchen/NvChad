@@ -13,7 +13,7 @@ local lsp_formatting = function(bufnr)
       filter = function(clients)
          -- filter out clients that you don't want to use
          return vim.tbl_filter(function(client)
-            return client.name == "null-ls"
+            return client.name == "null-ls" or client.name == "prismals"
          end, clients)
       end,
       bufnr = bufnr,

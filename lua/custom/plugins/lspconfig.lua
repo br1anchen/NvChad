@@ -2,6 +2,7 @@ local M = {}
 
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
+   local installed_lsp = require("custom.plugins.configs").lsp_installer.ensure_installed
 
    local custom_on_attach = function(client, bufnr)
       require("aerial").on_attach(client, bufnr)
@@ -11,6 +12,22 @@ M.setup_lsp = function(attach, capabilities)
    local flags = {
       debounce_text_changes = 150,
    }
+
+   for _, lsp in ipairs(installed_lsp) do
+      if
+         lsp ~= "sumneko_lua"
+         and lsp ~= "stylelint_lsp"
+         and lsp ~= "sqls"
+         and lsp ~= "dartls"
+         and lsp ~= "rust_analyzer"
+      then
+         lspconfig[lsp].setup {
+            on_attach = custom_on_attach,
+            capabilities = capabilities,
+            flags = flags,
+         }
+      end
+   end
 
    lspconfig.sumneko_lua.setup {
       on_attach = custom_on_attach,
@@ -26,24 +43,6 @@ M.setup_lsp = function(attach, capabilities)
       },
    }
 
-   lspconfig.zk.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.dotls.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.html.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
    lspconfig.stylelint_lsp.setup {
       on_attach = custom_on_attach,
       capabilities = capabilities,
@@ -56,36 +55,6 @@ M.setup_lsp = function(attach, capabilities)
          require("sqls").on_attach(client, bufnr)
          custom_on_attach(client, bufnr)
       end,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.rnix.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.jsonls.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.lemminx.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.taplo.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-   }
-
-   lspconfig.tsserver.setup {
-      on_attach = custom_on_attach,
       capabilities = capabilities,
       flags = flags,
    }
