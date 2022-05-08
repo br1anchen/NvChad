@@ -54,8 +54,8 @@ M.nvterm = {
 
 M.lsp_installer = {
    ensure_installed = {
+      "bashls",
       "dartls",
-      "dotls",
       "html",
       "jsonls",
       "lemminx",
