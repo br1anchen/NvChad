@@ -275,4 +275,26 @@ return {
          require("telescope").load_extension "emoji"
       end,
    },
+
+   ["ldelossa/litee.nvim"] = {
+      config = function()
+         require("litee.lib").setup {
+            tree = {
+               icon_set = "nerd",
+            },
+            panel = {
+               orientation = "right",
+               panel_size = 30,
+            },
+         }
+      end,
+   },
+   ["ldelossa/gh.nvim"] = {
+      requires = "ldelossa/litee.nvim",
+      config = function()
+         require("litee.gh").setup {
+            icon_set = "nerd",
+         }
+      end,
+   },
 }
