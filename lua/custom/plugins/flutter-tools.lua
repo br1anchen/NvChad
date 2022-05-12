@@ -22,10 +22,6 @@ function M.setup()
       debugger = { -- integrate with nvim dap + install dart code debugger
          enabled = true,
          run_via_dap = false, -- use dap instead of a plenary job to run flutter apps
-         -- register_configurations = function()
-         --    require("dap").configurations.dart = {}
-         --    require("dap.ext.vscode").load_launchjs()
-         -- end,
       },
       dev_log = {
          enabled = true,

@@ -89,7 +89,7 @@ return {
 
    ["tpope/vim-abolish"] = {},
 
-   ["br1anchen/flutter-tools.nvim"] = {
+   ["akinsho/flutter-tools.nvim"] = {
       after = "nvim-lspconfig",
       requires = "nvim-lua/plenary.nvim",
       config = function()
