@@ -148,7 +148,7 @@ M.setup = function()
       },
    }
 
-   local map = require("core.utils").map
+   local map = nvchad.map
    local opts = { noremap = true, silent = true, nowait = false }
    map("n", "<leader>od", "<cmd>Octo review discard<cr>", opts)
    map("n", "<leader>om", "<cmd>Octo pr merge rebase<cr>", opts)

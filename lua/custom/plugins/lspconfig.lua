@@ -29,20 +29,6 @@ M.setup_lsp = function(attach, capabilities)
       end
    end
 
-   lspconfig.sumneko_lua.setup {
-      on_attach = custom_on_attach,
-      capabilities = capabilities,
-      flags = flags,
-      settings = {
-         Lua = {
-            diagnostics = {
-               -- Get the language server to recognize the `vim` global
-               globals = { "vim", "require" },
-            },
-         },
-      },
-   }
-
    lspconfig.stylelint_lsp.setup {
       on_attach = custom_on_attach,
       capabilities = capabilities,

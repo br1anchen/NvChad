@@ -4,7 +4,7 @@ return {
          -- load default mappings first
          require("core.mappings").telescope()
          -- then load your mappings
-         local map = require("core.utils").map
+         local map = nvchad.map
          map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_commits()<cr>")
          map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').git_status()<cr>")
          map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
@@ -18,7 +18,7 @@ return {
    ["ellisonleao/glow.nvim"] = {
       cmd = "Glow",
       config = function()
-         local map = require("core.utils").map
+         local map = nvchad.map
          map("n", "<leader>p", ":Glow<CR>")
       end,
    },
@@ -148,7 +148,7 @@ return {
 
       -- lazy loading
       setup = function()
-         require("core.utils").packer_lazy_load "neoscroll.nvim"
+         nvchad.packer_lazy_load "neoscroll.nvim"
       end,
    },
 
@@ -171,7 +171,7 @@ return {
       setup = function()
          vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.vscode']"
 
-         local map = require("core.utils").map
+         local map = nvchad.map
          map("n", "<leader>ate", ":AsyncTaskEdit<CR>")
          map("n", "<leader>atl", ":AsyncTaskList<CR>")
          map("n", "<leader>atp", ":AsyncTaskLast<CR>")
@@ -181,7 +181,7 @@ return {
    ["GustavoKatel/telescope-asynctasks.nvim"] = {
       requires = "nvim-telescope/telescope.nvim",
       setup = function()
-         local map = require("core.utils").map
+         local map = nvchad.map
          map("n", "<leader>fat", "<cmd>lua require 'telescope'.extensions.asynctasks.all()<cr>")
       end,
    },
@@ -197,7 +197,7 @@ return {
    ["natecraddock/workspaces.nvim"] = {
       config = function()
          require("workspaces").setup()
-         local map = require("core.utils").map
+         local map = nvchad.map
          map("n", "<leader>fws", "<cmd>lua require 'telescope'.extensions.workspaces.workspaces()<cr>")
       end,
    },
@@ -234,7 +234,7 @@ return {
    --    config = function()
    --       vim.cmd "let g:minimap_width = 10"
    --
-   --       local map = require("core.utils").map
+   --       local map = nvchad.map
    --       map("n", "<leader>mt", ":MinimapToggle<CR>")
    --       map("n", "<leader>mr", ":MinimapRefresh<CR>")
    --       map("n", "<leader>mR", ":MinimapRescan<CR>")
@@ -242,7 +242,7 @@ return {
    -- },
    ["voldikss/vim-floaterm"] = {
       config = function()
-         local map = require("core.utils").map
+         local map = nvchad.map
          map("n", "<leader>gl", "<cmd>FloatermNew! --name=lg lazygit<cr>")
          map("n", "<leader>gq", "<cmd>FloatermKill lg<cr>")
          map("t", "<leader>gq", "<c-\\><c-n>:FloatermKill lg<cr>")

@@ -1,5 +1,5 @@
 -- MAPPINGS
-local map = require("core.utils").map
+local map = nvchad.map
 
 map("n", "<leader>bd", "<cmd>bd!<cr>")
 map("n", "<leader>qq", "<cmd>%bdelete! | wqa<cr>")

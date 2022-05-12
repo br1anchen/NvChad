@@ -1,5 +1,5 @@
 local todo = require "todo-comments"
-local map = require("core.utils").map
+local map = nvchad.map
 local M = {}
 
 function M.setup()

@@ -48,7 +48,7 @@ end
 function M.setup()
    require("lspsaga").init_lsp_saga()
 
-   local map = require("core.utils").map
+   local map = nvchad.map
 
    map("n", "<leader>lf", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>")
    map("n", "<leader>la", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>")
