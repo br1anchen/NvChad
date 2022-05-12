@@ -37,6 +37,7 @@ M.plugins = {
       ["NvChad/nvim-colorizer.lua"] = pluginConfs.colorizer,
       ["NvChad/nvterm"] = pluginConfs.nvterm,
       ["williamboman/nvim-lsp-installer"] = pluginConfs.lsp_installer,
+      ["nvim-telescope/telescope.nvim"] = pluginConfs.telescope,
    },
 }
 

@@ -72,4 +72,13 @@ M.lsp_installer = {
    automatic_installation = false,
 }
 
+M.telescope = {
+   extensions = {
+      "themes",
+      "terms",
+      "flutter",
+      "workspaces",
+   },
+}
+
 return M
