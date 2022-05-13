@@ -145,7 +145,7 @@ M.lspconfig = {
 
       ["gr"] = {
          function()
-            require("telescope.builtin").lsp_references()
+            vim.lsp.buf.references()
          end,
          "   lsp references",
       },
@@ -180,14 +180,7 @@ M.lspconfig = {
 
       ["<leader>fm"] = {
          function()
-            vim.lsp.buf.format {
-               filter = function(clients)
-                  -- filter out clients that you don't want to use
-                  return vim.tbl_filter(function(client)
-                     return client.name == "null-ls"
-                  end, clients)
-               end,
-            }
+            vim.lsp.buf.formatting()
          end,
          "   lsp formatting",
       },
@@ -229,26 +222,23 @@ M.nvimtree = {
 M.telescope = {
    n = {
       -- find
-      ["<leader>ff"] = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "  find files" },
-      ["<leader>fa"] = {
-         "<cmd>lua require('telescope.builtin').find_files({follow=true, no_ignore=true, hidden=true})<cr>",
-         "  find all",
-      },
-      ["<leader>fw"] = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "   live grep" },
-      ["<leader>fb"] = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "  find buffers" },
-      ["<leader>fh"] = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "  help page" },
-      ["<leader>fo"] = { "<cmd>lua require('telescope.builtin').oldfiles()<cr>", "   find oldfiles" },
-      ["<leader>fk"] = { "<cmd>lua require('telescope.builtin').keymaps()<cr>", "   show keys" },
+      ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "  find files" },
+      ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
+      ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "   live grep" },
+      ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
+      ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
+      ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
+      ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
       -- git
-      ["<leader>cm"] = { "<cmd>lua require('telescope.builtin').git_commits()<cr>", "   git commits" },
-      ["<leader>gt"] = { "<cmd>lua require('telescope.builtin').git_status()<cr>", "  git status" },
+      ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
+      ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "  git status" },
 
       -- pick a hidden term
-      ["<leader>T"] = { "<cmd>lua require('telescope').extensions.terms.terms()<cr>", "   pick hidden term" },
+      ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "   pick hidden term" },
 
       -- theme switcher
-      ["<leader>fv"] = { "<cmd>lua require('telescope').extensions.themes.themes()<cr>", "   nvchad themes" },
+      ["<leader>th"] = { "<cmd> Telescope themes <CR>", "   nvchad themes" },
    },
 }
 

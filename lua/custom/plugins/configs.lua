@@ -37,21 +37,6 @@ M.colorizer = {
    },
 }
 
-M.nvterm = {
-   mappings = {
-      toggle = {
-         float = "<leader>tw",
-         horizontal = "<leader>th",
-         vertical = "<leader>tv",
-      },
-      new = {
-         float = "<leader>tW",
-         horizontal = "<leader>tH",
-         vertical = "<leader>tV",
-      },
-   },
-}
-
 M.lsp_installer = {
    ensure_installed = {
       "bashls",
@@ -78,6 +63,25 @@ M.telescope = {
       "terms",
       "flutter",
       "workspaces",
+      "dap",
+      "neoclip",
+      "file_browser",
+   },
+}
+
+M.whichkey = {
+   groups = {
+      { ["<leader>v"] = { name = "+Window" } },
+      { ["<leader>l"] = { name = "+LSP" } },
+      { ["<leader>f"] = { name = "+Telescope" } },
+      { ["<leader>a"] = { name = "+Asynctasks" } },
+      { ["<leader>g"] = { name = "+Git" } },
+      { ["<leader>o"] = { name = "+Octo review" } },
+      { ["<leader>d"] = { name = "+Diffview" } },
+      { ["<leader>z"] = { name = "+Debugger" } },
+      { ["<leader>x"] = { name = "+Trouble" } },
+      { ["<leader>s"] = { name = "+Search" } },
+      { ["<leader>t"] = { name = "+Terminal" } },
    },
 }
 

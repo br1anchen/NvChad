@@ -1,10 +1,6 @@
-local map = nvchad.map
-local telescope = require "telescope"
 local M = {}
 
 function M.setup()
-   telescope.load_extension "neoclip"
-
    require("neoclip").setup {
       history = 1000,
       enable_persistent_history = true,
@@ -43,8 +39,6 @@ function M.setup()
          },
       },
    }
-
-   map("n", "<leader>fcp", "<cmd>lua require 'telescope'.extensions.neoclip.neoclip()<cr>")
 end
 
 return M

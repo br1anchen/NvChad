@@ -1,4 +1,3 @@
-local map = nvchad.map
 local M = {}
 
 function M.setup()
@@ -41,9 +40,6 @@ function M.setup()
          },
       },
    }
-
-   local opts = { noremap = true, silent = true, nowait = false }
-   map("n", "<leader>dc", "<cmd>lua require 'telescope'.extensions.flutter.commands()<cr>", opts)
 end
 
 return M

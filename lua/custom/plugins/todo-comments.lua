@@ -1,5 +1,4 @@
 local todo = require "todo-comments"
-local map = nvchad.map
 local M = {}
 
 function M.setup()
@@ -32,10 +31,6 @@ function M.setup()
          -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
       },
    }
-
-   local opts = { noremap = true, silent = true, nowait = false }
-   map("n", "<leader>ftd", ":TodoTelescope<CR>", opts)
-   map("n", "<leader>xt", ":TodoTrouble<CR>", opts)
 end
 
 return M

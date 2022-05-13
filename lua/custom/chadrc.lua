@@ -10,11 +10,7 @@ M.ui = {
    hl_override = userHighlights,
 }
 
-M.mappings = {
-   misc = function()
-      require "custom.mappings"
-   end,
-}
+M.mappings = require "custom.mappings"
 
 M.plugins = {
    user = userPlugins,
@@ -38,6 +34,7 @@ M.plugins = {
       ["NvChad/nvterm"] = pluginConfs.nvterm,
       ["williamboman/nvim-lsp-installer"] = pluginConfs.lsp_installer,
       ["nvim-telescope/telescope.nvim"] = pluginConfs.telescope,
+      ["folke/which-key.nvim"] = pluginConfs.whichkey,
    },
 }
 

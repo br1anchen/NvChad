@@ -147,16 +147,6 @@ M.setup = function()
          },
       },
    }
-
-   local map = nvchad.map
-   local opts = { noremap = true, silent = true, nowait = false }
-   map("n", "<leader>od", "<cmd>Octo review discard<cr>", opts)
-   map("n", "<leader>om", "<cmd>Octo pr merge rebase<cr>", opts)
-   map("n", "<leader>oi", "<cmd>Octo review start<cr>", opts)
-   map("n", "<leader>os", "<cmd>Octo review submit<cr>", opts)
-   map("n", "<leader>oa", "<cmd>Octo review resume<cr>", opts)
-   map("n", "<leader>ox", "<cmd>Octo review close<cr>", opts)
-   map("n", "<leader>op", "<cmd>Octo pr list<cr>", opts)
 end
 
 return M

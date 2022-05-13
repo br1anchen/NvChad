@@ -8,11 +8,6 @@ local M = {}
 
 M.setup = function()
    diffview.setup {}
-
-   local map = nvchad.map
-   local opts = { noremap = true, silent = true, nowait = false }
-   map("n", "<leader>do", "<cmd>DiffviewOpen origin/main...HEAD<cr>", opts)
-   map("n", "<leader>ds", "<cmd>DiffviewOpen origin/master...HEAD<cr>", opts)
 end
 
 return M

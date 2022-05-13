@@ -1,26 +1,7 @@
 return {
-   ["nvim-telescope/telescope.nvim"] = {
-      setup = function()
-         -- load default mappings first
-         require("core.mappings").telescope()
-         -- then load your mappings
-         local map = nvchad.map
-         map("n", "<leader>fc", "<cmd>lua require('telescope.builtin').git_commits()<cr>")
-         map("n", "<leader>fg", "<cmd>lua require('telescope.builtin').git_status()<cr>")
-         map("n", "<leader>ft", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-         map("n", "<leader>fv", "<cmd>lua require('telescope').extensions.themes.themes()<cr>")
-         map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
-         map("n", "<leader>fl", "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>")
-         map("n", "<leader>fj", "<cmd>lua require('telescope').extensions.emoji.emoji()<cr>")
-      end,
-   },
    ["elkowar/yuck.vim"] = { ft = "yuck" },
    ["ellisonleao/glow.nvim"] = {
       cmd = "Glow",
-      config = function()
-         local map = nvchad.map
-         map("n", "<leader>p", ":Glow<CR>")
-      end,
    },
 
    ["jose-elias-alvarez/null-ls.nvim"] = {
@@ -45,17 +26,11 @@ return {
    ["nvim-telescope/telescope-dap.nvim"] = {
       after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
-      config = function()
-         require("custom.plugins.telescope-dap").setup()
-      end,
    },
 
    ["nvim-telescope/telescope-file-browser.nvim"] = {
       after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
-      config = function()
-         require("custom.plugins.telescope-file-browser").setup()
-      end,
    },
 
    -- use {
@@ -114,11 +89,7 @@ return {
    --    end,
    -- },
 
-   ["mfussenegger/nvim-dap"] = {
-      config = function()
-         require("custom.plugins.nvim-dap").setup()
-      end,
-   },
+   ["mfussenegger/nvim-dap"] = {},
    ["rcarriga/nvim-dap-ui"] = {
       requires = { "mfussenegger/nvim-dap" },
       config = function()
@@ -170,20 +141,10 @@ return {
       requires = "skywind3000/asyncrun.vim",
       setup = function()
          vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.vscode']"
-
-         local map = nvchad.map
-         map("n", "<leader>ate", ":AsyncTaskEdit<CR>")
-         map("n", "<leader>atl", ":AsyncTaskList<CR>")
-         map("n", "<leader>atp", ":AsyncTaskLast<CR>")
-         map("n", "<leader>atk", ":AsyncStop<CR>")
       end,
    },
    ["GustavoKatel/telescope-asynctasks.nvim"] = {
       requires = "nvim-telescope/telescope.nvim",
-      setup = function()
-         local map = nvchad.map
-         map("n", "<leader>fat", "<cmd>lua require 'telescope'.extensions.asynctasks.all()<cr>")
-      end,
    },
 
    ["ntpeters/vim-better-whitespace"] = {
@@ -197,8 +158,6 @@ return {
    ["natecraddock/workspaces.nvim"] = {
       config = function()
          require("workspaces").setup()
-         local map = nvchad.map
-         map("n", "<leader>fws", "<cmd>lua require 'telescope'.extensions.workspaces.workspaces()<cr>")
       end,
    },
 
@@ -229,27 +188,8 @@ return {
          require("custom.plugins.nvim-neoclip").setup()
       end,
    },
-   -- {
-   --    "wfxr/minimap.vim",
-   --    config = function()
-   --       vim.cmd "let g:minimap_width = 10"
-   --
-   --       local map = nvchad.map
-   --       map("n", "<leader>mt", ":MinimapToggle<CR>")
-   --       map("n", "<leader>mr", ":MinimapRefresh<CR>")
-   --       map("n", "<leader>mR", ":MinimapRescan<CR>")
-   --    end,
-   -- },
-   ["voldikss/vim-floaterm"] = {
-      config = function()
-         local map = nvchad.map
-         map("n", "<leader>gl", "<cmd>FloatermNew! --name=lg lazygit<cr>")
-         map("n", "<leader>gq", "<cmd>FloatermKill lg<cr>")
-         map("t", "<leader>gq", "<c-\\><c-n>:FloatermKill lg<cr>")
-         map("n", "<leader>gt", "<cmd>FloatermToggle lg<cr>")
-         map("t", "<leader>gt", "<c-\\><c-n>:FloatermToggle lg<cr>")
-      end,
-   },
+
+   ["voldikss/vim-floaterm"] = {},
 
    ["pwntester/octo.nvim"] = {
       requires = {
