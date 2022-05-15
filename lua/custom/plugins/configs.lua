@@ -83,6 +83,12 @@ M.whichkey = {
       { ["<leader>s"] = { name = "+Search" } },
       { ["<leader>t"] = { name = "+Terminal" } },
    },
+   triggers_blacklist = {
+      -- list of mode / prefixes that should never be hooked by WhichKey
+      i = { "j", "k" },
+      v = { "j", "k" },
+      t = { "j", "k", "<space>" },
+   },
 }
 
 return M

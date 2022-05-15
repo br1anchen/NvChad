@@ -156,16 +156,19 @@ M.asynctasks = {
    },
 }
 
+-- local function termcodes(str)
+--    return vim.api.nvim_replace_termcodes(str, true, true, true)
+-- end
 M.floatterm = {
    n = {
       ["<leader>gl"] = { "<cmd>FloatermNew! --name=lg lazygit<cr>", "   open lazygit in float term" },
       ["<leader>gq"] = { "<cmd>FloatermKill lg<cr>", "   close lazygit in float term" },
       ["<leader>gt"] = { "<cmd>FloatermToggle lg<cr>", "   toggle float term" },
    },
-   t = {
-      ["<leader>gq"] = { "<c-\\><c-n>:FloatermKill lg<cr>", "   close lazygit in float term" },
-      ["<leader>gt"] = { "<c-\\><c-n>:FloatermToggle lg<cr>", "   toggle float term" },
-   },
+   -- t = {
+   --    ["<leader>gq"] = { termcodes "<c-\\><c-N>:FloatermKill lg<cr>", "   close lazygit in float term" },
+   --    ["<leader>gt"] = { termcodes "<c-\\><c-N>:FloatermToggle lg<cr>", "   toggle float term" },
+   -- },
 }
 
 M.octo = {
