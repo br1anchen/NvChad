@@ -8,6 +8,16 @@ local M = {}
 
 require("plugins.configs.others").lsp_handlers()
 
+-- Borders for LspInfo winodw
+local win = require "lspconfig.ui.windows"
+local _default_opts = win.default_opts
+
+win.default_opts = function(options)
+   local opts = _default_opts(options)
+   opts.border = "double"
+   return opts
+end
+
 local lsp_formatting = function(bufnr)
    vim.lsp.buf.format {
       filter = function(clients)
@@ -32,8 +42,6 @@ function M.on_attach(client, bufnr)
          end,
       })
    end
-
-   require("core.mappings").lspconfig()
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
