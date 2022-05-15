@@ -1,5 +1,9 @@
 -- n, v, i are mode names
 
+local function termcodes(str)
+   return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 local M = {}
 
 M.general = {
@@ -46,6 +50,10 @@ M.general = {
          "   toggle theme",
       },
    },
+
+   t = {
+      ["jk"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+   },
 }
 
 M.bufferline = {
@@ -72,12 +80,18 @@ M.comment = {
 
    -- toggle comment in both modes
    n = {
-      ["<leader>/"] = { "<cmd> lua require('Comment.api').toggle_current_linewise()<CR>", "蘒  toggle comment" },
+      ["<leader>/"] = {
+         function()
+            require("Comment.api").toggle_current_linewise()
+         end,
+
+         "蘒  toggle comment",
+      },
    },
 
    v = {
       ["<leader>/"] = {
-         "<cmd> lua require('Comment.api').toggle_current_linewise_op(vim.fn.visualmode())<CR>",
+         "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
          "蘒  toggle comment",
       },
    },
@@ -243,9 +257,32 @@ M.telescope = {
 }
 
 M.nvterm = {
+   t = {
+      -- toggle in terminal mode
+      ["<A-i>"] = {
+         function()
+            require("nvterm.terminal").toggle "float"
+         end,
+         "   toggle floating term",
+      },
+
+      ["<A-h>"] = {
+         function()
+            require("nvterm.terminal").toggle "horizontal"
+         end,
+         "   toggle horizontal term",
+      },
+
+      ["<A-v>"] = {
+         function()
+            require("nvterm.terminal").toggle "vertical"
+         end,
+         "   toggle vertical term",
+      },
+   },
 
    n = {
-      -- toggle
+      -- toggle in normal mode
       ["<A-i>"] = {
          function()
             require("nvterm.terminal").toggle "float"
