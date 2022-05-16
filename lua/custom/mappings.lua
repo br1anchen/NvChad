@@ -110,7 +110,7 @@ M.telescope = {
       -- theme switcher
       ["<leader>fv"] = { "<cmd>lua require('telescope').extensions.themes.themes()<cr>", "   nvchad themes" },
 
-      ["<leader>fj"] = { "<cmd>lua require('telescope'.extensions.emoji.emoji(<cr>", "   find emoji" },
+      ["<leader>fj"] = { "<cmd>lua require('telescope'.extensions.emoji.emoji()<cr>", "   find emoji" },
 
       ["<leader>fat"] = { "<cmd>lua require 'telescope'.extensions.asynctasks.all(<cr>", "   find async task" },
 
