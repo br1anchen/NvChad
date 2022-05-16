@@ -250,4 +250,29 @@ M.nvterm = {
    },
 }
 
+M.iron = {
+   n = {
+      ["<leader>rl"] = { "<Plug>(iron-send-line)", "   send line to repl" },
+   },
+   v = {
+      ["<leader>rp"] = { "<Plug>(iron-visual-send)", "   send script to repl" },
+   },
+}
+
+M.ipy = {
+   n = {
+      ["<leader>rqt"] = { ":RunQtConsole<CR>", "   run qtconsole" },
+      ["<leader>rk"] = { ":IPython --existing --no-window<CR>", "   connect opened ipython kernel" },
+      ["<leader>rr"] = { "<Plug>(IPy-Run)", "   run ipy" },
+      ["<leader>rc"] = { "<Plug>(IPy-RunCell)", "   run ipy cell" },
+   },
+}
+
+M.jupyter_ascending = {
+   n = {
+      ["<leader>rx"] = { "<Plug>JupyterExecute", "   execute single jupyter cell" },
+      ["<leader>ra"] = { "<Plug>JupyterExecuteAll", "   execute all jupyter cells" },
+   },
+}
+
 return M

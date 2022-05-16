@@ -134,13 +134,13 @@ return {
 
    ["skywind3000/asyncrun.vim"] = {
       setup = function()
-         vim.cmd "let g:asyncrun_open = 6"
+         vim.g.asyncrun_open = 6
       end,
    },
    ["skywind3000/asynctasks.vim"] = {
       requires = "skywind3000/asyncrun.vim",
       setup = function()
-         vim.cmd "let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg', '.vscode']"
+         vim.g.asyncrun_rootmarks = { ".git", ".svn", ".root", ".project", ".hg", ".vscode" }
       end,
    },
    ["GustavoKatel/telescope-asynctasks.nvim"] = {
@@ -149,9 +149,9 @@ return {
 
    ["ntpeters/vim-better-whitespace"] = {
       config = function()
-         vim.cmd "let g:better_whitespace_enabled=1"
-         vim.cmd "let g:strip_whitespace_on_save=1"
-         vim.cmd "let g:strip_whitespace_confirm=0"
+         vim.g.better_whitespace_enabled = 1
+         vim.g.strip_whitespace_on_save = 1
+         vim.g.strip_whitespace_confirm = 0
       end,
    },
 
@@ -222,6 +222,29 @@ return {
       requires = "ldelossa/litee.nvim",
       config = function()
          require("custom.plugins.gh").setup()
+      end,
+   },
+
+   ["hkupty/iron.nvim"] = {
+      config = function()
+         require("custom.plugins.iron").setup()
+      end,
+   },
+
+   ["untitled-ai/jupyter_ascending.vim"] = {},
+   ["bfredl/nvim-ipy"] = {
+      config = function()
+         vim.g.nvim_ipy_perform_mappings = 0
+         vim.g.ipy_celldef = "# %%"
+      end,
+   },
+   ["kana/vim-textobj-line"] = {},
+   ["kana/vim-textobj-user"] = {},
+   ["GCBallesteros/vim-textobj-hydrogen"] = {},
+   ["GCBallesteros/jupytext.vim"] = {
+      setup = function()
+         vim.g.jupytext_fmt = "py"
+         vim.g.jupytext_style = "hydrogen"
       end,
    },
 }
