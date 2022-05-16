@@ -66,6 +66,7 @@ M.telescope = {
       "dap",
       "neoclip",
       "file_browser",
+      "emoji",
    },
 }
 
