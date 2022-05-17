@@ -275,4 +275,20 @@ M.jupyter_ascending = {
    },
 }
 
+M.groups = {
+   n = {
+      ["<leader>v"] = { name = "+Window" },
+      ["<leader>l"] = { name = "+LSP" },
+      ["<leader>f"] = { name = "+Telescope" },
+      ["<leader>a"] = { name = "+Asynctasks" },
+      ["<leader>g"] = { name = "+Git" },
+      ["<leader>o"] = { name = "+Octo review" },
+      ["<leader>d"] = { name = "+Diffview" },
+      ["<leader>z"] = { name = "+Debugger" },
+      ["<leader>x"] = { name = "+Trouble" },
+      ["<leader>s"] = { name = "+Search" },
+      ["<leader>t"] = { name = "+Terminal" },
+   },
+}
+
 return M

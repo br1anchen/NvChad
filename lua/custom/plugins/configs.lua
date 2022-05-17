@@ -71,19 +71,6 @@ M.telescope = {
 }
 
 M.whichkey = {
-   groups = {
-      { ["<leader>v"] = { name = "+Window" } },
-      { ["<leader>l"] = { name = "+LSP" } },
-      { ["<leader>f"] = { name = "+Telescope" } },
-      { ["<leader>a"] = { name = "+Asynctasks" } },
-      { ["<leader>g"] = { name = "+Git" } },
-      { ["<leader>o"] = { name = "+Octo review" } },
-      { ["<leader>d"] = { name = "+Diffview" } },
-      { ["<leader>z"] = { name = "+Debugger" } },
-      { ["<leader>x"] = { name = "+Trouble" } },
-      { ["<leader>s"] = { name = "+Search" } },
-      { ["<leader>t"] = { name = "+Terminal" } },
-   },
    triggers_blacklist = {
       -- list of mode / prefixes that should never be hooked by WhichKey
       i = { "j", "k" },

@@ -79,10 +79,4 @@ register_mappings(mapping_groups, options)
 
 options = nvchad.load_override(options, "folke/which-key.nvim")
 
-local groups = options.groups
-
-for _, g in pairs(groups) do
-   wk.register(g)
-end
-
 wk.setup(options)
