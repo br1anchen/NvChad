@@ -110,19 +110,19 @@ M.telescope = {
       -- theme switcher
       ["<leader>fv"] = { "<cmd>lua require('telescope').extensions.themes.themes()<cr>", "   nvchad themes" },
 
-      ["<leader>fj"] = { "<cmd>lua require('telescope'.extensions.emoji.emoji()<cr>", "   find emoji" },
+      ["<leader>fj"] = { "<cmd>lua require('telescope').extensions.emoji.emoji()<cr>", "   find emoji" },
 
-      ["<leader>fat"] = { "<cmd>lua require 'telescope'.extensions.asynctasks.all(<cr>", "   find async task" },
+      ["<leader>fat"] = { "<cmd>lua require('telescope').extensions.asynctasks.all()<cr>", "   find async task" },
 
       ["<leader>fws"] = {
-         "<cmd>lua require 'telescope'.extensions.workspaces.workspaces()<cr>",
+         "<cmd>lua require('telescope').extensions.workspaces.workspaces()<cr>",
          "   find workspace",
       },
 
-      ["<leader>fcp"] = { "<cmd>lua require 'telescope'.extensions.neoclip.neoclip()<cr>", "   find clipboard" },
+      ["<leader>fcp"] = { "<cmd>lua require('telescope').extensions.neoclip.neoclip()<cr>", "   find clipboard" },
 
       ["<leader>fq"] = {
-         "<cmd>lua require 'telescope'.extensions.flutter.commands()<cr>",
+         "<cmd>lua require('telescope').extensions.flutter.commands()<cr>",
          "   find flutter command",
       },
 
@@ -133,7 +133,7 @@ M.telescope = {
       ["<leader>fdf"] = { ":Telescope dap frames<CR>", "   find debugger frame" },
 
       ["<leader>fp"] = {
-         "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
+         "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>",
          "   file browser",
       },
 
