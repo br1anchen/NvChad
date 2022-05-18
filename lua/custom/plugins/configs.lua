@@ -45,6 +45,7 @@ M.lsp_installer = {
       "jsonls",
       "lemminx",
       "prismals",
+      "pyright",
       "rnix",
       "rust_analyzer",
       "sqls",
@@ -52,8 +53,8 @@ M.lsp_installer = {
       "sumneko_lua",
       "taplo",
       "tsserver",
-      "zk",
       "yamlls",
+      "zk",
    },
    automatic_installation = false,
 }
