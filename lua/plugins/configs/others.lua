@@ -216,7 +216,7 @@ M.misc_mappings = function()
    local map = nvchad.map
 
    -- Don't copy the replaced text after pasting in visual mode
-   map("v", "p", "p:let @+=@0<CR>")
+   map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>', { silent = true })
 
    -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
    -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
