@@ -129,7 +129,7 @@ M.lspconfig = {
          "   lsp implementation",
       },
 
-      ["gk"] = {
+      ["<leader>ls"] = {
          function()
             vim.lsp.buf.signature_help()
          end,
