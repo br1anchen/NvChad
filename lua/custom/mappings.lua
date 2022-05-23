@@ -1,5 +1,9 @@
 -- MAPPINGS
 
+local function termcodes(str)
+   return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 local M = {}
 
 M.general = {
@@ -12,6 +16,11 @@ M.general = {
       ["<leader>lcc"] = { "<cmd>LuaCacheClear<cr>", "   Clear Lua script cache" },
 
       ["<leader>ps"] = { "<cmd>PackerSync<cr>", "   Sync packer installs" },
+   },
+
+   t = {
+      ["<C-e>"] = { termcodes "<C-\\><C-N>", "   escape terminal mode" },
+      ["<C-x>"] = {},
    },
 }
 
@@ -39,6 +48,13 @@ M.tab = {
 
 M.lspconfig = {
    n = {
+      ["gk"] = {
+         function()
+            vim.lsp.buf.signature_help()
+         end,
+         "   lsp signature_help",
+      },
+
       ["gr"] = {
          function()
             require("telescope.builtin").lsp_references()
