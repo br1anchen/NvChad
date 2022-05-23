@@ -2,9 +2,7 @@ local pluginConfs = require "custom.plugins.configs"
 local userPlugins = require "custom.plugins"
 local userHighlights = require "custom.highlights"
 
-vim.api.nvim_create_user_command("RunQtConsole", function()
-   vim.fn.jobstart "jupyter qtconsole --JupyterWidget.include_other_output=True"
-end, { nargs = 0 })
+require "custom.cmd"
 
 local M = {}
 
