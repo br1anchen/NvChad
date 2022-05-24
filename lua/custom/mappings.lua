@@ -98,27 +98,19 @@ M.lspconfig = {
 M.telescope = {
    n = {
       -- find
-      ["<leader>ff"] = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "   find files" },
-      ["<leader>fa"] = {
-         "<cmd>lua require('telescope.builtin').find_files({follow=true, no_ignore=true, hidden=true})<cr>",
-         "   find all",
-      },
-      ["<leader>ft"] = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "   live grep" },
-
-      ["<leader>fw"] = { "<cmd>lua require('telescope.builtin').grep_string()<cr>", "   find word" },
-      ["<leader>fl"] = {
-         "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>",
-         "   find workspace symbols",
-      },
-      ["<leader>fb"] = { "<cmd>lua require('telescope.builtin').buffers()<cr>", "   find buffers" },
-      ["<leader>fh"] = { "<cmd>lua require('telescope.builtin').help_tags()<cr>", "   help page" },
-      ["<leader>fo"] = { "<cmd>lua require('telescope.builtin').oldfiles()<cr>", "   find oldfiles" },
-      ["<leader>fk"] = { "<cmd>lua require('telescope.builtin').keymaps()<cr>", "    show keys" },
-      ["<leader>fm"] = { "<cmd> Telescope media_files <CR>", "    find media" },
+      ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "  find files" },
+      ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
+      ["<leader>ft"] = { "<cmd> Telescope live_grep <CR>", "   live grep" },
+      ["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "   find word" },
+      ["<leader>fl"] = { "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", "   find workspace symbols" },
+      ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
+      ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
+      ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
+      ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
       -- git
-      ["<leader>fc"] = { "<cmd>lua require('telescope.builtin').git_commits()<cr>", "   git commits" },
-      ["<leader>fg"] = { "<cmd>lua require('telescope.builtin').git_status()<cr>", "   git status" },
+      ["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
+      ["<leader>fg"] = { "<cmd> Telescope git_status <CR>", "  git status" },
 
       -- pick a hidden term
       ["<leader>T"] = { "<cmd>lua require('telescope').extensions.terms.terms()<cr>", "    pick hidden term" },
