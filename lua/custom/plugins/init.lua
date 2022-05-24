@@ -213,18 +213,6 @@ return {
       requires = "nvim-telescope/telescope.nvim",
    },
 
-   ["ldelossa/litee.nvim"] = {
-      config = function()
-         require("custom.plugins.litee").setup()
-      end,
-   },
-   ["ldelossa/gh.nvim"] = {
-      requires = "ldelossa/litee.nvim",
-      config = function()
-         require("custom.plugins.gh").setup()
-      end,
-   },
-
    ["hkupty/iron.nvim"] = {
       config = function()
          require("custom.plugins.iron").setup()
