@@ -20,6 +20,9 @@ M.treesitter = {
       "vim",
       "yaml",
    },
+   highlight = {
+      disable = { "dart" },
+   },
 }
 
 M.nvimtree = {

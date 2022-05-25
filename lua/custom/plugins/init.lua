@@ -235,4 +235,10 @@ return {
          vim.g.jupytext_style = "hydrogen"
       end,
    },
+
+   ["dart-lang/dart-vim-plugin"] = {
+      setup = function()
+         vim.g.dart_html_in_string = true
+      end,
+   },
 }
