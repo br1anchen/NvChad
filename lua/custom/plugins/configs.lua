@@ -4,7 +4,6 @@ local M = {}
 M.treesitter = {
    ensure_installed = {
       "css",
-      "dart",
       "html",
       "java",
       "javascript",
