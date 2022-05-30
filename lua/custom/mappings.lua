@@ -188,6 +188,7 @@ M.octo = {
       ["<leader>oa"] = { "<cmd>Octo review resume<cr>", "   Octo review resume" },
       ["<leader>ox"] = { "<cmd>Octo review close<cr>", "   Octo review close" },
       ["<leader>op"] = { "<cmd>Octo pr list<cr>", "   Octo pr list" },
+      ["<leader>oc"] = { "<cmd>Octo review commit<cr>", "   Octo review commits list" },
    },
 }
 
