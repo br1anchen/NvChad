@@ -23,6 +23,8 @@ M.general = {
 
    n = {
 
+      ["<ESC>"] = { "<cmd> noh <CR>", "  no highlight" },
+
       -- switch between windows
       ["<C-h>"] = { "<C-w>h", " window left" },
       ["<C-l>"] = { "<C-w>l", " window right" },
@@ -69,7 +71,7 @@ M.bufferline = {
       -- close buffer + hide terminal buffer
       ["<leader>x"] = {
          function()
-            nvchad.close_buffer()
+            require("core.utils").close_buffer()
          end,
          "   close buffer",
       },
