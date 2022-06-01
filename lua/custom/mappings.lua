@@ -11,7 +11,7 @@ M.general = {
       ["<leader>bd"] = { "<cmd>bd!<cr>", "   close buffer" },
       ["<leader>qq"] = { "<cmd>%bdelete! | wqa<cr>", "   quit all" },
       ["<leader>ct"] = { "<cmd>checktime<cr>", "   refresh buffer" },
-      ["nl"] = { ":noh<cr>", "   remove search highlight" },
+      ["<leader>nl"] = { ":noh<cr>", "   remove search highlight" },
 
       ["<leader>lcc"] = { "<cmd>LuaCacheClear<cr>", "   Clear Lua script cache" },
 
