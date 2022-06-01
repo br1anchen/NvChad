@@ -12,8 +12,6 @@ local options = {
    highlight = {
       enable = true,
       use_languagetree = true,
-      disable = {},
-      additional_vim_regex_highlighting = {},
    },
 }
 

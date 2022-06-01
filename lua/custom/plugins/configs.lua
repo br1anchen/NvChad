@@ -62,7 +62,7 @@ M.lsp_installer = {
 }
 
 M.telescope = {
-   extensions = {
+   extensions_list = {
       "themes",
       "terms",
       "flutter",

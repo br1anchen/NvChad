@@ -88,7 +88,9 @@ M.load_mappings = function(mappings, mapping_opt)
       map_func = function(keybind, mapping_info, opts)
          local mode = opts.mode
          opts.mode = nil
-         vim.keymap.set(mode, keybind, mapping_info[1], opts)
+         if mode ~= nil and keybind ~= nil and mapping_info[1] ~= nil then
+            vim.keymap.set(mode, keybind, mapping_info[1], opts)
+         end
       end
    end
 
