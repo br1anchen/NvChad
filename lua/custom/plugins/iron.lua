@@ -7,9 +7,11 @@ end
 local M = {}
 
 M.setup = function()
-   iron.core.set_config {
-      preferred = {
-         python = "ipython",
+   iron.core.setup {
+      config = {
+         preferred = {
+            python = "ipython",
+         },
       },
    }
 end
