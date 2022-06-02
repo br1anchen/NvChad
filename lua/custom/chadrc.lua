@@ -37,6 +37,7 @@ M.plugins = {
       ["williamboman/nvim-lsp-installer"] = pluginConfs.lsp_installer,
       ["nvim-telescope/telescope.nvim"] = pluginConfs.telescope,
       ["folke/which-key.nvim"] = pluginConfs.whichkey,
+      ["lewis6991/gitsigns.nvim"] = pluginConfs.gitsigns,
    },
 }
 

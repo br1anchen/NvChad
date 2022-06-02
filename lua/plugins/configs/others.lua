@@ -266,11 +266,11 @@ M.gitsigns = function()
    end
    local options = {
       signs = {
-         add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr" },
-         change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr" },
-         delete = { hl = "GitSignsDelete", text = "", numhl = "GitSignsDeleteNr" },
-         topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-         changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr" },
+         add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+         change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+         delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+         topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+         changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
       },
    }
    options = load_override(options, "lewis6991/gitsigns.nvim")
