@@ -36,6 +36,13 @@ local plugins = {
       end,
    },
 
+   ["SmiteshP/nvim-gps"] = {
+      event = "CursorMoved",
+      config = function()
+         require "plugins.configs.gps"
+      end,
+   },
+
    ["akinsho/bufferline.nvim"] = {
       after = "nvim-web-devicons",
       config = function()
@@ -102,13 +109,6 @@ local plugins = {
       after = "nvim-lspconfig",
       config = function()
          require("plugins.configs.others").signature()
-      end,
-   },
-
-   ["andymass/vim-matchup"] = {
-      opt = true,
-      setup = function()
-         require("core.utils").packer_lazy_load "vim-matchup"
       end,
    },
 
