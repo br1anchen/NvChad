@@ -93,4 +93,6 @@ return {
    OctoYellowFloat = { bg = theme.darker_black },
    OctoBlueFloat = { bg = theme.darker_black },
    OctoGreyFloat = { bg = theme.darker_black },
+
+   ExtraWhitespace = { bg = theme.red },
 }
