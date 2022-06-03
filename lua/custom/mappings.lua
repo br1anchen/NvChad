@@ -65,11 +65,8 @@ M.lspconfig = {
       ["<leader>fm"] = {
          function()
             vim.lsp.buf.format {
-               filter = function(clients)
-                  -- filter out clients that you don't want to use
-                  return vim.tbl_filter(function(client)
-                     return client.name == "null-ls"
-                  end, clients)
+               filter = function(client)
+                  return client.name == "null-ls" or client.name == "prismals"
                end,
             }
          end,
