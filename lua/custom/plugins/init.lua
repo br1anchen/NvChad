@@ -241,4 +241,11 @@ return {
          vim.g.dart_html_in_string = true
       end,
    },
+
+   ["max397574/better-escape.nvim"] = {
+      event = "InsertCharPre",
+      config = function()
+         require("custom.plugins.butter-escape").setup()
+      end,
+   },
 }
