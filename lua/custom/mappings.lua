@@ -64,11 +64,7 @@ M.lspconfig = {
 
       ["<leader>fm"] = {
          function()
-            vim.lsp.buf.format {
-               filter = function(client)
-                  return client.name == "null-ls" or client.name == "prismals"
-               end,
-            }
+            vim.lsp.buf.format {}
          end,
          "   lsp formatting",
       },
