@@ -1,7 +1,6 @@
 local plugins = {
 
    ["nvim-lua/plenary.nvim"] = {},
-   ["lewis6991/impatient.nvim"] = {},
    ["wbthomason/packer.nvim"] = {},
    ["NvChad/extensions"] = {},
 
