@@ -5,6 +5,7 @@ local plugins = {
    ["NvChad/extensions"] = {},
 
    ["NvChad/base46"] = {
+      commit = "674d6bb3c41ec3c0068e7d94b21596133b15998f",
       after = "plenary.nvim",
       config = function()
          local ok, base46 = pcall(require, "base46")
@@ -105,8 +106,6 @@ local plugins = {
          require("plugins.configs.others").signature()
       end,
    },
-
- 
 
    -- load luasnips + cmp related in insert mode only
 
