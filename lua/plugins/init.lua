@@ -7,7 +7,6 @@ local plugins = {
    ["NvChad/extensions"] = {},
 
    ["NvChad/base46"] = {
-      commit = "674d6bb3c41ec3c0068e7d94b21596133b15998f",
       after = "plenary.nvim",
       config = function()
          local ok, base46 = pcall(require, "base46")
@@ -177,7 +176,8 @@ local plugins = {
    },
 
    ["nvim-telescope/telescope.nvim"] = {
-      requires = { { "nvim-lua/plenary.nvim" } },
+      cmd = "Telescope",
+      module = "telescope",
       config = function()
          require "plugins.configs.telescope"
       end,

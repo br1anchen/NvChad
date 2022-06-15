@@ -9,7 +9,8 @@ local M = {}
 M.ui = {
    theme = "catppuccin",
 
-   hl_override = userHighlights,
+   hl_add = userHighlights.add,
+   hl_override = userHighlights.override,
 }
 
 M.mappings = require "custom.mappings"

@@ -12,7 +12,9 @@ local git_colors = {
    dark_green = "#334535",
 }
 
-return {
+local M = {}
+
+M.override = {
    -- Gitsigns.nvim
    DiffAdd = {
       fg = "NONE",
@@ -84,7 +86,9 @@ return {
       fg = theme.red,
       bg = "NONE",
    },
+}
 
+M.add = {
    -- Octo
    OctoEditable = { bg = theme.darker_black },
    OctoGreenFloat = { bg = theme.darker_black },
@@ -96,3 +100,5 @@ return {
 
    ExtraWhitespace = { bg = theme.red },
 }
+
+return M

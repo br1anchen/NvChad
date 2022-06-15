@@ -13,8 +13,6 @@ M.general = {
       ["<leader>ct"] = { "<cmd>checktime<cr>", "   refresh buffer" },
       ["<leader>nl"] = { ":noh<cr>", "   remove search highlight" },
 
-      ["<leader>lcc"] = { "<cmd>LuaCacheClear<cr>", "   Clear Lua script cache" },
-
       ["<leader>ps"] = { "<cmd>PackerSync<cr>", "   Sync packer installs" },
    },
 
@@ -144,7 +142,7 @@ M.telescope = {
 
 M.glow = {
    n = {
-      ["<leader>p"] = { ":Glow<CR>", "   Glow preview markdown" },
+      ["<leader>pp"] = { ":Glow<CR>", "   Glow preview markdown" },
    },
 }
 

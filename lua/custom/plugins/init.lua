@@ -11,16 +11,10 @@ return {
       end,
    },
    ["tami5/lspsaga.nvim"] = {
-      requires = {
-         "neovim/nvim-lspconfig",
-      },
+      after = "nvim-lspconfig",
       config = function()
          require("custom.plugins.lspsaga").setup()
       end,
-   },
-
-   ["sudormrfbin/cheatsheet.nvim"] = {
-      requires = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
    },
 
    ["nvim-telescope/telescope-dap.nvim"] = {
@@ -112,18 +106,14 @@ return {
    ["ggandor/lightspeed.nvim"] = {},
 
    ["karb94/neoscroll.nvim"] = {
-      opt = true,
       config = function()
          require("neoscroll").setup()
       end,
-
-      -- lazy loading
-      setup = function()
-         require("core.utils").packer_lazy_load "neoscroll.nvim"
-      end,
    },
 
-   ["ron-rs/ron.vim"] = {},
+   ["ron-rs/ron.vim"] = {
+      after = "nvim-lspconfig",
+   },
 
    ["folke/todo-comments.nvim"] = {
       requires = "nvim-lua/plenary.nvim",
@@ -144,6 +134,7 @@ return {
       end,
    },
    ["GustavoKatel/telescope-asynctasks.nvim"] = {
+      after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
    },
 
@@ -156,12 +147,14 @@ return {
    },
 
    ["natecraddock/workspaces.nvim"] = {
+      after = "telescope.nvim",
       config = function()
          require("workspaces").setup()
       end,
    },
 
    ["stevearc/aerial.nvim"] = {
+      after = "base46",
       config = function()
          require("aerial").setup {
             on_attach = function(bufnr)
@@ -179,6 +172,7 @@ return {
    },
 
    ["AckslD/nvim-neoclip.lua"] = {
+      after = "telescope.nvim",
       requires = {
          { "nvim-telescope/telescope.nvim" },
       },
@@ -190,6 +184,7 @@ return {
    ["voldikss/vim-floaterm"] = {},
 
    ["pwntester/octo.nvim"] = {
+      after = "telescope.nvim",
       requires = {
          "nvim-lua/plenary.nvim",
          "nvim-telescope/telescope.nvim",
@@ -200,14 +195,8 @@ return {
       end,
    },
 
-   ["sindrets/diffview.nvim"] = {
-      requires = "nvim-lua/plenary.nvim",
-      config = function()
-         require("diffview").setup()
-      end,
-   },
-
    ["xiyaowong/telescope-emoji.nvim"] = {
+      after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
    },
 
