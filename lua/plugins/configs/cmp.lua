@@ -4,6 +4,8 @@ if not present then
    return
 end
 
+require("base46").load_highlight "cmp"
+
 vim.opt.completeopt = "menuone,noselect"
 
 local function border(hl_name)
@@ -44,19 +46,9 @@ local options = {
       end,
    },
    formatting = {
-      format = function(entry, vim_item)
-         local icons = require "plugins.configs.lspkind_icons"
+      format = function(_, vim_item)
+         local icons = require("ui.icons").lspkind
          vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
-
-         vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            cmp_tabnine = "[TN]",
-            luasnip = "[SNIP]",
-            nvim_lua = "[Lua]",
-            buffer = "[BUF]",
-            path = "[PATH]",
-         })[entry.source.name]
-
          return vim_item
       end,
    },
