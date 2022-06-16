@@ -70,7 +70,9 @@ M.override = {
       fg = "NONE",
       bg = git_colors.dark_red,
    },
+}
 
+M.add = {
    -- gitsigns
    GitSignsAdd = {
       fg = theme.green,
@@ -86,9 +88,7 @@ M.override = {
       fg = theme.red,
       bg = "NONE",
    },
-}
 
-M.add = {
    -- Octo
    OctoEditable = { bg = theme.darker_black },
    OctoGreenFloat = { bg = theme.darker_black },
