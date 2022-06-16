@@ -93,4 +93,15 @@ M.gitsigns = {
    },
 }
 
+M.cmp = {
+   sources = {
+      { name = "nvim_lsp" },
+      { name = "cmp_tabnine" },
+      { name = "luasnip" },
+      { name = "buffer" },
+      { name = "nvim_lua" },
+      { name = "path" },
+   },
+}
+
 return M

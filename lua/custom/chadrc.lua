@@ -39,6 +39,7 @@ M.plugins = {
       ["nvim-telescope/telescope.nvim"] = pluginConfs.telescope,
       ["folke/which-key.nvim"] = pluginConfs.whichkey,
       ["lewis6991/gitsigns.nvim"] = pluginConfs.gitsigns,
+      ["hrsh7th/nvim-cmp"] = pluginConfs.cmp,
    },
 }
 
