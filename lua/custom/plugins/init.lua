@@ -17,6 +17,15 @@ return {
       end,
    },
 
+   ["nvim-telescope/telescope.nvim"] = {
+      after = "base46",
+      cmd = "Telescope",
+      module = "telescope",
+      config = function()
+         require "plugins.configs.telescope"
+      end,
+   },
+
    ["nvim-telescope/telescope-dap.nvim"] = {
       after = "telescope.nvim",
       requires = "nvim-telescope/telescope.nvim",
