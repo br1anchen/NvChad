@@ -25,7 +25,7 @@ local M = {}
 
 M.bufferline = function()
    lazy_load {
-      events = { "BufNewFile", "BufAdd", "TabEnter" },
+      events = { "BufNewFile", "BufRead", "TabEnter" },
       augroup_name = "BufferLineLazy",
       plugins = "bufferline.nvim",
 
@@ -85,7 +85,7 @@ end
 
 M.gitsigns = function()
    -- taken from https://github.com/max397574
-   vim.api.nvim_create_autocmd({ "BufAdd", "VimEnter" }, {
+   vim.api.nvim_create_autocmd({ "BufRead" }, {
       callback = function()
          local function onexit(code, _)
             if code == 0 then
@@ -100,7 +100,7 @@ M.gitsigns = function()
                args = {
                   "ls-files",
                   "--error-unmatch",
-                  vim.fn.expand "%",
+                  vim.fn.expand "%:p:h",
                },
             }, onexit)
          end
