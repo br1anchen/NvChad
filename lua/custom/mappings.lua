@@ -29,9 +29,9 @@ M.window = {
       ["<leader>v-"] = { "<C-w>-", "- window resize small" },
       ["<leader>v+"] = { "<C-w>+", "+ window resize large" },
       ["<leader>v="] = { "<C-w>=", "= window reset size" },
-      ["<leader>vs"] = { "<cmd>split<cr>", "split window vertical" },
-      ["<leader>vv"] = { "<cmd>vsplit<cr>", "split window horizontal" },
-      ["<leader>vd"] = { "<cmd>close<cr>", "close window" },
+      ["<leader>vs"] = { "<cmd>split<cr>", "| split window vertical" },
+      ["<leader>vv"] = { "<cmd>vsplit<cr>", "-- split window horizontal" },
+      ["<leader>vd"] = { "<cmd>close<cr>", " close window" },
    },
 }
 
