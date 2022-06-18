@@ -16,6 +16,8 @@ return {
          require("custom.plugins.lspsaga").setup()
       end,
    },
+   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
+   ["ziontee113/syntax-tree-surfer"] = { after = "nvim-treesitter" },
 
    ["nvim-telescope/telescope.nvim"] = {
       after = "base46",
@@ -27,13 +29,11 @@ return {
    },
 
    ["nvim-telescope/telescope-dap.nvim"] = {
-      after = "telescope.nvim",
-      requires = "nvim-telescope/telescope.nvim",
+      module = "telescope._extensions.dap",
    },
 
    ["nvim-telescope/telescope-file-browser.nvim"] = {
-      after = "telescope.nvim",
-      requires = "nvim-telescope/telescope.nvim",
+      module = "telescope._extensions.file_browser",
    },
 
    -- use {
@@ -58,6 +58,10 @@ return {
       end,
    },
 
+   ["hrsh7th/cmp-emoji"] = {
+      after = "nvim-cmp",
+   },
+
    ["folke/trouble.nvim"] = {
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
@@ -80,6 +84,19 @@ return {
       requires = "nvim-lua/plenary.nvim",
       config = function()
          require("custom.plugins.rust-tools").setup()
+      end,
+   },
+
+   ["saecki/crates.nvim"] = {
+      event = { "BufRead Cargo.toml" },
+      requires = { { "nvim-lua/plenary.nvim" } },
+      config = function()
+         require("crates").setup {
+            null_ls = {
+               enabled = true,
+               name = "crates.nvim",
+            },
+         }
       end,
    },
 
@@ -143,8 +160,7 @@ return {
       end,
    },
    ["GustavoKatel/telescope-asynctasks.nvim"] = {
-      after = "telescope.nvim",
-      requires = "nvim-telescope/telescope.nvim",
+      module = "telescope._extensions.asynctasks",
    },
 
    ["ntpeters/vim-better-whitespace"] = {
@@ -202,11 +218,6 @@ return {
       config = function()
          require("custom.plugins.octo").setup()
       end,
-   },
-
-   ["xiyaowong/telescope-emoji.nvim"] = {
-      after = "telescope.nvim",
-      requires = "nvim-telescope/telescope.nvim",
    },
 
    ["hkupty/iron.nvim"] = {

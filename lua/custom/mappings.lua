@@ -109,8 +109,6 @@ M.telescope = {
       -- theme switcher
       ["<leader>fv"] = { "<cmd>lua require('telescope').extensions.themes.themes()<cr>", "   nvchad themes" },
 
-      ["<leader>fj"] = { "<cmd>lua require('telescope').extensions.emoji.emoji()<cr>", "   find emoji" },
-
       ["<leader>fat"] = { "<cmd>lua require('telescope').extensions.asynctasks.all()<cr>", "   find async task" },
 
       ["<leader>fws"] = {
@@ -272,6 +270,83 @@ M.jupyter_ascending = {
    n = {
       ["<leader>rx"] = { "<Plug>JupyterExecute", "   execute single jupyter cell" },
       ["<leader>ra"] = { "<Plug>JupyterExecuteAll", "   execute all jupyter cells" },
+   },
+}
+
+M.syntax_tree_surfer = {
+   n = {
+      g = {
+         t = {
+            name = "+Treesitter",
+            v = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump { "variable_declaration" }
+               end,
+               "   Go to Variables",
+            },
+            f = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump { "function" }
+               end,
+               "   Go to Functions",
+            },
+            i = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump {
+                     "if_statement",
+                     "else_clause",
+                     "else_statement",
+                     "elseif_statement",
+                  }
+               end,
+               "   Go to If Statements",
+            },
+            r = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump { "for_statement" }
+               end,
+               "   Go to For Statements",
+            },
+            w = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump { "white_statement" }
+               end,
+               "   Go to While Statements",
+            },
+            s = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump { "switch_statement" }
+               end,
+               "   Go to Switch Statements",
+            },
+            t = {
+               function()
+                  require("syntax-tree-surfer").targeted_jump {
+                     "function",
+                     "if_statement",
+                     "else_clause",
+                     "else_statement",
+                     "elseif_statement",
+                     "for_statement",
+                     "while_statement",
+                     "switch_statement",
+                  }
+               end,
+               "   Go to Statement",
+            },
+         },
+      },
+   },
+}
+
+M.crates = {
+   n = {
+      name = "+Crates",
+      ["<leader>Ct"] = { ":lua require('crates').toggle()<cr>", "   Toggle information" },
+      ["<leader>Cr"] = { ":lua require('crates').reload()<cr>", "   Reload information" },
+      ["<leader>Cu"] = { ":lua require('crates').upgrade_crate()<cr>", "   Upgrade crate" },
+      ["<leader>CU"] = { ":lua require('crates').upgrade_crates()<cr>", "   Upgrade selected crates" },
+      ["<leader>CA"] = { ":lua require('crates').upgrade_all_crates()<cr>", "   Upgrade all crates" },
    },
 }
 

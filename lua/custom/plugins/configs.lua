@@ -70,7 +70,6 @@ M.telescope = {
       "dap",
       "neoclip",
       "file_browser",
-      "emoji",
    },
 }
 
@@ -100,7 +99,9 @@ M.cmp = {
       { name = "luasnip" },
       { name = "buffer" },
       { name = "nvim_lua" },
+      { name = "emoji" },
       { name = "path" },
+      { name = "crates" },
    },
 }
 
