@@ -203,8 +203,6 @@ return {
       end,
    },
 
-   ["voldikss/vim-floaterm"] = {},
-
    ["pwntester/octo.nvim"] = {
       after = "telescope.nvim",
       requires = {

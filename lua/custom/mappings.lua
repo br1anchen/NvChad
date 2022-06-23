@@ -24,14 +24,19 @@ M.general = {
 
 M.window = {
    n = {
-      ["<leader>v<"] = { "<C-w><", " window resize left" },
-      ["<leader>v>"] = { "<C-w>>", " window resize right" },
-      ["<leader>v-"] = { "<C-w>-", "- window resize small" },
-      ["<leader>v+"] = { "<C-w>+", "+ window resize large" },
-      ["<leader>v="] = { "<C-w>=", "= window reset size" },
-      ["<leader>vs"] = { "<cmd>split<cr>", "| split window vertical" },
-      ["<leader>vv"] = { "<cmd>vsplit<cr>", "-- split window horizontal" },
-      ["<leader>vd"] = { "<cmd>close<cr>", " close window" },
+      ["<leader>"] = {
+         v = {
+            name = "+Window",
+            ["<"] = { "<C-w><", " window resize left" },
+            [">"] = { "<C-w>>", " window resize right" },
+            ["-"] = { "<C-w>-", "- window resize small" },
+            ["+"] = { "<C-w>+", "+ window resize large" },
+            ["="] = { "<C-w>=", "= window reset size" },
+            s = { "<cmd>split<cr>", "| split window vertical" },
+            v = { "<cmd>vsplit<cr>", "-- split window horizontal" },
+            d = { "<cmd>close<cr>", " close window" },
+         },
+      },
    },
 }
 
@@ -67,74 +72,132 @@ M.lspconfig = {
          "   lsp formatting",
       },
 
-      ["<leader>lf"] = { "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", "   lsp saga find" },
-      ["<leader>la"] = { "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", "   lsp saga code action" },
-      ["<leader>ld"] = { "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", "   lsp saga doc" },
-      -- ["<M-k>"]={"<CMD>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-      -- ["<M-j>"]={"<CMD>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-      ["<leader>ls"] = {
-         "<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>",
-         "   lsp saga signature help",
+      ["<leader>"] = {
+         l = {
+            name = "+LSP",
+            f = {
+               function()
+                  require("lspsaga.provider").lsp_finder()
+               end,
+               "   lsp saga find",
+            },
+            a = {
+               function()
+                  require("lspsaga.codeaction").code_action()
+               end,
+               "   lsp saga code action",
+            },
+            d = {
+               function()
+                  require("lspsaga.hover").render_hover_doc()
+               end,
+               "   lsp saga doc",
+            },
+            s = {
+               function()
+                  require("lspsaga.signaturehelp").signature_help()
+               end,
+               "   lsp saga signature help",
+            },
+            r = {
+               function()
+                  require("lspsaga.rename").rename()
+               end,
+               "   lsp saga rename",
+            },
+            p = {
+               function()
+                  require("lspsaga.provider").preview_definition()
+               end,
+               "   lsp saga preview definition",
+            },
+         },
       },
-      ["<leader>lr"] = { "<cmd>lua require('lspsaga.rename').rename()<CR>", "   lsp saga rename" },
-      ["<leader>lp"] = {
-         "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>",
-         "   lsp saga preview dedefinition",
-      },
-      -- ["[d"]={"<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>"} ,
-      -- ["]d"]={"<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>"} ,
    },
 }
 
 M.telescope = {
    n = {
-      -- find
-      ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "  find files" },
-      ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "  find all" },
-      ["<leader>ft"] = { "<cmd> Telescope live_grep <CR>", "   live grep" },
-      ["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "   find word" },
-      ["<leader>fl"] = { "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", "   find workspace symbols" },
-      ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "  find buffers" },
-      ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "  help page" },
-      ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
-      ["<leader>fk"] = { "<cmd> Telescope keymaps <CR>", "   show keys" },
+      ["<leader>"] = {
+         f = {
+            name = "+Telescope",
+            f = { "<cmd> Telescope find_files <CR>", "  find files" },
+            a = {
+               "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>",
+               "  find all",
+            },
+            A = {
+               function()
+                  require("telescope").extensions.asynctasks.all()
+               end,
+               "   find async task",
+            },
+            t = { "<cmd> Telescope live_grep <CR>", "   live grep" },
+            T = {
+               function()
+                  require("telescope").extensions.terms.terms()
+               end,
+               "    pick hidden term",
+            },
+            w = { "<cmd> Telescope grep_string <CR>", "   find word" },
+            W = {
+               function()
+                  require("telescope").extensions.workspaces.workspaces()
+               end,
+               "   find workspace",
+            },
+            l = { "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", "   find workspace symbols" },
+            b = { "<cmd> Telescope buffers <CR>", "  find buffers" },
+            h = { "<cmd> Telescope help_tags <CR>", "  help page" },
+            o = { "<cmd> Telescope oldfiles <CR>", "   find oldfiles" },
+            k = { "<cmd> Telescope keymaps <CR>", "   show keys" },
 
-      -- git
-      ["<leader>fc"] = { "<cmd> Telescope git_commits <CR>", "   git commits" },
-      ["<leader>fg"] = { "<cmd> Telescope git_status <CR>", "  git status" },
+            g = {
+               name = "+Git",
+               c = { "<cmd> Telescope git_commits <CR>", "   git commits" },
+               g = { "<cmd> Telescope git_status <CR>", "  git status" },
+            },
 
-      -- pick a hidden term
-      ["<leader>T"] = { "<cmd>lua require('telescope').extensions.terms.terms()<cr>", "    pick hidden term" },
+            v = {
+               function()
+                  require("telescope").extensions.themes.themes()
+               end,
+               "   nvchad themes",
+            },
 
-      -- theme switcher
-      ["<leader>fv"] = { "<cmd>lua require('telescope').extensions.themes.themes()<cr>", "   nvchad themes" },
+            p = {
+               function()
+                  require("telescope").extensions.file_browser.file_browser()
+               end,
+               "   file browser",
+            },
 
-      ["<leader>fat"] = { "<cmd>lua require('telescope').extensions.asynctasks.all()<cr>", "   find async task" },
+            P = {
+               function()
+                  require("telescope").extensions.neoclip.neoclip()
+               end,
+               "   find clipboard",
+            },
 
-      ["<leader>fws"] = {
-         "<cmd>lua require('telescope').extensions.workspaces.workspaces()<cr>",
-         "   find workspace",
+            q = {
+               function()
+                  require("telescope").extensions.flutter.commands()
+               end,
+               "   find flutter command",
+            },
+
+            d = {
+               name = "+Dap",
+               l = { ":Telescope dap commands<CR>", "   find debugger command" },
+               c = { ":Telescope dap configurations<CR>", "   find debugger configuration" },
+               b = { ":Telescope dap list_breakpoints<CR>", "   find debugger breakpoint" },
+               v = { ":Telescope dap variables<CR>", "   find debugger variable" },
+               f = { ":Telescope dap frames<CR>", "   find debugger frame" },
+            },
+
+            ["/"] = { ":TodoTelescope<CR>", "   file todo" },
+         },
       },
-
-      ["<leader>fcp"] = { "<cmd>lua require('telescope').extensions.neoclip.neoclip()<cr>", "   find clipboard" },
-
-      ["<leader>fq"] = {
-         "<cmd>lua require('telescope').extensions.flutter.commands()<cr>",
-         "   find flutter command",
-      },
-
-      ["<leader>fd"] = { ":Telescope dap commands<CR>", "   find debugger command" },
-      ["<leader>fdc"] = { ":Telescope dap configurations<CR>", "   find debugger configuration" },
-      ["<leader>fdb"] = { ":Telescope dap list_breakpoints<CR>", "   find debugger breakpoint" },
-      ["<leader>fdv"] = { ":Telescope dap variables<CR>", "   find debugger variable" },
-      ["<leader>fdf"] = { ":Telescope dap frames<CR>", "   find debugger frame" },
-
-      ["<leader>fp"] = {
-         "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>",
-         "   file browser",
-      },
-
-      ["<leader>ftd"] = { ":TodoTelescope<CR>", "   file todo" },
    },
 }
 
@@ -146,105 +209,189 @@ M.glow = {
 
 M.asynctasks = {
    n = {
-      ["<leader>ate"] = { ":AsyncTaskEdit<CR>", "Edit async tasks" },
-      ["<leader>atl"] = { ":AsyncTaskList<CR>", "Show async tasks" },
-      ["<leader>atp"] = { ":AsyncTaskLast<CR>", "Run last runed async task" },
-      ["<leader>atk"] = { ":AsyncStop<CR>", "Stop current async task" },
+      ["<leader>"] = {
+         a = {
+            t = {
+               name = "+Asynctasks",
+               e = { ":AsyncTaskEdit<CR>", "Edit async tasks" },
+               l = { ":AsyncTaskList<CR>", "Show async tasks" },
+               p = { ":AsyncTaskLast<CR>", "Run last runed async task" },
+               k = { ":AsyncStop<CR>", "Stop current async task" },
+            },
+         },
+      },
    },
 }
 
--- local function termcodes(str)
---    return vim.api.nvim_replace_termcodes(str, true, true, true)
--- end
-M.floatterm = {
+M.git = {
    n = {
-      ["<leader>gl"] = { "<cmd>FloatermNew! --name=lg lazygit<cr>", "   open lazygit in float term" },
-      ["<leader>gq"] = { "<cmd>FloatermKill lg<cr>", "   close lazygit in float term" },
-      ["<leader>gt"] = { "<cmd>FloatermToggle lg<cr>", "   toggle float term" },
+      ["<leader>"] = {
+         g = {
+            name = "+Git",
+            l = {
+               function()
+                  require("nvterm.terminal").toggle "float"
+                  require("nvterm.terminal").send("lazygit", "float")
+               end,
+               "   open lazygit",
+            },
+         },
+      },
    },
-   -- t = {
-   --    ["<leader>gq"] = { termcodes "<c-\\><c-N>:FloatermKill lg<cr>", "   close lazygit in float term" },
-   --    ["<leader>gt"] = { termcodes "<c-\\><c-N>:FloatermToggle lg<cr>", "   toggle float term" },
-   -- },
 }
 
 M.octo = {
    n = {
-      ["<leader>od"] = { "<cmd>Octo review discard<cr>", "   Octo review discard" },
-      ["<leader>om"] = { "<cmd>Octo pr merge rebase<cr>", "   Octo pr merge rebase" },
-      ["<leader>oi"] = { "<cmd>Octo review start<cr>", "   Octo review start" },
-      ["<leader>os"] = { "<cmd>Octo review submit<cr>", "   Octo review submit" },
-      ["<leader>oa"] = { "<cmd>Octo review resume<cr>", "   Octo review resume" },
-      ["<leader>ox"] = { "<cmd>Octo review close<cr>", "   Octo review close" },
-      ["<leader>op"] = { "<cmd>Octo pr list<cr>", "   Octo pr list" },
-      ["<leader>oc"] = { "<cmd>Octo review commit<cr>", "   Octo review commits list" },
-   },
-}
-
-M.diffview = {
-   n = {
-      ["<leader>do"] = { "<cmd>DiffviewOpen origin/main...HEAD<cr>", "   Diffview current with origin/main" },
-      ["<leader>ds"] = { "<cmd>DiffviewOpen origin/master...HEAD<cr>", "   Diffview current with origin/master" },
+      ["<leader>"] = {
+         o = {
+            name = "+Octo",
+            d = { "<cmd>Octo review discard<cr>", "   Octo review discard" },
+            m = { "<cmd>Octo pr merge rebase<cr>", "   Octo pr merge rebase" },
+            i = { "<cmd>Octo review start<cr>", "   Octo review start" },
+            s = { "<cmd>Octo review submit<cr>", "   Octo review submit" },
+            a = { "<cmd>Octo review resume<cr>", "   Octo review resume" },
+            x = { "<cmd>Octo review close<cr>", "   Octo review close" },
+            p = { "<cmd>Octo pr list<cr>", "   Octo pr list" },
+            c = { "<cmd>Octo review commit<cr>", "   Octo review commits list" },
+         },
+      },
    },
 }
 
 M.dap = {
    n = {
-      ["<leader>zb"] = { ":lua require'dap'.toggle_breakpoint()<cr>", "   debugger toggle breakpoint" },
-      ["<leader>zc"] = { ":lua require'dap'.continue()<cr>", "   debugger continue" },
-      ["<leader>zo"] = { ":lua require'dap'.step_over()<cr>", "   debugger step over" },
-      ["<leader>zi"] = { ":lua require'dap'.step_into()<cr>", "   debugger step into" },
-      ["<leader>zr"] = { ":lua require'dap'.repl.open()<cr>", "   debugger repl open" },
-      ["<leader>zn"] = { ":lua require('dapui').toggle('sidebar')<cr>", "   debugger toggle sidebar" },
-      ["<leader>zk"] = { ":lua require('dapui').eval()<cr>", "   debugger eval" },
-      ["<leader>zl"] = { ":10sp | buffer \\[dap-repl]<cr>", "   focus debugger repl buffer" },
+      ["<leader>"] = {
+         z = {
+            name = "+Debugger",
+            b = {
+               function()
+                  require("dap").toggle_breakpoint()
+               end,
+               "   debugger toggle breakpoint",
+            },
+            c = {
+               function()
+                  require("dap").continue()
+               end,
+               "   debugger continue",
+            },
+            o = {
+               function()
+                  require("dap").step_over()
+               end,
+               "   debugger step over",
+            },
+            i = {
+               function()
+                  require("dap").step_into()
+               end,
+               "   debugger step into",
+            },
+            r = {
+               function()
+                  require("dap").repl.open()
+               end,
+               "   debugger repl open",
+            },
+            n = {
+               function()
+                  require("dapui").toggle "sidebar"
+               end,
+               "   debugger toggle sidebar",
+            },
+            k = {
+               function()
+                  require("dapui").eval()
+               end,
+               "   debugger eval",
+            },
+            l = { ":10sp | buffer \\[dap-repl]<cr>", "   focus debugger repl buffer" },
+         },
+      },
    },
 }
 
 M.trouble = {
    n = {
-      ["<leader>xx"] = { "<cmd>Trouble<cr>", "   Open Trouble window" },
-      ["<leader>xw"] = { "<cmd>Trouble workspace_diagnostics<cr>", "   Open Trouble workspace diagnostics" },
-      ["<leader>xd"] = { "<cmd>Trouble document_diagnostics<cr>", "   Open Trouble document diagnostics" },
-      ["<leader>xl"] = { "<cmd>Trouble loclist<cr>", "   Open Trouble loclist" },
-      ["<leader>xq"] = { "<cmd>Trouble quickfix<cr>", "   Open Trouble quickfix" },
-      ["<leader>xt"] = { ":TodoTrouble<CR>", "   Open todos in trouble" },
+      ["<leader>"] = {
+         x = {
+            name = "+Trouble",
+            x = { "<cmd>Trouble<cr>", "   Open Trouble window" },
+            w = { "<cmd>Trouble workspace_diagnostics<cr>", "   Open Trouble workspace diagnostics" },
+            d = { "<cmd>Trouble document_diagnostics<cr>", "   Open Trouble document diagnostics" },
+            l = { "<cmd>Trouble loclist<cr>", "   Open Trouble loclist" },
+            q = { "<cmd>Trouble quickfix<cr>", "   Open Trouble quickfix" },
+            t = { ":TodoTrouble<CR>", "   Open todos in trouble" },
+         },
+      },
    },
 }
 
 M.searchbox = {
    n = {
-      ["<leader>s"] = { '<cmd>lua require("searchbox").incsearch()<CR>', "   search in file" },
-      ["<leader>sr"] = {
-         '<cmd>lua require("searchbox").replace({confirm = "menu"})<CR>',
-         "   search and replace in file",
-      },
-   },
-   v = {
-      ["<leader>s"] = {
-         '<Esc><cmd>lua require("searchbox").incsearch({visual_mode = true})<CR>',
-         "   search in file",
+      ["<leader>"] = {
+         s = {
+            name = "+Search",
+            s = {
+               function()
+                  require("searchbox").incsearch()
+               end,
+               "   search in file",
+            },
+            r = {
+               function()
+                  require("searchbox").replace { confirm = "menu" }
+               end,
+               "   search and replace in file",
+            },
+         },
       },
    },
 }
 
 M.nvterm = {
    n = {
-      ["<leader>tw"] = { '<cmd>lua require("nvterm.terminal").toggle "float"<cr>', "    toggle float nvterm" },
-      ["<leader>tW"] = { '<cmd>lua require("nvterm.terminal").new "float"<cr>', "    spawn float nvterm" },
-      ["<leader>th"] = {
-         '<cmd>lua require("nvterm.terminal").toggle "horizontal"<cr>',
-         "    toggle horizontal nvterm",
+      ["<leader>"] = {
+         t = {
+            name = "+Terminal",
+            w = {
+               function()
+                  require("nvterm.terminal").toggle "float"
+               end,
+               "    toggle float nvterm",
+            },
+            W = {
+               function()
+                  require("nvterm.terminal").new "float"
+               end,
+               "    spawn float nvterm",
+            },
+            h = {
+               function()
+                  require("nvterm.terminal").toggle "horizontal"
+               end,
+               "    toggle horizontal nvterm",
+            },
+            H = {
+               function()
+                  require("nvterm.terminal").new "horizontal"
+               end,
+               "    spawn horizontal nvterm",
+            },
+            v = {
+               function()
+                  require("nvterm.terminal").toggle "vertical"
+               end,
+               "    toggle vertical nvterm",
+            },
+            V = {
+               function()
+                  require("nvterm.terminal").new "vertical"
+               end,
+               "    spawm vertical nvterm",
+            },
+         },
       },
-      ["<leader>tH"] = {
-         '<cmd>lua require("nvterm.terminal").new "horizontal"<cr>',
-         "    spawn horizontal nvterm",
-      },
-      ["<leader>tv"] = {
-         '<cmd>lua require("nvterm.terminal").toggle "vertical"<cr>',
-         "    toggle vertical nvterm",
-      },
-      ["<leader>tV"] = { '<cmd>lua require("nvterm.terminal").new "vertical"<cr>', "    spawm vertical nvterm" },
    },
 }
 
@@ -341,28 +488,41 @@ M.syntax_tree_surfer = {
 
 M.crates = {
    n = {
-      name = "+Crates",
-      ["<leader>Ct"] = { ":lua require('crates').toggle()<cr>", "   Toggle information" },
-      ["<leader>Cr"] = { ":lua require('crates').reload()<cr>", "   Reload information" },
-      ["<leader>Cu"] = { ":lua require('crates').upgrade_crate()<cr>", "   Upgrade crate" },
-      ["<leader>CU"] = { ":lua require('crates').upgrade_crates()<cr>", "   Upgrade selected crates" },
-      ["<leader>CA"] = { ":lua require('crates').upgrade_all_crates()<cr>", "   Upgrade all crates" },
-   },
-}
-
-M.groups = {
-   n = {
-      ["<leader>v"] = { name = "+Window" },
-      ["<leader>l"] = { name = "+LSP" },
-      ["<leader>f"] = { name = "+Telescope" },
-      ["<leader>a"] = { name = "+Asynctasks" },
-      ["<leader>g"] = { name = "+Git" },
-      ["<leader>o"] = { name = "+Octo review" },
-      ["<leader>d"] = { name = "+Diffview" },
-      ["<leader>z"] = { name = "+Debugger" },
-      ["<leader>x"] = { name = "+Trouble" },
-      ["<leader>s"] = { name = "+Search" },
-      ["<leader>t"] = { name = "+Terminal" },
+      ["<leader>"] = {
+         C = {
+            name = "+Crates",
+            t = {
+               function()
+                  require("crates").toggle()
+               end,
+               "   Toggle information",
+            },
+            r = {
+               function()
+                  require("crates").reload()
+               end,
+               "   Reload information",
+            },
+            u = {
+               function()
+                  require("crates").upgrade_crate()
+               end,
+               "   Upgrade crate",
+            },
+            U = {
+               function()
+                  require("crates").upgrade_crates()
+               end,
+               "   Upgrade selected crates",
+            },
+            A = {
+               function()
+                  require("crates").upgrade_all_crates()
+               end,
+               "   Upgrade all crates",
+            },
+         },
+      },
    },
 }
 
