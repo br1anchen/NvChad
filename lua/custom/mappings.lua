@@ -351,6 +351,12 @@ M.searchbox = {
 
 M.nvterm = {
    n = {
+      ["<leader>th"] = {
+         function()
+            require("nvterm.terminal").toggle "horizontal"
+         end,
+         "    toggle horizontal nvterm",
+      },
       ["<leader>"] = {
          t = {
             name = "+Terminal",
@@ -365,12 +371,6 @@ M.nvterm = {
                   require("nvterm.terminal").new "float"
                end,
                "    spawn float nvterm",
-            },
-            h = {
-               function()
-                  require("nvterm.terminal").toggle "horizontal"
-               end,
-               "    toggle horizontal nvterm",
             },
             H = {
                function()
