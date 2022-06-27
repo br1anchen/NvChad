@@ -1,10 +1,8 @@
--- IMPORTANT NOTE : This is default config, so dont change anything here.
--- chadrc overrides this file
+-- Chadrc overrides this file
 
 local M = {}
 
 M.options = {
-
    -- load your options here or load module with options
    user = function() end,
 
@@ -25,7 +23,14 @@ M.ui = {
 
    statusline = {
       separator_style = "default", -- default/round/block/arrow
-      config = "%!v:lua.require'ui.statusline'.run()",
+      config = "%!v:lua.require('ui.statusline').run()",
+      override = {},
+   },
+
+   -- lazyload it when there are 1+ buffers
+   tabufline = {
+      enabled = true,
+      lazyload = true,
       override = {},
    },
 }
