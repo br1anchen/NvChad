@@ -114,7 +114,12 @@ return {
       end,
    },
 
-   ["tpope/vim-surround"] = {},
+   ["kylechui/nvim-surround"] = {
+      config = function()
+         require("nvim-surround").setup {}
+      end,
+      event = "BufEnter",
+   },
 
    ["MunifTanjim/nui.nvim"] = {},
    ["VonHeikemen/searchbox.nvim"] = {
