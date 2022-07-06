@@ -118,6 +118,7 @@ M.lspconfig = {
 
 M.telescope = {
    n = {
+      ["<leader>fw"] = { "<cmd> Telescope grep_string <CR>", "   find word" },
       ["<leader>"] = {
          f = {
             name = "+Telescope",
@@ -139,7 +140,6 @@ M.telescope = {
                end,
                "    pick hidden term",
             },
-            w = { "<cmd> Telescope grep_string <CR>", "   find word" },
             W = {
                function()
                   require("telescope").extensions.workspaces.workspaces()
