@@ -34,6 +34,9 @@ local sources = {
    b.formatting.nixfmt,
    b.diagnostics.statix,
 
+   -- Python
+   b.formatting.black,
+
    -- SQL
    b.formatting.sqlfluff.with {
       extra_args = { "--dialect", "mysql" }, -- change to your dialect
