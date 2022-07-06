@@ -15,8 +15,7 @@ M.setup_lsp = function(attach, capabilities)
 
    for _, lsp in ipairs(installed_lsp) do
       if
-         lsp ~= "sumneko_lua"
-         and lsp ~= "stylelint_lsp"
+         lsp ~= "stylelint_lsp"
          and lsp ~= "sqls"
          and lsp ~= "dartls"
          and lsp ~= "rust_analyzer"
