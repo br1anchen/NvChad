@@ -67,7 +67,15 @@ M.lspconfig = {
 
       ["<leader>fm"] = {
          function()
-            vim.lsp.buf.format {}
+            local vim_version = vim.version()
+
+            if vim_version.minor > 7 then
+               -- nightly
+               vim.lsp.buf.format {}
+            else
+               -- stable
+               vim.lsp.buf.formatting_sync { async = true }
+            end
          end,
          "   lsp formatting",
       },

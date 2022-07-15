@@ -15,6 +15,7 @@ M.setup_lsp = function(attach, capabilities)
 
   for _, lsp in ipairs(installed_lsp) do
     if lsp ~= "sqls"
+        and lsp ~= "sumneko_lua"
         and lsp ~= "stylelint_lsp"
         and lsp ~= "sqls"
         and lsp ~= "dartls"
