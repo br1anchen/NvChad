@@ -5,11 +5,10 @@ if not present then
 end
 
 require("base46").load_highlight "lsp"
+require "nvchad_ui.lsp"
 
 local M = {}
 local utils = require "core.utils"
-
-require "ui.lsp"
 
 local format_on_save = function(client, bufnr)
   -- if you want to set up formatting on save, you can use this as a callback
@@ -38,12 +37,12 @@ end
 M.on_attach = function(client, bufnr)
   format_on_save(client, bufnr)
 
-  local lsp_mappings = utils.load_config().mappings.lspconfig
-  utils.load_mappings({ lsp_mappings }, { buffer = bufnr })
+   local lsp_mappings = utils.load_config().mappings.lspconfig
+   utils.load_mappings({ lsp_mappings }, { buffer = bufnr })
 
-  if client.server_capabilities.signatureHelpProvider then
-    require("nvchad.ui.signature").setup(client)
-  end
+   if client.server_capabilities.signatureHelpProvider then
+      require("nvchad_ui.signature").setup(client)
+   end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
