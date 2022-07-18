@@ -56,7 +56,6 @@ M.lsp_installer = {
       "taplo",
       "tsserver",
       "yamlls",
-      "zk",
    },
    automatic_installation = false,
 }
