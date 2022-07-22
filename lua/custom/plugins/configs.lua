@@ -54,6 +54,7 @@ M.lsp_installer = {
       "taplo",
       "tsserver",
       "yamlls",
+      "marksman",
    },
    automatic_installation = false,
 }
