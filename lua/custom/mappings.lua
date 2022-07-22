@@ -119,6 +119,12 @@ M.lspconfig = {
                end,
                "   lsp saga preview definition",
             },
+            k = {
+               function()
+                  vim.diagnostic.open_float()
+               end,
+               "   floating diagnostic",
+            },
          },
       },
    },
