@@ -22,13 +22,13 @@ return {
       require("custom.plugins.lspsaga").setup()
     end,
   },
-  ["Maan2003/lsp_lines.nvim"] = {
+  ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
       vim.diagnostic.config {
         virtual_text = false,
       }
-      require("lsp_lines").register_lsp_virtual_lines()
+      require("lsp_lines").setup()
     end,
   },
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
