@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  local lspconfig = require "plugins.configs.lspconfig"
+  local lspconfig = require "custom.plugins.lspconfig"
   require("flutter-tools").setup {
     decorations = {
       statusline = {
@@ -27,22 +27,12 @@ function M.setup()
       open_cmd = "10sp", -- command to use to open the log buffer
     },
     lsp = {
-      on_attach = function(client, bufnr)
-        require("aerial").on_attach(client, bufnr)
-        lspconfig.on_attach(client, bufnr)
-      end,
+      on_attach = lspconfig.on_attach,
       capabilities = lspconfig.capabilities,
-      flags = {
-        debounce_text_changes = 150,
-      },
+      flags = lspconfig.flags,
+      handlers = lspconfig.handlers,
       settings = {
         showTodos = false,
-      },
-      handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-          -- Disable virtual_text
-          virtual_text = false,
-        }),
       },
     },
   }

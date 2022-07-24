@@ -5,7 +5,7 @@ local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
 function M.setup()
-  local lspconfig = require "plugins.configs.lspconfig"
+  local lspconfig = require "custom.plugins.lspconfig"
   local opts = {
     tools = {
       autoSetHints = true,
@@ -29,20 +29,10 @@ function M.setup()
       },
     },
     server = {
-      on_attach = function(client, bufnr)
-        require("aerial").on_attach(client, bufnr)
-        lspconfig.on_attach(client, bufnr)
-      end,
+      on_attach = lspconfig.on_attach,
       capabilities = lspconfig.capabilities,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      handlers = {
-        ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-          -- Disable virtual_text
-          virtual_text = false,
-        }),
-      },
+      flags = lspconfig.flags,
+      handlers = lspconfig.handlers,
       settings = {
         ["rust-analyzer"] = {
           checkOnSave = {
