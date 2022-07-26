@@ -6,7 +6,6 @@ end
 
 require("base46").load_highlight "lsp"
 require "nvchad_ui.lsp"
-require "plugins.configs.lsp_installer"
 
 local M = {}
 local utils = require "core.utils"
@@ -14,9 +13,7 @@ local utils = require "core.utils"
 -- export on_attach & capabilities for custom lspconfigs
 
 M.on_attach = function(client, bufnr)
-  local vim_version = vim.version()
-
-  if vim_version.minor > 7 then
+  if vim.g.vim_version > 7 then
     -- nightly
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
