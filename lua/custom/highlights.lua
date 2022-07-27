@@ -94,7 +94,7 @@ M.add = {
   OctoDirty = { bg = theme.red },
 
   ExtraWhitespace = { bg = theme.red },
-  ErrorMsg = { bg = theme.red },
+  ErrorMsg = { fg = theme.darker_black, bg = theme.red },
 }
 
 return M
