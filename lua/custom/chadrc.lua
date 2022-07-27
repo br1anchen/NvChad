@@ -34,6 +34,7 @@ M.plugins = {
     ["folke/which-key.nvim"] = pluginConfs.whichkey,
     ["lewis6991/gitsigns.nvim"] = pluginConfs.gitsigns,
     ["hrsh7th/nvim-cmp"] = pluginConfs.cmp,
+    ["williamboman/mason.nvim"] = pluginConfs.mason,
   },
 }
 

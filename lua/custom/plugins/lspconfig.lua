@@ -1,7 +1,7 @@
 local attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
-local installed_lsp = require("custom.plugins.configs").lsp_installer.ensure_installed
+local installed_lsp = require("custom.plugins.configs").mason_lspconfig.ensure_installed
 
 local M = {}
 

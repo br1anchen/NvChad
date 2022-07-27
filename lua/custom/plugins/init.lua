@@ -10,6 +10,16 @@ return {
       require("custom.plugins.lspconfig").setup()
     end,
   },
+  ["williamboman/mason.nvim"] = {
+    requires = {
+      "williamboman/mason-lspconfig.nvim",
+    },
+    config = function()
+      local mason_lspconfig = require("custom.plugins.configs").mason_lspconfig
+      require("mason").setup()
+      require("mason-lspconfig").setup(mason_lspconfig)
+    end,
+  },
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
