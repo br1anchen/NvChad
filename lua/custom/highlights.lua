@@ -1,10 +1,3 @@
-local theme = {
-  black = "#1E1D2D",
-  darker_black = "#191828",
-  red = "#F28FAD",
-  green = "#ABE9B3",
-}
-
 local git_colors = {
   red = "#794756",
   dark_red = "#482a33",
@@ -53,7 +46,7 @@ M.override = {
 
   DiffFile = {
     fg = "NONE",
-    bg = theme.black,
+    bg = "black",
   },
 
   DiffNewFile = {
@@ -63,7 +56,7 @@ M.override = {
 
   DiffLine = {
     fg = "NONE",
-    bg = theme.black,
+    bg = "black",
   },
 
   DiffRemoved = {
@@ -75,26 +68,26 @@ M.override = {
 M.add = {
   -- gitsigns
   GitSignsAdd = {
-    fg = theme.green,
+    fg = "green",
     bg = "NONE",
   },
 
   GitSignsChange = {
-    fg = theme.green,
+    fg = "green",
     bg = "NONE",
   },
 
   GitSignsDelete = {
-    fg = theme.red,
+    fg = "red",
     bg = "NONE",
   },
 
   -- Octo
-  OctoEditable = { bg = theme.darker_black },
-  OctoDirty = { bg = theme.red },
+  OctoEditable = { bg = "darker_black" },
+  OctoDirty = { bg = "red" },
 
-  ExtraWhitespace = { bg = theme.red },
-  ErrorMsg = { fg = theme.darker_black, bg = theme.red },
+  ExtraWhitespace = { bg = "red" },
+  ErrorMsg = { fg = "darker_black", bg = "red" },
 }
 
 return M
