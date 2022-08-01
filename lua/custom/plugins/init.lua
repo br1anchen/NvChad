@@ -58,6 +58,8 @@ return {
     module = "telescope._extensions.file_browser",
   },
 
+  ["rhysd/git-messenger.vim"] = {},
+
   -- use {
   --    "github/copilot.vim",
   --    config = function()
