@@ -17,6 +17,7 @@ local plugins = {
   },
 
   ["NvChad/ui"] = {
+    commit = "6d18c5482b30bbcb02ac20049f2b0b67be9ea164",
     after = "base46",
     module = "nvchad_ui",
     config = function()
