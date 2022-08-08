@@ -63,6 +63,8 @@ M.override = {
     fg = "NONE",
     bg = git_colors.dark_red,
   },
+
+  ErrorMsg = { fg = "darker_black", bg = "red" },
 }
 
 M.add = {
@@ -84,10 +86,9 @@ M.add = {
 
   -- Octo
   OctoEditable = { bg = "darker_black" },
-  OctoDirty = { bg = "red" },
+  OctoDirty = { bg = git_colors.dark_red },
 
   ExtraWhitespace = { bg = "red" },
-  ErrorMsg = { fg = "darker_black", bg = "red" },
 }
 
 return M

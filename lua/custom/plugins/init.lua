@@ -240,7 +240,7 @@ return {
     end,
   },
 
-  ["pwntester/octo.nvim"] = {
+  ["br1anchen/octo.nvim"] = {
     after = "telescope.nvim",
     requires = {
       "nvim-lua/plenary.nvim",
