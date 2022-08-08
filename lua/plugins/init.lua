@@ -17,7 +17,6 @@ local plugins = {
   },
 
   ["NvChad/ui"] = {
-    commit = "6d18c5482b30bbcb02ac20049f2b0b67be9ea164",
     after = "base46",
     config = function()
       require("plugins.configs.others").nvchad_ui()
@@ -32,7 +31,7 @@ local plugins = {
   },
 
   ["kyazdani42/nvim-web-devicons"] = {
-    after = 'ui',
+    after = "ui",
     module = "nvim-web-devicons",
     config = function()
       require("plugins.configs.others").devicons()
