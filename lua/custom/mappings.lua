@@ -544,4 +544,22 @@ M.crates = {
   },
 }
 
+M.impatient = {
+  n = {
+    ["<leader>"] = {
+      i = {
+        name = "+Impatient",
+        c = {
+          "<cmd>LuaCacheClear<cr>",
+          "   Clear Impatient cache",
+        },
+        l = {
+          "<cmd>LuaCacheLog<cr>",
+          "   View Impatient log",
+        },
+      },
+    },
+  },
+}
+
 return M

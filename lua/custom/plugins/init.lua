@@ -1,9 +1,5 @@
 return {
-  ["elkowar/yuck.vim"] = { ft = "yuck" },
-  ["ellisonleao/glow.nvim"] = {
-    cmd = "Glow",
-  },
-
+  -- overrides Nvchad plugins install
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -20,6 +16,14 @@ return {
       require("mason-lspconfig").setup(mason_lspconfig)
     end,
   },
+  ["folke/which-key.nvim"] = { disable = false },
+
+  -- custom plugins
+  ["elkowar/yuck.vim"] = { ft = "yuck" },
+  ["ellisonleao/glow.nvim"] = {
+    cmd = "Glow",
+  },
+
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
@@ -87,6 +91,7 @@ return {
   },
 
   ["folke/trouble.nvim"] = {
+    module = "trouble",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup()
@@ -244,9 +249,6 @@ return {
     },
     config = function()
       require("custom.plugins.octo").setup()
-    end,
-    setup = function()
-      require("custom.utils").packer_lazy_load("telescope.nvim", 500)
     end,
   },
 
