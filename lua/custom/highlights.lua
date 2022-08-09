@@ -3,6 +3,8 @@ local git_colors = {
   dark_red = "#482a33",
   green = "#557459",
   dark_green = "#334535",
+  dark_blue = "#3d5c7b",
+  orange = "#87663b",
 }
 
 local M = {}
@@ -10,6 +12,11 @@ local M = {}
 M.override = {
   -- Gitsigns.nvim
   DiffAdd = {
+    fg = "NONE",
+    bg = git_colors.dark_green,
+  },
+
+  DiffAdded = {
     fg = "NONE",
     bg = git_colors.dark_green,
   },
@@ -26,37 +33,12 @@ M.override = {
 
   DiffModified = {
     fg = "NONE",
-    bg = git_colors.dark_green,
+    bg = git_colors.dark_blue,
   },
 
   DiffDelete = {
     fg = "NONE",
     bg = git_colors.dark_red,
-  },
-
-  DiffText = {
-    fg = "NONE",
-    bg = git_colors.green,
-  },
-
-  DiffAdded = {
-    fg = "NONE",
-    bg = git_colors.dark_green,
-  },
-
-  DiffFile = {
-    fg = "NONE",
-    bg = "black",
-  },
-
-  DiffNewFile = {
-    fg = "NONE",
-    bg = git_colors.dark_green,
-  },
-
-  DiffLine = {
-    fg = "NONE",
-    bg = "black",
   },
 
   DiffRemoved = {
@@ -82,6 +64,27 @@ M.add = {
   GitSignsDelete = {
     fg = "red",
     bg = "NONE",
+  },
+
+  -- git diff preview
+  DiffText = {
+    fg = "NONE",
+    bg = git_colors.orange,
+  },
+
+  DiffFile = {
+    fg = "NONE",
+    bg = "black",
+  },
+
+  DiffNewFile = {
+    fg = "NONE",
+    bg = git_colors.dark_green,
+  },
+
+  DiffLine = {
+    fg = "NONE",
+    bg = "black",
   },
 
   -- Octo
