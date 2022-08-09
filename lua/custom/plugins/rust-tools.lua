@@ -9,7 +9,6 @@ function M.setup()
   local opts = {
     tools = {
       autoSetHints = true,
-      hover_with_actions = true,
       executor = require("rust-tools/executors").termopen,
       runnables = {
         use_telescope = true,

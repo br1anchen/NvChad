@@ -4,7 +4,6 @@ local M = {}
 M.treesitter = {
   ensure_installed = {
     "css",
-    "dart",
     "html",
     "java",
     "javascript",
@@ -19,6 +18,10 @@ M.treesitter = {
     "typescript",
     "vim",
     "yaml",
+  },
+
+  highlight = {
+    disable = { "dart" },
   },
 }
 

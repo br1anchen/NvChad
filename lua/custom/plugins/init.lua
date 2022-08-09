@@ -281,4 +281,10 @@ return {
       require("custom.plugins.butter-escape").setup()
     end,
   },
+
+  ["dart-lang/dart-vim-plugin"] = {
+    config = function()
+      vim.cmd "let g:dart_html_in_string = v:true"
+    end,
+  },
 }
