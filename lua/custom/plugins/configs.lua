@@ -14,6 +14,7 @@ M.treesitter = {
     "nix",
     "python",
     "rust",
+    "swift",
     "toml",
     "typescript",
     "vim",
@@ -58,6 +59,7 @@ M.mason_lspconfig = {
     "tsserver",
     "yamlls",
     "marksman",
+    "sourcekit",
   },
   automatic_installation = false,
 }

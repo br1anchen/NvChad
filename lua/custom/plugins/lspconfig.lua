@@ -31,6 +31,7 @@ M.setup = function()
       and lsp ~= "stylelint_lsp"
       and lsp ~= "sqls"
       and lsp ~= "rust_analyzer"
+      and lsp ~= "sourcekit"
     then
       lspconfig[lsp].setup {
         on_attach = M.on_attach,
@@ -79,6 +80,15 @@ M.setup = function()
     capabilities = M.capabilities,
     flags = M.flags,
     handlers = M.handlers,
+  }
+
+  lspconfig.sourcekit.setup {
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    flags = M.flags,
+    handlers = M.handlers,
+    cmd = { "xcrun", "sourcekit-lsp" },
+    root_dir = lspconfig.util.root_pattern("Package.swift", ".git", ".gitignore"),
   }
 end
 
