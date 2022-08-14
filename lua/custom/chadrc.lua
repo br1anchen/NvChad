@@ -13,8 +13,6 @@ M.ui = {
   hl_override = userHighlights.override,
 }
 
-M.mappings = require "custom.mappings"
-
 M.plugins = {
   user = userPlugins,
 

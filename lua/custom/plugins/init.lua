@@ -16,7 +16,14 @@ return {
       require("mason-lspconfig").setup(mason_lspconfig)
     end,
   },
-  ["folke/which-key.nvim"] = { disable = false },
+  ["folke/which-key.nvim"] = {
+    disable = false,
+    config = function()
+      require "plugins.configs.whichkey"
+
+      require("custom.plugins.whichkey").custom()
+    end,
+  },
 
   -- custom plugins
   ["elkowar/yuck.vim"] = { ft = "yuck" },
@@ -92,6 +99,7 @@ return {
 
   ["folke/trouble.nvim"] = {
     module = "trouble",
+    after = "base46",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup()
