@@ -6,17 +6,16 @@ end
 
 local b = null_ls.builtins
 local helpers = require "null-ls.helpers"
-local methods = require "null-ls.methods"
 
 local swiftLint = {
-  name = "swiftLint",
+  name = "SwiftLint",
   meta = {
     url = "https://github.com/realm/SwiftLint",
     description = "A tool to enforce Swift style and conventions, loosely based on the now archived GitHub Swift Style Guide. SwiftLint enforces the style guide rules that are generally accepted by the Swift community.",
   },
-  method = methods.DIAGNOSTICS,
-  filetype = { "swift" },
-  generator_opts = {
+  method = null_ls.methods.DIAGNOSTICS,
+  filetypes = { "swift" },
+  generator = helpers.generator_factory {
     command = "swiftlint",
     args = {
       "lint",
@@ -27,25 +26,38 @@ local swiftLint = {
     },
     format = "json_raw",
     on_output = function(params)
-      params.messages = params.output and params.output[1] and params.output[1].messages or {}
+      --[[
+        [{
+          "character" : 84,
+          "file" : "\/Users\/br1anchen\/Documents\/tmp\/ios\/Runner\/AppDelegate.swift",
+          "line" : 13,
+          "reason" : "Force casts should be avoided.",
+          "rule_id" : "force_cast",
+          "severity" : "Error",
+          "type" : "Force Cast"
+        }]
+      ]]
+
+      local output = params.output and params.output[1] and params.output[1].messages or {}
       if params.err then
-        table.insert(params.messages, { message = params.err })
+        output = vim.json.decode(params.err)
       end
 
       local parser = helpers.diagnostics.from_json {
         attributes = {
-          severity = "severity",
+          col = "character",
+          row = "line",
+          message = "reason",
         },
         severities = {
-          helpers.diagnostics.severities["warning"],
-          helpers.diagnostics.severities["error"],
+          ["Warning"] = helpers.diagnostics.severities["warning"],
+          ["Error"] = helpers.diagnostics.severities["error"],
         },
       }
 
-      return parser { output = params.messages }
+      return parser { output = output }
     end,
   },
-  factory = helpers.generator_factory,
 }
 
 local sources = {
@@ -81,6 +93,7 @@ local sources = {
 
   -- Swift/Obj-c
   b.formatting.swiftformat,
+  swiftLint,
 
   -- SQL
   b.formatting.sqlfluff.with {
@@ -94,8 +107,6 @@ local sources = {
 local M = {}
 
 M.setup = function()
-  null_ls.register(swiftLint)
-
   null_ls.setup {
     debounce = 250,
     sources = sources,
