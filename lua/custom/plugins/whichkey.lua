@@ -12,7 +12,10 @@ function M.custom()
     ["ct"] = { "<cmd>checktime<cr>", "refresh buffer" },
     ["nl"] = { ":noh<cr>", "remove search highlight" },
     ["ps"] = { "<cmd>PackerSync<cr>", "Sync packer installs" },
+    ["pc"] = { "<cmd>PackerCompile<cr>", "Compile packer plugins" },
     ["pp"] = { ":Glow<CR>", " Glow preview markdown" },
+
+    ["q"] = {},
 
     ["fm"] = {
       function()
