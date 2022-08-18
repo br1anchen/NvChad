@@ -90,8 +90,7 @@ return {
   },
 
   ["folke/trouble.nvim"] = {
-    module = "trouble",
-    after = "base46",
+    after = "nvim-web-devicons",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
       require("trouble").setup()
