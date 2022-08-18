@@ -200,13 +200,10 @@ local plugins = {
     end,
   },
 
-  -- Only load whichkey after all the gui
   ["folke/which-key.nvim"] = {
-    disable = true,
-    module = "which-key",
-    keys = "<leader>",
     config = function()
       require "plugins.configs.whichkey"
+      require("custom.plugins.whichkey").custom()
     end,
     setup = function()
       require("core.utils").load_mappings "whichkey"

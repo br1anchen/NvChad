@@ -16,14 +16,6 @@ return {
       require("mason-lspconfig").setup(mason_lspconfig)
     end,
   },
-  ["folke/which-key.nvim"] = {
-    disable = false,
-    config = function()
-      require "plugins.configs.whichkey"
-
-      require("custom.plugins.whichkey").custom()
-    end,
-  },
 
   -- custom plugins
   ["elkowar/yuck.vim"] = { ft = "yuck" },
