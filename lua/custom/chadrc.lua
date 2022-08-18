@@ -13,6 +13,17 @@ M.ui = {
   hl_override = userHighlights.override,
 }
 
+M.mappings = {
+  disabled = {
+    n = {
+      ["<leader>q"] = "",
+    },
+    t = {
+      ["<C-x>"] = "",
+    },
+  },
+}
+
 M.plugins = {
   user = userPlugins,
 
