@@ -474,7 +474,6 @@ function M.custom()
 
   wk.register({
     ["<C-e>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" },
-    ["<C-x>"] = {},
   }, { mode = "t" })
 end
 
