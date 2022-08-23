@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  local lspconfig = require "custom.plugins.lspconfig"
+  local custom_config = require "custom.plugins.lspconfig"
   require("flutter-tools").setup {
     decorations = {
       statusline = {
@@ -27,12 +27,16 @@ function M.setup()
       open_cmd = "10sp", -- command to use to open the log buffer
     },
     lsp = {
-      on_attach = lspconfig.on_attach,
-      capabilities = lspconfig.capabilities,
-      flags = lspconfig.flags,
-      handlers = lspconfig.handlers,
+      color = { enabled = true },
+      on_attach = custom_config.on_attach,
+      capabilities = custom_config.capabilities,
+      flags = custom_config.flags,
+      handlers = custom_config.handlers,
       settings = {
         showTodos = false,
+        completeFunctionCalls = true,
+        renameFilesWithClasses = "prompt",
+        enableSnippets = true,
       },
     },
   }

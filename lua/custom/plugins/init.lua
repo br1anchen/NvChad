@@ -100,8 +100,10 @@ return {
   ["tpope/vim-abolish"] = {},
 
   -- ["akinsho/flutter-tools.nvim"] = {
-  --   after = "nvim-lspconfig",
   --   requires = "nvim-lua/plenary.nvim",
+  --   ft = "dart",
+  --   event = "BufRead pubspec.yaml",
+  --   module = "flutter-tools",
   --   config = function()
   --     require("custom.plugins.flutter-tools").setup()
   --   end,
