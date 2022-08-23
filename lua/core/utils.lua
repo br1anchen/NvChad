@@ -6,12 +6,10 @@ local merge_tb = vim.tbl_deep_extend
 M.close_buffer = function(bufnr)
   if vim.bo.buftype == "terminal" then
     vim.cmd(vim.bo.buflisted and "set nobl | enew" or "hide")
-  elseif vim.bo.modified then
-    print "save the file bruh"
   else
     bufnr = bufnr or api.nvim_get_current_buf()
     require("core.utils").tabuflinePrev()
-    vim.cmd("bd" .. bufnr)
+    vim.cmd("silent! confirm bd" .. bufnr)
   end
 end
 
@@ -134,7 +132,7 @@ end
 M.load_override = function(default_table, plugin_name)
   local user_table = M.load_config().plugins.override[plugin_name] or {}
   user_table = type(user_table) == "table" and user_table or user_table()
-  return merge_tb("force", default_table, user_table)
+  return merge_tb("force", default_table, user_table) or {}
 end
 
 M.packer_sync = function(...)
@@ -175,7 +173,11 @@ M.packer_sync = function(...)
 end
 
 M.bufilter = function()
-  local bufs = vim.t.bufs
+  local bufs = vim.t.bufs or nil
+
+  if not bufs then
+    return {}
+  end
 
   for i = #bufs, 1, -1 do
     if not vim.api.nvim_buf_is_valid(bufs[i]) then
