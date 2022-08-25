@@ -157,25 +157,25 @@ function M.custom()
 
     g = {
       name = "+Git",
-      l = {
-        function()
-          local terms = require("nvterm.terminal").list_active_terms()
-          local has_float_term = false
-          for _, t in ipairs(terms) do
-            if t.type == "float" and t.open then
-              has_float_term = pcall(function()
-                vim.cmd("bd! " .. tostring(t.buf))
-              end)
-            end
-          end
-
-          if not has_float_term then
-            require("nvterm.terminal").toggle "float"
-            require("nvterm.terminal").send("lazygit", "float")
-          end
-        end,
-        "open lazygit",
-      },
+      -- l = {
+      --   function()
+      --     local terms = require("nvterm.terminal").list_active_terms()
+      --     local has_float_term = false
+      --     for _, t in ipairs(terms) do
+      --       if t.type == "float" and t.open then
+      --         has_float_term = pcall(function()
+      --           vim.cmd("bd! " .. tostring(t.buf))
+      --         end)
+      --       end
+      --     end
+      --
+      --     if not has_float_term then
+      --       require("nvterm.terminal").toggle "float"
+      --       require("nvterm.terminal").send("lazygit", "float")
+      --     end
+      --   end,
+      --   "open lazygit",
+      -- },
       m = {
         ":GitMessenger<cr>",
         " open GitMessenger",
