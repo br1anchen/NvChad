@@ -109,6 +109,12 @@ return {
   --   end,
   -- },
 
+  ["dart-lang/dart-vim-plugin"] = {
+    config = function()
+      vim.cmd "let g:dart_html_in_string = v:true"
+    end,
+  },
+
   ["simrat39/rust-tools.nvim"] = {
     after = "nvim-lspconfig",
     requires = "nvim-lua/plenary.nvim",
@@ -253,11 +259,11 @@ return {
     end,
   },
 
-  ["hkupty/iron.nvim"] = {
-    config = function()
-      require("custom.plugins.iron").setup()
-    end,
-  },
+  -- ["hkupty/iron.nvim"] = {
+  --   config = function()
+  --     require("custom.plugins.iron").setup()
+  --   end,
+  -- },
 
   ["untitled-ai/jupyter_ascending.vim"] = {},
   ["bfredl/nvim-ipy"] = {
@@ -283,9 +289,9 @@ return {
     end,
   },
 
-  ["dart-lang/dart-vim-plugin"] = {
+  ["sindrets/winshift.nvim"] = {
     config = function()
-      vim.cmd "let g:dart_html_in_string = v:true"
+      require("custom.plugins.winshift").setup()
     end,
   },
 }
