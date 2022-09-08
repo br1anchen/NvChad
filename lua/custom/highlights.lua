@@ -92,6 +92,8 @@ M.add = {
   OctoDirty = { bg = git_colors.dark_red },
 
   ExtraWhitespace = { bg = "red" },
+
+  LeapBackdrop = { fg = "grey" },
 }
 
 return M

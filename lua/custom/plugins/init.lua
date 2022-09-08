@@ -170,7 +170,7 @@ return {
     end,
   },
 
-  ["ggandor/lightspeed.nvim"] = {},
+  ["ggandor/leap.nvim"] = {},
 
   ["karb94/neoscroll.nvim"] = {
     config = function()

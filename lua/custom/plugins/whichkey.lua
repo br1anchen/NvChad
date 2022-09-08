@@ -475,6 +475,11 @@ function M.custom()
   }, { prefix = "g", mode = "n" })
 
   wk.register({
+    s = { "<Plug>(leap-forward)", "leap forward" },
+    S = { "<Plug>(leap-backward)", "leap backward" },
+  }, { mode = "n" })
+
+  wk.register({
     h = { "<cmd>tabfirst<cr>", "switch to first tab" },
     k = { "<cmd>tabnext<cr>", "switch to next tab" },
     j = { "<cmd>tabprev<cr>", "switch to previous tab" },
