@@ -294,4 +294,13 @@ return {
       require("custom.plugins.winshift").setup()
     end,
   },
+
+  ["lervag/vimtex"] = {
+    config = function()
+      vim.g.vimtex_view_method = "zathura"
+      vim.g.tex_flavor = "latex"
+      vim.g.vimtex_quickfix_enabled = 0
+      vim.cmd "set conceallevel=2"
+    end,
+  },
 }
