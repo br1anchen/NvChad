@@ -1,3 +1,5 @@
+local overrides = require "custom.plugins.overrides"
+
 return {
   -- overrides Nvchad plugins install
   ["neovim/nvim-lspconfig"] = {
@@ -11,10 +13,47 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local mason_lspconfig = require("custom.plugins.configs").mason_lspconfig
+      local mason_lspconfig = overrides.mason_lspconfig
       require("mason").setup()
       require("mason-lspconfig").setup(mason_lspconfig)
     end,
+    override_options = overrides.mason,
+  },
+
+  ["nvim-treesitter/nvim-treesitter"] = {
+    override_options = overrides.treesitter,
+  },
+  ["kyazdani42/nvim-tree.lua"] = {
+    override_options = overrides.nvimtree,
+  },
+  ["NvChad/nvim-colorizer.lua"] = {
+    override_options = overrides.colorizer,
+  },
+  ["NvChad/nvterm"] = {
+    override_options = overrides.nvterm,
+  },
+  ["williamboman/nvim-lsp-installer"] = {
+    override_options = overrides.lsp_installer,
+  },
+
+  ["nvim-telescope/telescope.nvim"] = {
+    after = "base46",
+    cmd = "Telescope",
+    module = "telescope",
+    override_options = overrides.telescope,
+  },
+  ["folke/which-key.nvim"] = {
+    override_options = overrides.whichkey,
+    config = function()
+      require "plugins.configs.whichkey"
+      require("custom.plugins.whichkey").custom()
+    end,
+  },
+  ["lewis6991/gitsigns.nvim"] = {
+    override_options = overrides.gitsigns,
+  },
+  ["hrsh7th/nvim-cmp"] = {
+    override_options = overrides.cmp,
   },
 
   -- custom plugins
@@ -46,12 +85,6 @@ return {
   },
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   ["ziontee113/syntax-tree-surfer"] = { after = "nvim-treesitter" },
-
-  ["nvim-telescope/telescope.nvim"] = {
-    after = "base46",
-    cmd = "Telescope",
-    module = "telescope",
-  },
 
   ["nvim-telescope/telescope-dap.nvim"] = {
     module = "telescope._extensions.dap",
