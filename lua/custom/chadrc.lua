@@ -23,14 +23,6 @@ M.mappings = {
   },
 }
 
-M.plugins = {
-  user = userPlugins,
-
-  status = {
-    colorizer = true,
-    snippets = true,
-    alpha = true, -- dashboard
-  },
-}
+M.plugins = userPlugins
 
 return M

@@ -2,6 +2,7 @@ local overrides = require "custom.plugins.overrides"
 
 return {
   -- overrides Nvchad plugins install
+  ["goolord/alpha-nvim"] = { disable = false },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -83,6 +84,7 @@ return {
       require("lsp_lines").setup()
     end,
   },
+
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   ["ziontee113/syntax-tree-surfer"] = { after = "nvim-treesitter" },
 
