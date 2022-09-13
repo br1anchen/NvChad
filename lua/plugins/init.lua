@@ -26,11 +26,7 @@ local plugins = {
   ["NvChad/ui"] = {
     after = "base46",
     config = function()
-      local present, nvchad_ui = pcall(require, "nvchad_ui")
-
-      if present then
-        nvchad_ui.setup()
-      end
+      require("plugins.configs.others").nvchad_ui()
     end,
   },
 
