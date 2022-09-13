@@ -2,6 +2,7 @@ local override_configs = require "custom.plugins.configs"
 
 return {
   -- overrides Nvchad plugins install
+  ["lewis6991/impatient.nvim"] = { disable = true },
   ["goolord/alpha-nvim"] = { disable = false },
   ["neovim/nvim-lspconfig"] = {
     config = function()
