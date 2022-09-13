@@ -15,7 +15,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local mason_lspconfig = overrides.mason_lspconfig
+      local mason_lspconfig = require("custom.plugins.overrides").mason_lspconfig
       require("mason").setup()
       require("mason-lspconfig").setup(mason_lspconfig)
     end,
