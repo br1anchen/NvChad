@@ -94,6 +94,8 @@ M.add = {
   ExtraWhitespace = { bg = "red" },
 
   LeapBackdrop = { fg = "grey" },
+
+  CmpItemKindCopilot = { fg = "green" },
 }
 
 return M

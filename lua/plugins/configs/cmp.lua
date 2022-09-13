@@ -46,7 +46,14 @@ local options = {
     end,
   },
   formatting = {
-    format = function(_, vim_item)
+    format = function(entry, vim_item)
+      if entry.source.name == "copilot" then
+        vim_item.kind = "Copilot"
+        vim_item.kind = string.format("%s %s", "", "Copilot")
+        vim_item.kind_hl_group = "CmpItemKindCopilot"
+        return vim_item
+      end
+
       local icons = require("nvchad_ui.icons").lspkind
       vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
       return vim_item
