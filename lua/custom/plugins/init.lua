@@ -111,13 +111,18 @@ return {
   --    "hrsh7th/cmp-copilot",
   --    after = "nvim-cmp",
   -- }
-
-  ["tzachar/cmp-tabnine"] = {
-    run = "./install.sh",
-    after = "nvim-cmp",
-    requires = "hrsh7th/nvim-cmp",
+  ["zbirenbaum/copilot.lua"] = {
+    event = { "VimEnter" },
     config = function()
-      require("custom.plugins.cmp-tabnine").setup()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  },
+  ["zbirenbaum/copilot-cmp"] = {
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
     end,
   },
 
