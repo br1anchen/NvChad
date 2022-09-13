@@ -1,4 +1,4 @@
-local overrides = require "custom.plugins.overrides"
+local override_configs = require "custom.plugins.configs"
 
 return {
   -- overrides Nvchad plugins install
@@ -14,47 +14,47 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local mason_lspconfig = overrides.mason_lspconfig
+      local mason_lspconfig = override_configs.mason_lspconfig
       require("mason").setup()
       require("mason-lspconfig").setup(mason_lspconfig)
     end,
-    override_options = overrides.mason,
+    override_options = override_configs.mason,
   },
 
   ["nvim-treesitter/nvim-treesitter"] = {
-    override_options = overrides.treesitter,
+    override_options = override_configs.treesitter,
   },
   ["kyazdani42/nvim-tree.lua"] = {
-    override_options = overrides.nvimtree,
+    override_options = override_configs.nvimtree,
   },
   ["NvChad/nvim-colorizer.lua"] = {
-    override_options = overrides.colorizer,
+    override_options = override_configs.colorizer,
   },
   ["NvChad/nvterm"] = {
-    override_options = overrides.nvterm,
+    override_options = override_configs.nvterm,
   },
   ["williamboman/nvim-lsp-installer"] = {
-    override_options = overrides.lsp_installer,
+    override_options = override_configs.lsp_installer,
   },
 
   ["nvim-telescope/telescope.nvim"] = {
     after = "base46",
     cmd = "Telescope",
     module = "telescope",
-    override_options = overrides.telescope,
+    override_options = override_configs.telescope,
   },
   ["folke/which-key.nvim"] = {
-    override_options = overrides.whichkey,
+    override_options = override_configs.whichkey,
     config = function()
       require "plugins.configs.whichkey"
       require("custom.plugins.whichkey").custom()
     end,
   },
   ["lewis6991/gitsigns.nvim"] = {
-    override_options = overrides.gitsigns,
+    override_options = override_configs.gitsigns,
   },
   ["hrsh7th/nvim-cmp"] = {
-    override_options = overrides.cmp,
+    override_options = override_configs.cmp,
   },
 
   -- custom plugins
