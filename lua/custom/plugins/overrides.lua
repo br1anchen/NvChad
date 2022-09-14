@@ -99,8 +99,8 @@ M.gitsigns = {
 
 M.cmp = {
   sources = {
-    { name = "nvim_lsp" },
     { name = "copilot" },
+    { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },

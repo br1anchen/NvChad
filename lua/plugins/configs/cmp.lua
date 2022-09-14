@@ -49,7 +49,7 @@ local options = {
     format = function(entry, vim_item)
       if entry.source.name == "copilot" then
         vim_item.kind = "Copilot"
-        vim_item.kind = string.format("%s %s", "", "Copilot")
+        vim_item.kind = string.format("%s %s", " ", "Copilot")
         vim_item.kind_hl_group = "CmpItemKindCopilot"
         return vim_item
       end
