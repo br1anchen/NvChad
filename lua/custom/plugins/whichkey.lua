@@ -76,6 +76,66 @@ function M.custom()
       },
     },
 
+    F = {
+      name = "+Flutter/Dart",
+      x = {
+        "<cmd>FlutterRun<cr>",
+        "Run the current project",
+      },
+      d = {
+        "<cmd>FlutterDevices<cr>",
+        "Show connected devices",
+      },
+      e = {
+        "<cmd>FlutterEmulators<cr>",
+        "Show connected emulators",
+      },
+      r = {
+        "<cmd>FlutterReload<cr>",
+        "Reload the running project",
+      },
+      R = {
+        "<cmd>FlutterRestart<cr>",
+        "Restart the running project",
+      },
+      q = {
+        "<cmd>FlutterQuit<cr>",
+        "Ends a running session",
+      },
+      D = {
+        "<cmd>FlutterDetach<cr>",
+        "Detach a running session",
+      },
+      o = {
+        "<cmd>FlutterOutlineToggle<cr>",
+        "Toggle the outline window",
+      },
+      O = {
+        "<cmd>FlutterOutlineOpen<cr>",
+        "Open an outline window",
+      },
+      p = {
+        "<cmd>FlutterDevTools<cr>",
+        "Starts a Dart Dev Tools server",
+      },
+      P = {
+        "<cmd>FlutterCopyProfilerUrl<cr>",
+        "Copies the profiler url",
+      },
+      l = {
+        "<cmd>FlutterLspRestart<cr>",
+        "Restarts the dart language server",
+      },
+      s = {
+        "<cmd>FlutterSuper<cr>",
+        "Go to super class",
+      },
+      A = {
+        "<cmd>FlutterReanalyze<cr>",
+        "Forces LSP server reanalyze",
+      },
+    },
+
     f = {
       name = "+Telescope",
       f = { "<cmd> Telescope find_files <CR>", "find files" },
