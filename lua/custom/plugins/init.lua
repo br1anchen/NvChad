@@ -21,6 +21,25 @@ return {
     end,
     override_options = overrides.mason,
   },
+  ["WhoIsSethDaniel/mason-tool-installer.nvim"] = {
+    after = { "mason.nvim" },
+    config = function()
+      require("mason-tool-installer").setup {
+        ensure_installed = {
+          "eslint_d",
+          "prettierd",
+          "luacheck",
+          "stylua",
+          "shellcheck",
+          "shfmt",
+          "black",
+          "sqlfluff",
+        },
+        run_on_start = true,
+        auto_update = true,
+      }
+    end,
+  },
 
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
