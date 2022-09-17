@@ -64,6 +64,7 @@ return {
     override_options = overrides.telescope,
   },
   ["folke/which-key.nvim"] = {
+    disable = false,
     override_options = overrides.whichkey,
     config = function()
       require "plugins.configs.whichkey"
