@@ -32,6 +32,7 @@ M.setup = function()
       and lsp ~= "sqls"
       and lsp ~= "rust_analyzer"
       and lsp ~= "sourcekit"
+      and lsp ~= "dartls"
     then
       lspconfig[lsp].setup {
         on_attach = M.on_attach,
