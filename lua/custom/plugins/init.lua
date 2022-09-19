@@ -2,6 +2,7 @@ local overrides = require "custom.plugins.overrides"
 
 return {
   -- overrides Nvchad plugins install
+  ["wbthomason/packer.nvim"] = { override_options = overrides.packer },
   ["lewis6991/impatient.nvim"] = { disable = true },
   ["goolord/alpha-nvim"] = { disable = false },
   ["neovim/nvim-lspconfig"] = {

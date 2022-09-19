@@ -1,6 +1,10 @@
 local M = {}
 
 -- overriding default plugin configs!
+M.packer = {
+  max_jobs = 10,
+}
+
 M.treesitter = {
   ensure_installed = {
     "css",
