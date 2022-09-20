@@ -155,12 +155,6 @@ return {
     end,
   },
 
-  ["dart-lang/dart-vim-plugin"] = {
-    config = function()
-      vim.cmd "let g:dart_html_in_string = v:true"
-    end,
-  },
-
   ["simrat39/rust-tools.nvim"] = {
     after = "nvim-lspconfig",
     requires = "nvim-lua/plenary.nvim",
