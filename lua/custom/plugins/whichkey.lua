@@ -315,6 +315,7 @@ function M.custom()
       },
       p = {
         name = "+Pull Request",
+        c = { "<cmd>Octo pr create<cr>", "Octo pr create" },
         l = { "<cmd>Octo pr list<cr>", "Octo pr list" },
         m = { "<cmd>Octo pr merge rebase<cr>", "Octo pr merge rebase" },
         r = { "<cmd>Octo pr reload<cr>", "Octo pr reload" },
