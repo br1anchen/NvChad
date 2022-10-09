@@ -1,6 +1,7 @@
 local M = {}
 
 local load_override = require("core.utils").load_override
+local utils = require "core.utils"
 
 M.nvchad_ui = function()
   local present, nvchad_ui = pcall(require, "nvchad_ui")
@@ -154,6 +155,9 @@ M.gitsigns = function()
       topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
       changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
     },
+    on_attach = function (bufnr)
+      utils.load_mappings("gitsigns", { buffer = bufnr })
+    end
   }
 
   options = load_override(options, "lewis6991/gitsigns.nvim")
