@@ -351,15 +351,21 @@ function M.custom()
       name = "+Search",
       s = {
         function()
-          require("searchbox").incsearch()
+          require("spectre").open()
         end,
-        "search in file",
+        "open spectre panel",
       },
-      r = {
+      w = {
         function()
-          require("searchbox").replace { confirm = "menu" }
+          require("spectre").open_visual { select_word = true }
         end,
-        "search and replace in file",
+        "search current word",
+      },
+      p = {
+        function()
+          require("spectre").open_file_search()
+        end,
+        "search in current file",
       },
     },
 

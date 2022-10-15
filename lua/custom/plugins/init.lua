@@ -200,13 +200,13 @@ return {
     event = "BufEnter",
   },
 
-  ["MunifTanjim/nui.nvim"] = {},
-  ["VonHeikemen/searchbox.nvim"] = {
+  ["windwp/nvim-spectre"] = {
+    after = "base46",
     requires = {
-      { "MunifTanjim/nui.nvim" },
+      { "nvim-lua/plenary.nvim" },
     },
     config = function()
-      require("searchbox").setup()
+      require("spectre").setup()
     end,
   },
 
