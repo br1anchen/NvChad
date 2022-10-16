@@ -19,6 +19,7 @@ M.treesitter = {
     "markdown",
     "nix",
     "python",
+    "query",
     "rust",
     "swift",
     "toml",
