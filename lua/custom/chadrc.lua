@@ -3,6 +3,8 @@ local userHighlights = require "custom.highlights"
 
 require "custom.cmd"
 
+vim.opt.relativenumber = true
+
 local M = {}
 
 M.ui = {
