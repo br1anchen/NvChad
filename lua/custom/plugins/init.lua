@@ -368,4 +368,12 @@ return {
       vim.cmd "set conceallevel=2"
     end,
   },
+
+  ["br1anchen/git-worktree.nvim"] = {
+    branch = "brian/tmp/fix-97",
+    after = "telescope.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+    },
+  },
 }

@@ -173,6 +173,21 @@ function M.custom()
         name = "+Git",
         c = { "<cmd> Telescope git_commits <CR>", "git commits" },
         g = { "<cmd> Telescope git_status <CR>", "git status" },
+        w = {
+          name = "+Git worktree",
+          c = {
+            function()
+              require("telescope").extensions.git_worktree.create_git_worktree()
+            end,
+            "create worktree",
+          },
+          l = {
+            function()
+              require("telescope").extensions.git_worktree.git_worktrees()
+            end,
+            "list worktrees",
+          },
+        },
       },
 
       v = {

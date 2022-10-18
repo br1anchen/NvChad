@@ -70,13 +70,14 @@ M.mason_lspconfig = {
 
 M.telescope = {
   extensions_list = {
-    "themes",
-    "terms",
-    "flutter",
-    "workspaces",
     "dap",
-    "neoclip",
     "file_browser",
+    "flutter",
+    "git_worktree",
+    "neoclip",
+    "terms",
+    "themes",
+    "workspaces",
   },
 }
 
