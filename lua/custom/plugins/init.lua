@@ -374,6 +374,10 @@ return {
     after = "telescope.nvim",
     requires = {
       "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
     },
+    config = function()
+      require("custom.plugins.git-worktree").setup()
+    end,
   },
 }
