@@ -7,6 +7,7 @@ M.packer = {
 
 M.treesitter = {
   ensure_installed = {
+    "astro",
     "css",
     "dart",
     "html",
@@ -46,6 +47,7 @@ M.colorizer = {
 
 M.mason_lspconfig = {
   ensure_installed = {
+    "astro",
     "bashls",
     "dartls",
     "html",
