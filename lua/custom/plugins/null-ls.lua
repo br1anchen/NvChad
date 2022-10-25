@@ -63,8 +63,28 @@ local swiftLint = {
 local sources = {
 
   -- JS html css stuff
-  b.formatting.prettierd,
-  b.diagnostics.eslint.with { command = "eslint_d" },
+  b.formatting.prettierd.with {
+    filetypes = {
+      "astro",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "css",
+      "scss",
+      "less",
+      "html",
+      "json",
+      "jsonc",
+      "yaml",
+      "markdown",
+      "markdown.mdx",
+      "graphql",
+      "handlebars",
+    },
+  },
+  b.diagnostics.eslint,
 
   -- Lua
   b.formatting.stylua,
