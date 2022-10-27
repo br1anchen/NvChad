@@ -6,7 +6,6 @@ local installed_lsp = require("custom.plugins.overrides").mason_lspconfig.ensure
 local M = {}
 
 M.on_attach = function(client, bufnr)
-  require("aerial").on_attach(client, bufnr)
   attach(client, bufnr)
 end
 
