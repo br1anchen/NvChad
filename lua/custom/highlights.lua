@@ -88,6 +88,7 @@ M.add = {
   },
 
   -- Octo
+  OctoViewer = { fg = "grey_fg" },
   OctoEditable = { bg = "darker_black" },
   OctoDirty = { bg = git_colors.dark_red },
 
