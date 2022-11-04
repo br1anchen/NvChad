@@ -60,6 +60,17 @@ local swiftLint = {
   },
 }
 
+local xmlformatter = {
+  name = "xmlformatter",
+  method = null_ls.methods.FORMATTING,
+  filetypes = { "xml" },
+  generator = helpers.formatter_factory {
+    command = "xmlformat",
+    args = { "--indent", "4", "$FILENAME" },
+    to_stdin = true,
+  },
+}
+
 local sources = {
 
   -- JS html css stuff
@@ -114,6 +125,9 @@ local sources = {
   -- Swift/Obj-c
   b.formatting.swiftformat,
   swiftLint,
+
+  -- XML
+  xmlformatter,
 
   -- SQL
   b.formatting.sqlfluff.with {
