@@ -55,9 +55,6 @@ return {
   ["NvChad/nvterm"] = {
     override_options = overrides.nvterm,
   },
-  ["williamboman/nvim-lsp-installer"] = {
-    override_options = overrides.lsp_installer,
-  },
 
   ["nvim-telescope/telescope.nvim"] = {
     after = "base46",
