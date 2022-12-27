@@ -14,6 +14,7 @@ function M.custom()
     ["ps"] = { "<cmd>PackerSync<cr>", "Sync packer installs" },
     ["pc"] = { "<cmd>PackerCompile<cr>", "Compile packer plugins" },
     ["pp"] = { ":Glow<CR>", " Glow preview markdown" },
+    ["uu"] = { "<cmd>UndotreeToggle<cr>", "toggle undo-tree panel" },
 
     ["q"] = {},
 
