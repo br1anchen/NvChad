@@ -149,16 +149,31 @@ return {
 
   ["rhysd/git-messenger.vim"] = {},
 
-  ["github/copilot.vim"] = {
+  -- ["github/copilot.vim"] = {
+  --   config = function()
+  --     vim.cmd "let g:copilot_no_tab_map = v:true"
+  --     vim.cmd "let g:copilot_assume_mapped = v:true"
+  --   end,
+  -- },
+  ["zbirenbaum/copilot.lua"] = {
+    event = "VimEnter",
     config = function()
-      vim.cmd "let g:copilot_no_tab_map = v:true"
-      vim.cmd "let g:copilot_assume_mapped = v:true"
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
     end,
   },
 
-  ["hrsh7th/cmp-copilot"] = {
-    after = "nvim-cmp",
+  ["zbirenbaum/copilot-cmp"] = {
+    after = { "copilot.lua", "nvim-cmp" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
   },
+
+  -- ["hrsh7th/cmp-copilot"] = {
+  --   after = "nvim-cmp",
+  -- },
 
   ["hrsh7th/cmp-emoji"] = {
     after = "nvim-cmp",
