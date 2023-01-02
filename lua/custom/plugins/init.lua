@@ -58,8 +58,6 @@ return {
 
   ["nvim-telescope/telescope.nvim"] = {
     after = "base46",
-    cmd = "Telescope",
-    module = "telescope",
     override_options = overrides.telescope,
   },
   ["folke/which-key.nvim"] = {
