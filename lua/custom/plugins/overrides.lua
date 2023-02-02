@@ -8,6 +8,7 @@ M.packer = {
 M.treesitter = {
   ensure_installed = {
     "astro",
+    "bash",
     "css",
     "dart",
     "html",

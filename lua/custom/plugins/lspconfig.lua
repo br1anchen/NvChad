@@ -28,7 +28,6 @@ M.setup = function()
       lsp ~= "sqls"
       and lsp ~= "sumneko_lua"
       and lsp ~= "stylelint_lsp"
-      and lsp ~= "sqls"
       and lsp ~= "rust_analyzer"
       and lsp ~= "sourcekit"
       and lsp ~= "dartls"
